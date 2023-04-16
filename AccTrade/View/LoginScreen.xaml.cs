@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace AccTrade.View
 {
-    /// <summary>
-    /// Логика взаимодействия для LoginScreen.xaml
-    /// </summary>
     public partial class LoginScreen : Window
     {
         public LoginScreen()
