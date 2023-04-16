@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
+using Microsoft.SqlServer;
 namespace AccTrade.View
 {
     public partial class LoginScreen : Window
@@ -19,6 +8,13 @@ namespace AccTrade.View
         public LoginScreen()
         {
             InitializeComponent();
+        }
+
+        private void regbtn_Click(object sender, RoutedEventArgs e)
+        {
+            Register reg = new Register();
+            Close();
+            reg.Show();
         }
     }
 }
