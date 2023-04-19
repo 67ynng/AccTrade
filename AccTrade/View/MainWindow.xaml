@@ -7,11 +7,17 @@
         mc:Ignorable="d"
         Title="Main" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <Rectangle HorizontalAlignment="Left" Height="435" Stroke="#FF313EBB" VerticalAlignment="Center" Width="97" Fill="#FF3F0642" StrokeThickness="2"/>
-        <Button Content="MainScreen" HorizontalAlignment="Left" Margin="6,75,0,0" VerticalAlignment="Top" Height="65" Width="85"/>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="6,162,0,0" VerticalAlignment="Top" Height="65" Width="85"/>
-        <Label Content="Hi," HorizontalAlignment="Left" Margin="3,2,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Label x:Name="username" Content="username" HorizontalAlignment="Left" Margin="19,2,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="101*"/>
+            <ColumnDefinition Width="699*"/>
+        </Grid.ColumnDefinitions>
+        <Frame x:Name="MyFrame" Grid.Row="1" Background="Black" Margin="97,0,0,0" Grid.ColumnSpan="2" NavigationUIVisibility="Hidden" Source="MainScreen.xaml"/>
 
+        <Rectangle HorizontalAlignment="Left" Height="434" Stroke="#FF313EBB" VerticalAlignment="Center" Width="97" Fill="#FF3F0642" StrokeThickness="2"/>
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
+            <Button x:Name="MainScreen_btn" Content="MainScreen" HorizontalAlignment="Left" Margin="5,55,0,0" VerticalAlignment="Top" Height="65" Width="85" Click="MainScreen_btn_Click"/>
+            <Button x:Name="Add_btn" Content="Add" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" Height="65" Width="85" Click="Add_btn_Click"/>
+        </StackPanel>
+        
     </Grid>
 </Window>

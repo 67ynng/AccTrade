@@ -11,5 +11,16 @@ namespace AccTrade.View
         {
             InitializeComponent();
         }
+
+        private void Add_btn_Click(object sender, RoutedEventArgs e)
+        {
+            MyFrame.Content = new AddScreen();
+
+        }
+
+        private void MainScreen_btn_Click(object sender, RoutedEventArgs e)
+        {
+            MyFrame.Content = new MainScreen();
+        }
     }
 }

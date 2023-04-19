@@ -5,25 +5,27 @@ using System.Threading;
 using System.Windows;
 using AccTrade.Model;
 using Microsoft.EntityFrameworkCore.SqlServer;
-
-namespace AccTrade.View
+namespace AccTrade.View.RegistrationView
 {
-    public partial class Register : Window
+    /// <summary>
+    /// Логика взаимодействия для SignUp.xaml
+    /// </summary>
+    public partial class SignUp : Window
     {
-        public Register()
+        public SignUp()
         {
             InitializeComponent();
         }
 
-        private void loginbtn_Click(object sender, RoutedEventArgs e)
+        private void SignIn_btn_Click(object sender, RoutedEventArgs e)
         {
             new Thread(() =>
             {
                 Dispatcher.Invoke(() =>
                 {
-                    string username = logtb.Text;
-                    string email = emailtb.Text;
-                    string password = md5.hashPassword(passtb.Password);
+                    string username = Login_tb.Text;
+                    string email = Email_tb.Text;
+                    string password = md5.hashPassword(Password_tb.Password);
 
 
                     if (email == "" || password == "" || username == "")
@@ -57,7 +59,7 @@ namespace AccTrade.View
                                 db.AddRange(user);
                                 db.SaveChanges();
                                 MessageBox.Show("Registration completed successfully!");
-                                LoginScreen log = new LoginScreen();
+                                SignIn log = new SignIn();
                                 Close();
                                 log.Show();
                             }

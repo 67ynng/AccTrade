@@ -1,31 +1,36 @@
 ﻿using System.Linq;
-using AccTrade.Model;   
+using AccTrade.Model;
 using System.Windows;
 using System.Threading;
-namespace AccTrade.View
+using Microsoft.Win32;
+
+namespace AccTrade.View.RegistrationView
 {
-    public partial class LoginScreen : Window
+    /// <summary>
+    /// Логика взаимодействия для SignIn.xaml
+    /// </summary>
+    public partial class SignIn : Window
     {
-        public LoginScreen()
+        public SignIn()
         {
             InitializeComponent();
         }
 
-        private void regbtn_Click(object sender, RoutedEventArgs e)
+        private void SignUp_btn_Click(object sender, RoutedEventArgs e)
         {
-            Register reg = new Register();
+            SignUp Registartion = new SignUp();
             Close();
-            reg.Show();
+            Registartion.Show();
         }
 
-        private void loginbtn_Click(object sender, RoutedEventArgs e)
+        private void SignIn_btn_Click(object sender, RoutedEventArgs e)
         {
-            if (logtb.Text != "" && passtb.Password != "")
+            if (Login_tb.Text != "" && Password_tb.Password != "")
             {
                 using (AppContext db = new AppContext())
                 {
-                    string username = logtb.Text;
-                    string password = md5.hashPassword(passtb.Password);
+                    string username = Login_tb.Text;
+                    string password = md5.hashPassword(Password_tb.Password);
                     var user = db.Logins.Where((u) => u.Username == username && u.Password == password).FirstOrDefault();
 
                     if (user != null)
