@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Data;
 public class AppContext : DbContext
 {
     public DbSet<Login> Logins { get; set; }

@@ -7,7 +7,11 @@
         mc:Ignorable="d"
         Title="Main" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <Rectangle HorizontalAlignment="Left" Height="434" Stroke="Black" VerticalAlignment="Center" Width="97" Fill="#FF064207"/>
+        <Rectangle HorizontalAlignment="Left" Height="435" Stroke="#FF313EBB" VerticalAlignment="Center" Width="97" Fill="#FF3F0642" StrokeThickness="2"/>
+        <Button Content="MainScreen" HorizontalAlignment="Left" Margin="6,75,0,0" VerticalAlignment="Top" Height="65" Width="85"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="6,162,0,0" VerticalAlignment="Top" Height="65" Width="85"/>
+        <Label Content="Hi," HorizontalAlignment="Left" Margin="3,2,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label x:Name="username" Content="username" HorizontalAlignment="Left" Margin="19,2,0,0" VerticalAlignment="Top" Foreground="White"/>
 
     </Grid>
 </Window>
