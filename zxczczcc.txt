@@ -1,0 +1,40 @@
+string username = logtb.Text;
+                        string email = emailtb.Text;
+                        string password = passtb.Password;
+
+
+                        if (email == "" || password == "" || username == "")
+                            MessageBox.Show("All fields must be filled!");
+                        else if (!Regex.IsMatch(email, @"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$"))
+                            MessageBox.Show("Wrong mail format!");
+                        else if (!Regex.IsMatch(password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$"))
+                            MessageBox.Show("Password is too easy!");
+                        else if (email.Length < 13)
+                            MessageBox.Show("Email length cannot be less than 13 characters!");
+                        else if (password.Length < 6 || password.Length > 16)
+                            MessageBox.Show("Password length can be from 6 to 16 characters!");
+                        else
+                        {
+                            using (AppContext db = new AppContext())
+                            {
+                                bool isExists = db.Logins.Any(value => value.Email == email);
+
+                                if (isExists)
+                                    MessageBox.Show("This mail is already in the database!");
+                                else
+                                {
+                                    var user = new Login
+                                    {
+                                        Username = username,
+                                        Email = email,
+                                        Password = password,
+                                        Balance = 0
+                                    };
+
+                                    db.AddRange(user);
+                                    db.SaveChanges();
+                                    MessageBox.Show("Registration completed successfully!");
+                                }
+                            }
+                            ResetForm();
+                        }
