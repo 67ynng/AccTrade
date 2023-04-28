@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,46 +14,78 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using AccTrade.Model.Models;
+using System.IO;
+using Microsoft.EntityFrameworkCore;
 
 namespace AccTrade.View
 {
-    /// <summary>
-    /// Логика взаимодействия для AddScreen.xaml
-    /// </summary>
     public partial class AddScreen : Page
     {
         public AddScreen()
         {
             InitializeComponent();
         }
+        byte[] imageByte;
         MediaPlayer mediaPlayer = new MediaPlayer();
         string filename;
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void PriceTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            
-
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Multiselect = false;
-            openFileDialog.Filter = "Png photo (*.png)|*.png|Jpeg photo (*.jpeg)|*.jpeg";
-            bool? dialogOk = openFileDialog.ShowDialog();
-            if(dialogOk == true)
+            Regex inputRegex = new Regex(@"\d");
+            Match match = inputRegex.Match(e.Text);
+            if ((sender as TextBox).Text.Length >= 4 || !match.Success)
             {
-                filename = openFileDialog.FileName;
-                TextBoxFile_btn.Text = filename;
-                mediaPlayer.Open(new Uri(filename));
-                img.Source = new BitmapImage(new Uri(filename));
+                e.Handled = true;
             }
 
         }
-
-        private void GameBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Open_btn_Click(object sender, RoutedEventArgs e)
         {
+           
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Multiselect = false;
+            openFileDialog.Filter = "Png photo (*.png)|*.png|Jpeg photo (*.jpeg)|*.jpeg";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                
+                imageByte = File.ReadAllBytes(openFileDialog.FileName);
+                filename = openFileDialog.FileName;
+                TextBoxFile_btn.Text = filename;
+                mediaPlayer.Open(new Uri(filename));
+                BitmapImage image = new BitmapImage();
+                image.BeginInit();
+                image.StreamSource = new MemoryStream(imageByte);
+                image.EndInit();
+                img.Source = image;
+            }
+            else
+            {
+                MessageBox.Show("Error");
+            }
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+
+            AddImageDB addimg = new AddImageDB();
+            string describe = DescribeTb.Text;
+            int price = Int32.Parse(PriceTb.Text);
+            string game = GameBox.Text;
+            DescribeTb.MaxLength= 400;
+            PriceTb.MaxLength= 4;
+            if (price >= 0 || GameBox.Text !=null|| describe.Length < 400 )
+            {
+             
+                addimg.AddImage(imageByte,game,describe,price);
+            }
+        }
+        private void DescribeTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+
+
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
+       
     }
 }

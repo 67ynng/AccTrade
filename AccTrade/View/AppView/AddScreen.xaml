@@ -5,22 +5,36 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AccTrade.View"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="400" d:DesignWidth="700"
       Title="AddScreen">
 
-    <Grid Background="White">
-        <Button x:Name="Open_btn" Content="Open:" HorizontalAlignment="Left" Margin="14,17,0,0" VerticalAlignment="Top" Height="55" Width="77" Click="Button_Click"/>
-        <TextBox x:Name="TextBoxFile_btn" HorizontalAlignment="Left" Margin="115,28,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="357" Height="34"/>
-        <Image x:Name="img" HorizontalAlignment="Left" Height="100" Margin="609,94,0,0" VerticalAlignment="Top" Width="100"/>
-        <ComboBox x:Name="GameBox" HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="GameBox_SelectionChanged">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="399*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="300*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFE8140"/>
+                <GradientStop Color="#FFFED04F" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Button x:Name="Open_btn" Content="Open:" HorizontalAlignment="Left" Margin="16,3,0,0" VerticalAlignment="Top" Height="54" Width="72" Click="Open_btn_Click"/>
+        <Image x:Name="img" HorizontalAlignment="Left" Height="100" Margin="159,30,0,0" VerticalAlignment="Top" Width="100" Grid.Column="2"/>
+        <ComboBox x:Name="GameBox" Margin="16,100,227,284">
+            <ComboBoxItem>CS:GO</ComboBoxItem>
+            <ComboBoxItem>Grand Theft Auto V</ComboBoxItem>
+            <ComboBoxItem>Fortnite</ComboBoxItem>
+            
             <ComboBoxItem/>
         </ComboBox>
-        <TextBox x:Name="DescribeTb"  HorizontalAlignment="Left" Margin="10,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="305" Height="145"/>
-        <TextBox x:Name="PriceTb" HorizontalAlignment="Left" Margin="52,327,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="93" Height="29" FontSize="24"/>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="552,314,0,0" VerticalAlignment="Top" Height="57" Width="114" Click="Button_Click_1"/>
-        <Label Content="Price:" HorizontalAlignment="Left" Margin="10,327,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label Content="Describe:" HorizontalAlignment="Left" Margin="4,135,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label Content="Game:" HorizontalAlignment="Left" Margin="4,84,0,0" VerticalAlignment="Top" FontSize="14"/>
-
+        <TextBox x:Name="DescribeTb" Margin="16,167,3,104" TextWrapping="Wrap" MaxLength="200" AcceptsReturn="True"/>
+        <TextBox x:Name="PriceTb" Margin="16,350,21,27" TextWrapping="Wrap" MaxLength="4" FontSize="16"  PreviewTextInput="PriceTb_PreviewTextInput"/>
+        <Button Content="Save" Margin="159,332,10,5" Click="Button_Click_3" Grid.Column="2" />
+        <Label Content="Describe:" Margin="16,135,298,238" FontSize="14" Padding="0,5,5,5"/>
+        <Label Visibility="Hidden" Content="Game:"  Margin="16,74,314,300"  FontSize="14" Padding="0,5,5,5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBlock x:Name="TextBoxFile_btn" TextWrapping="Wrap" Text="TextBlock" Margin="92,7,83,370"/>
+        <Label Content="Price"  Margin="16,324,21,53" Padding="0,5,5,5"/>
     </Grid>
 </Page>

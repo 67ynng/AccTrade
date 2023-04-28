@@ -1,26 +1,23 @@
-﻿
-using System.Windows;
+﻿using System.Windows;  
+namespace AccTrade.View;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.SqlServer;
 
-namespace AccTrade.View
+
+public partial class MainWindow : Window
 {
-    public partial class MainWindow : Window
+    public MainWindow()
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+    }
 
-        private void Add_btn_Click(object sender, RoutedEventArgs e)
-        {
-            MyFrame.Content = new AddScreen();
+    private void Add_btn_Click(object sender, RoutedEventArgs e)
+    {
+        MyFrame.Navigate(new AddScreen());
+    }
 
-        }
-
-        private void MainScreen_btn_Click(object sender, RoutedEventArgs e)
-        {
-            MyFrame.Content = new MainScreen();
-        }
+    private void MainScreen_btn_Click(object sender, RoutedEventArgs e)
+    {
+        MyFrame.Navigate(new MainScreen());
     }
 }
