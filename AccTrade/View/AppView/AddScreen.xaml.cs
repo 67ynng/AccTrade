@@ -17,6 +17,8 @@ using System.Windows.Shapes;
 using AccTrade.Model.Models;
 using System.IO;
 using Microsoft.EntityFrameworkCore;
+using System.Threading;
+using System.Threading.Channels;
 
 namespace AccTrade.View
 {
@@ -41,7 +43,6 @@ namespace AccTrade.View
         }
         private void Open_btn_Click(object sender, RoutedEventArgs e)
         {
-           
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Multiselect = false;
             openFileDialog.Filter = "Png photo (*.png)|*.png|Jpeg photo (*.jpeg)|*.jpeg";
@@ -77,6 +78,11 @@ namespace AccTrade.View
             {
              
                 addimg.AddImage(imageByte,game,describe,price);
+                NavigationService.GoBack();
+            }
+            else if(price ==  0)
+            {
+                MessageBox.Show("Please enter price");
             }
         }
         private void DescribeTb_PreviewTextInput(object sender, TextCompositionEventArgs e)

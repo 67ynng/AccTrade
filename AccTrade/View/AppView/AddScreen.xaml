@@ -20,17 +20,25 @@
                 <GradientStop Color="#FFFED04F" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
+
         <Button x:Name="Open_btn" Content="Open:" HorizontalAlignment="Left" Margin="16,3,0,0" VerticalAlignment="Top" Height="54" Width="72" Click="Open_btn_Click"/>
         <Image x:Name="img" HorizontalAlignment="Left" Height="100" Margin="159,30,0,0" VerticalAlignment="Top" Width="100" Grid.Column="2"/>
-        <ComboBox x:Name="GameBox" Margin="16,100,227,284">
+        <ComboBox x:Name="GameBox" Margin="16,100,227,284" FontWeight="Bold" FontFamily="Gotham Black" Background="{x:Null}" BorderBrush="{x:Null}">
             <ComboBoxItem>CS:GO</ComboBoxItem>
             <ComboBoxItem>Grand Theft Auto V</ComboBoxItem>
             <ComboBoxItem>Fortnite</ComboBoxItem>
-            
             <ComboBoxItem/>
         </ComboBox>
-        <TextBox x:Name="DescribeTb" Margin="16,167,3,104" TextWrapping="Wrap" MaxLength="200" AcceptsReturn="True"/>
-        <TextBox x:Name="PriceTb" Margin="16,350,21,27" TextWrapping="Wrap" MaxLength="4" FontSize="16"  PreviewTextInput="PriceTb_PreviewTextInput"/>
+        <TextBox x:Name="DescribeTb" Margin="16,167,3,104" TextWrapping="Wrap" MaxLength="400" AcceptsReturn="True" FontWeight="Bold" FontFamily="Gotham Black" BorderBrush="Black">
+            <TextBox.Background>
+                <SolidColorBrush Color="White" Opacity="0.25"/>
+            </TextBox.Background>
+        </TextBox>
+        <TextBox x:Name="PriceTb" Margin="16,350,314,36" TextWrapping="Wrap" MaxLength="4" FontSize="20"  PreviewTextInput="PriceTb_PreviewTextInput" FontWeight="Bold" FontFamily="Gotham Black" BorderBrush="Black">
+            <TextBox.Background>
+                <SolidColorBrush Color="White" Opacity="0.25"/>
+            </TextBox.Background>
+        </TextBox>
         <Button Content="Save" Margin="159,332,10,5" Click="Button_Click_3" Grid.Column="2" />
         <Label Content="Describe:" Margin="16,135,298,238" FontSize="14" Padding="0,5,5,5"/>
         <Label Visibility="Hidden" Content="Game:"  Margin="16,74,314,300"  FontSize="14" Padding="0,5,5,5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>

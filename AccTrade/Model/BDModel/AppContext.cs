@@ -8,7 +8,7 @@ public class AppContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-MEGHT6N;Initial Catalog=TradeAccs;Integrated Security=True; TrustServerCertificate = True");
+        optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-MEGHT6N;Initial Catalog=TradeAcc;Integrated Security=True; TrustServerCertificate = True");
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

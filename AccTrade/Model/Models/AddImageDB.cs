@@ -1,4 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
+using System.Windows;
+using System.Windows.Navigation;
 
 namespace AccTrade.Model.Models
 {
@@ -8,15 +12,22 @@ namespace AccTrade.Model.Models
         {
             using (var db = new AppContext())
             {
-                var image = new Form
+                bool isExists2 = db.Forms.Any(value => value.Describe == describe);
+                if(isExists2 )
+                    MessageBox.Show("This text is already in database");
+                else
                 {
-                    ImageData = imageData,
-                    GameCategory = gameCategory,
-                    Describe = describe,
-                    Price = price
-                };
-                db.Forms.AddRange(image);
-                db.SaveChanges();
+                    var image = new Form
+                    {
+                        ImageData = imageData,
+                        GameCategory = gameCategory,
+                        Describe = describe,
+                        Price = price
+                    };
+                    db.Forms.AddRange(image);
+                    db.SaveChanges();
+
+                }
             }
         }
     }
