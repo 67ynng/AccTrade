@@ -6,7 +6,13 @@
         xmlns:local="clr-namespace:AccTrade.View"
         mc:Ignorable="d"
         Title="Main" Height="450" Width="800" WindowStartupLocation="CenterScreen" MinHeight="450" MinWidth="800">
-    <Grid  ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Auto" Background="Black">
+    <Grid  ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFDB31B5" Offset="0.005"/>
+                <GradientStop Color="#FF2978CE" Offset="0.997"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition MinWidth="11"/>
         </Grid.ColumnDefinitions>
@@ -18,8 +24,12 @@
         <StackPanel HorizontalAlignment="Left" Width="95" Height="435" VerticalAlignment="Top" Margin="1,0,0,0" Grid.RowSpan="2">
             <Label Content="Balance:" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Foreground="White" Height="25" Width="60"/>
             <Label Content="111111" HorizontalAlignment="Left" Margin="45,-25,0,0" VerticalAlignment="Top" Foreground="White" Height="25" Width="60"/>
-            <Button x:Name="MainScreen_btn" Content="MainScreen" HorizontalAlignment="Left" Margin="5,55,0,0" Height="65" Width="85" Click="MainScreen_btn_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center"/>
-            <Button x:Name="Add_btn" Content="Add" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Center" Height="65" Width="85" Click="Add_btn_Click" RenderTransformOrigin="0.5,0.5"/>
+            <Button x:Name="MainScreen_btn" HorizontalAlignment="Left" Margin="5,55,0,0" Height="65" Width="85" Click="MainScreen_btn_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+                <Image Source="/Resources/home.png" Stretch="Fill" />
+            </Button>
+            <Button x:Name="Add_btn" HorizontalAlignment="Left" Margin="5,5,0,0" Height="65" Width="85" Click="Add_btn_Click" RenderTransformOrigin="0.5,0.5" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+                <Image Source="/Resources/plus.png" Stretch="Fill"/>
+            </Button>
         </StackPanel>
 
 

@@ -30,11 +30,20 @@ namespace AccTrade.View
         {
             using (var db = new AppContext())
             {
-                ListVVV.ItemsSource =  db.Forms.Take(5).ToList();
+                ListVVV.ItemsSource =  db.Forms.ToList();
             }
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void Search()
+        {
+            using (var db = new AppContext())
+            {
+               var ss = db.Forms.ToList();
+                
+            }
+            
+        }
+        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
         {
 
         }

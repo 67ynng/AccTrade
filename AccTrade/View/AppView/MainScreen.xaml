@@ -22,24 +22,18 @@
 
                         <Image Height="200" Width="200" Source="{Binding ImageData}"/>
                         <StackPanel>
-                            <Label Height="50" Width="150" Content="{Binding GameCategory}" ContentStringFormat="Game:{0}" />
-                            
+                            <Label Height="50" Width="180" Content="{Binding GameCategory}" ContentStringFormat="Game:{0}" FontWeight="Bold" />
                         </StackPanel>
                         <StackPanel>
-
                             <Label Height="50" Width="100" Content="{Binding Price}" ContentStringFormat="Price: {0}$ " FontWeight="Bold"/>
                             <TextBlock MinHeight="100" Width="250" MaxWidth="400" MaxHeight="800" Text="{Binding Describe}" TextWrapping="Wrap" FontWeight="Bold"/>
-                            <Button Content="Buy" Width="50" Height="50" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,5,5"/>
+                            <Button Content="Buy" Width="50" Height="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,5,5"/>
                         </StackPanel>
                     </StackPanel>
-
-
-
                 </DataTemplate>
-
             </ListView.ItemTemplate>
         </ListView>
-        <TextBox HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="1" Margin="0,7,0,0"/>
+        <TextBox x:Name="TbSearch" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="1" Margin="0,7,0,0" TextChanged="TextBox_TextChanged_1"/>
         <Label Content="Search" HorizontalAlignment="Left" Margin="241,3,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="1.402,0.589"/>
     </Grid>
 </Page>
