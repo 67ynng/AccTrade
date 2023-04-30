@@ -19,11 +19,13 @@ using System.IO;
 using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using System.Threading.Channels;
+using AccTrade.View.AdminView;
 
 namespace AccTrade.View
 {
     public partial class AddScreen : Page
     {
+        string user;
         public AddScreen()
         {
             InitializeComponent();
@@ -48,7 +50,7 @@ namespace AccTrade.View
             openFileDialog.Filter = "Png photo (*.png)|*.png|Jpeg photo (*.jpeg)|*.jpeg";
             if (openFileDialog.ShowDialog() == true)
             {
-                
+
                 imageByte = File.ReadAllBytes(openFileDialog.FileName);
                 filename = openFileDialog.FileName;
                 TextBoxFile_btn.Text = filename;
@@ -63,27 +65,8 @@ namespace AccTrade.View
             {
                 MessageBox.Show("Error");
             }
-        }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
 
-            AddImageDB addimg = new AddImageDB();
-            string describe = DescribeTb.Text;
-            int price = Int32.Parse(PriceTb.Text);
-            string game = GameBox.Text;
-            DescribeTb.MaxLength= 400;
-            PriceTb.MaxLength= 4;
-            if (price >= 0 || GameBox.Text !=null|| describe.Length < 400 )
-            {
-             
-                addimg.AddImage(imageByte,game,describe,price);
-                NavigationService.GoBack();
-            }
-            else if(price ==  0)
-            {
-                MessageBox.Show("Please enter price");
-            }
         }
         private void DescribeTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
@@ -92,6 +75,27 @@ namespace AccTrade.View
 
         }
 
-       
+        private void Save_btn_Click(object sender, RoutedEventArgs e)
+        {
+            using(AppContext db = new AppContext())
+            {
+                foreach (var login in db.Logins)
+                {
+                    var userName = login.Username;
+                    user = userName;
+                }
+                string describe = DescribeTb.Text;
+                int price = Int32.Parse(PriceTb.Text);
+                string game = GameBox.Text;
+                DescribeTb.MaxLength= 400;
+                PriceTb.MaxLength= 4;
+                AddImageDB addimg = new AddImageDB();
+                addimg.AddImage(imageByte, user, game, describe, price);
+                NavigationService.GoBack();
+            }
+            
+           
+
+        }
     }
 }

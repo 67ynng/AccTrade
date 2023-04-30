@@ -2,8 +2,8 @@
 public class AppContext : DbContext
 {
     public DbSet<Login> Logins { get; set; }
-    //public DbSet<AddAccount> AddAccounts { get; set; }  
     public DbSet<Form> Forms { get; set; }
+    public DbSet<Category> Categories { get; set; }
     public AppContext() => Database.EnsureCreated();
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -14,5 +14,6 @@ public class AppContext : DbContext
     {
         modelBuilder.Entity<Login>().HasKey(Key => Key.Id);
         modelBuilder.Entity<Form>().HasAlternateKey(key => key.Id);
-    }
+        modelBuilder.Entity<Category>().HasAlternateKey(key => key.Id);
+    }   
 }

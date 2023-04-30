@@ -39,7 +39,7 @@
                 <SolidColorBrush Color="White" Opacity="0.25"/>
             </TextBox.Background>
         </TextBox>
-        <Button Content="Save" Margin="159,332,10,5" Click="Button_Click_3" Grid.Column="2" />
+        <Button x:Name="Save_btn" Content="Save" Margin="159,332,10,5" Click="Save_btn_Click" Grid.Column="2" />
         <Label Content="Describe:" Margin="16,135,298,238" FontSize="14" Padding="0,5,5,5"/>
         <Label Visibility="Hidden" Content="Game:"  Margin="16,74,314,300"  FontSize="14" Padding="0,5,5,5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <TextBlock x:Name="TextBoxFile_btn" TextWrapping="Wrap" Text="TextBlock" Margin="92,7,83,370"/>

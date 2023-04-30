@@ -33,7 +33,13 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <TextBox x:Name="TbSearch" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="1" Margin="0,7,0,0" TextChanged="TextBox_TextChanged_1"/>
-        <Label Content="Search" HorizontalAlignment="Left" Margin="241,3,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="1.402,0.589"/>
+        <!--<StackPanel Grid.Row="1" Margin="433,0,242,418">
+            <TextBox x:Name="TbSearch" HorizontalAlignment="Stretch" TextWrapping="Wrap" Width="120" VerticalAlignment="Center" Margin="0,7,0,0" TextChanged="TextBox_TextChanged_1"/>
+            <Label Content="Search" Width="50" Height="20" HorizontalAlignment="Right"/>
+
+
+
+        </StackPanel>-->
+
     </Grid>
 </Page>

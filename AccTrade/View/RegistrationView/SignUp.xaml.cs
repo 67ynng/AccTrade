@@ -27,7 +27,6 @@ namespace AccTrade.View.RegistrationView
                     string email = Email_tb.Text;
                     string password = md5.hashPassword(Password_tb.Password);
 
-
                     if (email == "" || password == "" || username == "")
                         MessageBox.Show("All fields must be filled!");
                     else if (!Regex.IsMatch(email, @"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$"))
@@ -52,10 +51,9 @@ namespace AccTrade.View.RegistrationView
                                 {
                                     Username = username,
                                     Email = email,
-                                    Password = password
-
+                                    Password = password,
+                                    isAdmin= false
                                 };
-
                                 db.AddRange(user);
                                 db.SaveChanges();
                                 MessageBox.Show("Registration completed successfully!");
