@@ -8,10 +8,9 @@
         Title="AdminMainWindow" Height="450" Width="800"  MinHeight="450" MinWidth="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" MinWidth="80"/>
-            <ColumnDefinition Width="Auto" MinWidth="80"/>
-            <ColumnDefinition Width="Auto" MinWidth="80"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto" MinWidth="76"/>
+            <ColumnDefinition Width="Auto" MinWidth="70"/>
+            <ColumnDefinition Width="654"/>
         </Grid.ColumnDefinitions>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -23,10 +22,10 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button x:Name="User_btn" Content="Users" HorizontalAlignment="Center" VerticalAlignment="Center" Height="77" Width="80" Click="User_btn_Click" />
-        <Button x:Name="Product_btn" Content="Product" HorizontalAlignment="Center" VerticalAlignment="Center" Height="77" Width="80" Grid.Column="1" Click="Product_btn_Click" />
-        <Button x:Name="Categories" Content="Categories" HorizontalAlignment="Center" VerticalAlignment="Center" Height="77" Width="80" Grid.Column="2" />
-        <Frame x:Name="frame" Background="Lime" Grid.Row="1" Grid.ColumnSpan="4" NavigationUIVisibility="Hidden" Source="UserPage.xaml"  />
+        <Button x:Name="User_btn" Content="Users" HorizontalAlignment="Left" VerticalAlignment="Center" Height="47" Width="70" Click="User_btn_Click" />
+        <Button x:Name="Product_btn" Content="Product" HorizontalAlignment="Center" VerticalAlignment="Center" Height="47" Width="70" Grid.Column="1" Click="Product_btn_Click" />
+        <Button x:Name="Categories" Content="Categories" HorizontalAlignment="Left" VerticalAlignment="Center" Height="47" Width="70" Grid.Column="2" Margin="6,0,0,0" />
+        <Frame x:Name="frame" Background="Lime" Grid.Row="1" Grid.ColumnSpan="3" NavigationUIVisibility="Hidden" Source="UserPage.xaml"  />
 
 
     </Grid>

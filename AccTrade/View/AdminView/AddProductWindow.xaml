@@ -1,0 +1,18 @@
+﻿<Window x:Class="AccTrade.View.AdminView.AddProductWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AccTrade.View.AdminView"
+        mc:Ignorable="d"
+        Title="AddProductWindow" Height="400" Width="600" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Button x:Name="open_btn" Content="Open" HorizontalAlignment="Left" Margin="18,9,0,0" VerticalAlignment="Top" Height="51" Width="61" Click="open_btn_Click"/>
+        <TextBox x:Name="Describe_tb" AcceptsReturn="True" HorizontalAlignment="Left" MaxLength="400" Margin="18,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="353" Height="87"/>
+        <ComboBox x:Name="gamecategory_cb" HorizontalAlignment="Left" Margin="18,83,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Price_tb" MaxLength="4" HorizontalAlignment="Left" Margin="18,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="104" Height="29" PreviewTextInput="Price_tb_PreviewTextInput"/>
+        <Image x:Name="img" HorizontalAlignment="Left" Height="100" Margin="404,10,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="Add_btn" Content="Add" HorizontalAlignment="Left" Margin="18,305,0,0" VerticalAlignment="Top" Height="53" Width="104" Click="Add_btn_Click"/>
+
+    </Grid>
+</Window>

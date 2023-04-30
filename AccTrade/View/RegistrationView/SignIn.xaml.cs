@@ -35,7 +35,7 @@ namespace AccTrade.View.RegistrationView
             {
                 using (AppContext db = new AppContext())
                 {
-                    var admin = db.Logins.Where((u) => u.Username == "admin" && u.Password == "admin" && u.isAdmin == true).FirstOrDefault();
+                    var admin = db.Logins.Where((u) => u.Username == "admin" && u.isAdmin == true).FirstOrDefault();
                     if (admin != null)
                     {
 

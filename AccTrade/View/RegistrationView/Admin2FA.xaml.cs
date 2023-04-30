@@ -42,16 +42,20 @@ namespace AccTrade.View.AppView
                 {
                     MessageBox.Show("You are not an administrator");
                     Close();
+                    
                 }
                 
             }
             else if (TestAdmin_tb.Text == content[0])
             {
-                SignIn sgn = new SignIn();
+                
                 AdminMainWindow adm = new AdminMainWindow();
                 Close();
-                sgn.Close();
                 adm.Show();
+                SignIn sgn = new SignIn();
+                sgn.Close();
+
+                
             }
         }
     }

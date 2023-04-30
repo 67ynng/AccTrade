@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,8 @@ namespace AccTrade.View.AdminView
 
         private void Create_btn_Click(object sender, RoutedEventArgs e)
         {
-
+            AddProductWindow addproduct = new AddProductWindow();
+            addproduct.Show();
         }
 
         private void Delete_btn_Click(object sender, RoutedEventArgs e)
@@ -41,6 +43,16 @@ namespace AccTrade.View.AdminView
                                 select emp;
                 DataGridProduct.ItemsSource= employees.ToList();
             }
+            using (var db = new AppContext())
+            {
+                var images = db.Forms.ToList();
+                DataGridProduct.DataContext = new { Images = images };
+            }
+
+        }
+
+        private void Save_btn_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

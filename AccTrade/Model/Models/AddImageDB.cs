@@ -8,13 +8,13 @@ namespace AccTrade.Model.Models
 {
     class AddImageDB
     {
-        public void AddImage(byte[]? imageData,string? username,string? gameCategory,string? describe,int? price)
+        public void AddImage(byte[]? imageData  ,string? gameCategory,string? describe,int? price)
         {
             using (var db = new AppContext())
             {
                 var image = new Form
                 {
-                    username = username,
+                    username = "11111",
                     ImageData = imageData,
                     GameCategory = gameCategory,
                     Describe = describe,

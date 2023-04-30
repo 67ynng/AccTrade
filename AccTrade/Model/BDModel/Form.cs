@@ -1,5 +1,10 @@
-﻿public class Form
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Windows.Media;
+
+public class Form
 {
+    [Key]
     public int Id { get; set; }
     public string username { get; set; }
     public byte[]? ImageData { get; set; }

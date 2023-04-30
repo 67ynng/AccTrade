@@ -1,6 +1,8 @@
-﻿using Microsoft.Win32;
+﻿using AccTrade.Model.Models;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -14,26 +16,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using AccTrade.Model.Models;
-using System.IO;
-using Microsoft.EntityFrameworkCore;
-using System.Threading;
-using System.Threading.Channels;
-using AccTrade.View.AdminView;
 
-namespace AccTrade.View
+namespace AccTrade.View.AdminView
 {
-    public partial class AddScreen : Page
+    /// <summary>
+    /// Логика взаимодействия для AddProductWindow.xaml
+    /// </summary>
+    public partial class AddProductWindow : Window
     {
-        string user;
-        public AddScreen()
+        public AddProductWindow()
         {
             InitializeComponent();
         }
         byte[] imageByte;
         MediaPlayer mediaPlayer = new MediaPlayer();
         string filename;
-        private void PriceTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        private void Price_tb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             Regex inputRegex = new Regex(@"\d");
             Match match = inputRegex.Match(e.Text);
@@ -41,9 +39,9 @@ namespace AccTrade.View
             {
                 e.Handled = true;
             }
-
         }
-        private void Open_btn_Click(object sender, RoutedEventArgs e)
+
+        private void open_btn_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Multiselect = false;
@@ -53,7 +51,6 @@ namespace AccTrade.View
 
                 imageByte = File.ReadAllBytes(openFileDialog.FileName);
                 filename = openFileDialog.FileName;
-                TextBoxFile_btn.Text = filename;
                 mediaPlayer.Open(new Uri(filename));
                 BitmapImage image = new BitmapImage();
                 image.BeginInit();
@@ -65,37 +62,26 @@ namespace AccTrade.View
             {
                 MessageBox.Show("Error");
             }
-
-
-        }
-        private void DescribeTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-
-
-
         }
 
-        private void Save_btn_Click(object sender, RoutedEventArgs e)
+        private void Add_btn_Click(object sender, RoutedEventArgs e)
         {
-            using(AppContext db = new AppContext())
+            using (AppContext db = new AppContext())
             {
-                foreach (var login in db.Logins)
-                {
-                    var userName = login.Username;
-                    user = userName;
-                }
-                string describe = DescribeTb.Text;
-                int price = Int32.Parse(PriceTb.Text);
-                string game = GameBox.Text;
-                DescribeTb.MaxLength= 400;
-                PriceTb.MaxLength= 4;
+                //foreach (var product in db.Forms)
+                //{
+                //    var userName = product.Username;
+                //     = userName;
+                //}
+                string describe = Describe_tb.Text;
+                int price = Int32.Parse(Price_tb.Text);
+                string game = gamecategory_cb.Text;
+                Describe_tb.MaxLength= 400;
+                Price_tb.MaxLength= 4;
                 AddImageDB addimg = new AddImageDB();
                 addimg.AddImage(imageByte, game, describe, price);
-                NavigationService.GoBack();
+                Close();
             }
-            
-           
-
         }
     }
 }
