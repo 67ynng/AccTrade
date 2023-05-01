@@ -23,15 +23,6 @@ namespace AccTrade.View.AdminView
             InitializeComponent();
         }
         public bool Adbmin =false;
-
-        public void AddRecord(Login newRecord)
-        {
-            using (var db = new AppContext())
-            {
-                db.Logins.Add(newRecord);
-                db.SaveChanges();
-            }
-        }
         private void isadmincheck_Checked(object sender, RoutedEventArgs e)
         {
             Adbmin = true;
@@ -46,11 +37,23 @@ namespace AccTrade.View.AdminView
             string password = md5.hashPassword(Password_tb.Password);
             string email = email_tb.Text;
             bool? isAdmin = Adbmin;
-            AddUser add = new AddUser();
-            add.AddUsers(username, password, email, isAdmin);
-            MessageBox.Show("Record added to database.");
+            try
+            {
+                if (Username_tb.Text == "" || Password_tb.Password == "" || email_tb.Text == "")
+                {
+                    MessageBox.Show("Error");
+                }
+                else if (Username_tb.Text != "" || Password_tb.Password != "" || email_tb.Text != "")
+                {
+                    AddUser add = new AddUser();
+                    add.AddUsers(username, password, email, isAdmin);
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Sorry");
+            }
         }
-
-       
     }
 }

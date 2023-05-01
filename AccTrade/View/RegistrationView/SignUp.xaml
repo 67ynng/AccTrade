@@ -73,6 +73,7 @@
         <Label Content="Password:" HorizontalAlignment="Left" Margin="57,153,0,0" VerticalAlignment="Top"/>
 
         <Label Content="E-mail:" HorizontalAlignment="Left" Margin="57,112,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="Back_btn" Content="Back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Back_btn_Click"/>
 
     </Grid>
 </Window>

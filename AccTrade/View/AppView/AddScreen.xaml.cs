@@ -87,15 +87,27 @@ namespace AccTrade.View
                 string describe = DescribeTb.Text;
                 int price = Int32.Parse(PriceTb.Text);
                 string game = GameBox.Text;
+                string Title = Title_tb.Text;
                 DescribeTb.MaxLength= 400;
                 PriceTb.MaxLength= 4;
                 AddImageDB addimg = new AddImageDB();
-                addimg.AddImage(imageByte, game, describe, price);
+                addimg.AddImage(imageByte,user,Title, game, describe, price);
                 NavigationService.GoBack();
             }
             
            
 
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (var db = new AppContext())
+            {
+                var games = db.Categories.ToList();
+                GameBox.ItemsSource = games;
+                GameBox.DisplayMemberPath = "CategoryName";
+
+            }
         }
     }
 }

@@ -24,7 +24,7 @@
         </Grid.RowDefinitions>
         <Button x:Name="User_btn" Content="Users" HorizontalAlignment="Left" VerticalAlignment="Center" Height="47" Width="70" Click="User_btn_Click" />
         <Button x:Name="Product_btn" Content="Product" HorizontalAlignment="Center" VerticalAlignment="Center" Height="47" Width="70" Grid.Column="1" Click="Product_btn_Click" />
-        <Button x:Name="Categories" Content="Categories" HorizontalAlignment="Left" VerticalAlignment="Center" Height="47" Width="70" Grid.Column="2" Margin="6,0,0,0" />
+        <Button x:Name="Games_btn" Content="Games" HorizontalAlignment="Left" VerticalAlignment="Center" Height="47" Width="70" Grid.Column="2" Margin="6,0,0,0" Click="Categories_Click" />
         <Frame x:Name="frame" Background="Lime" Grid.Row="1" Grid.ColumnSpan="3" NavigationUIVisibility="Hidden" Source="UserPage.xaml"  />
 
 

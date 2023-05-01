@@ -1,27 +1,17 @@
 ﻿using AccTrade.Model.Models;
 using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace AccTrade.View.AdminView
 {
-    /// <summary>
-    /// Логика взаимодействия для AddProductWindow.xaml
-    /// </summary>
     public partial class AddProductWindow : Window
     {
         public AddProductWindow()
@@ -40,7 +30,6 @@ namespace AccTrade.View.AdminView
                 e.Handled = true;
             }
         }
-
         private void open_btn_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -66,22 +55,54 @@ namespace AccTrade.View.AdminView
 
         private void Add_btn_Click(object sender, RoutedEventArgs e)
         {
-            using (AppContext db = new AppContext())
+            string describe = Describe_tb.Text;
+            int price = Int32.Parse(Price_tb.Text);
+            string game = gamecategory_cb.Text;
+            string username = User_cb.Text;
+            string title = Title_tb.Text;
+            Describe_tb.MaxLength= 400;
+            Price_tb.MaxLength= 4;
+            if (username == "admin")
             {
-                //foreach (var product in db.Forms)
-                //{
-                //    var userName = product.Username;
-                //     = userName;
-                //}
-                string describe = Describe_tb.Text;
-                int price = Int32.Parse(Price_tb.Text);
-                string game = gamecategory_cb.Text;
-                Describe_tb.MaxLength= 400;
-                Price_tb.MaxLength= 4;
-                AddImageDB addimg = new AddImageDB();
-                addimg.AddImage(imageByte, game, describe, price);
-                Close();
+                MessageBox.Show("This user can't add a product");
             }
+            else if(title != null && price != 0 && describe !=null && game != null & username != null) 
+            {
+                
+                using (AppContext db = new AppContext())
+                {
+                    AddImageDB addimg = new AddImageDB();
+                    addimg.AddImage(imageByte, title, username, game, describe, price);
+                    this.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Enter all data");
+            }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            using (var db = new AppContext())
+            {
+                var logins = db.Logins.ToList();
+                User_cb.ItemsSource = logins;
+                User_cb.DisplayMemberPath = "Username";
+                var games = db.Categories.ToList();
+                gamecategory_cb.ItemsSource = games;
+                gamecategory_cb.DisplayMemberPath = "CategoryName";
+
+            }
+        }
+
+        private void Price_tb_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.V && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                e.Handled = true;
+            }
+
         }
     }
 }

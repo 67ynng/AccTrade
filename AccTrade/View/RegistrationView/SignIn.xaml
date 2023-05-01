@@ -115,6 +115,7 @@
         <PasswordBox x:Name="Password_tb" HorizontalAlignment="Center" Margin="0,144,0,0" VerticalAlignment="Top" Width="165"/>
         <Label Content="Login:" HorizontalAlignment="Left" Margin="57,81,0,0" VerticalAlignment="Top"/>
         <Label Content="Password:" HorizontalAlignment="Left" Margin="57,122,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="Admin_btn" Content="Admin" HorizontalAlignment="Left" Margin="252,7,0,0" VerticalAlignment="Top" Click="Admin_btn_Click"/>
 
     </Grid>
 </Window>

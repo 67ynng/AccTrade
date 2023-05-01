@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AccTrade.View.AdminView.ProductPage;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,23 +17,34 @@ using System.Windows.Shapes;
 
 namespace AccTrade.View.AdminView
 {
-    public partial class ProductPage : Page
+    /// <summary>
+    /// Логика взаимодействия для Product_pages.xaml
+    /// </summary>
+    public partial class Product_pages : Page
     {
-        public ProductPage()
+        public Product_pages()
         {
             InitializeComponent();
         }
-
-        private void Update_btn_Click(object sender, RoutedEventArgs e) => Page_Loaded(sender, e);
-
+        private void RefreshDataGrid()
+        {
+            using (var context = new AppContext())
+            {
+                var data = context.Forms.ToList();
+                DataGridProduct.ItemsSource = data;
+            }
+        }
         private void Create_btn_Click(object sender, RoutedEventArgs e)
         {
-            AddProductWindow addproduct = new AddProductWindow();
-            addproduct.Show();
+            var window = new AddProductWindow();
+            window.Closed += (s, eventArgs) => RefreshDataGrid();
+            window.Show();
         }
-
         private void Delete_btn_Click(object sender, RoutedEventArgs e)
         {
+            var window = new DeleteProductWindow();
+            window.Closed += (s, eventArgs) => RefreshDataGrid();
+            window.Show();
 
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -47,11 +59,19 @@ namespace AccTrade.View.AdminView
             {
                 var images = db.Forms.ToList();
                 DataGridProduct.DataContext = new { Images = images };
+                DataGridProduct.ItemsSource = images;
             }
 
         }
+        private void DataGridProduct_AddingNewItem(object sender, AddingNewItemEventArgs e)
+        {
+            if (DataGridProduct.IsReadOnly)
+            {
+                e.NewItem = true;
+            }
+        }
 
-        private void Save_btn_Click(object sender, RoutedEventArgs e)
+        private void Edit_btn_Click(object sender, RoutedEventArgs e)
         {
 
         }

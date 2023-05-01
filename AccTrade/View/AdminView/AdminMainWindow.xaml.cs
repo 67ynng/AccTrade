@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using AccTrade.View.AdminView;
 
 namespace AccTrade.View.AppView
 {
@@ -41,7 +42,12 @@ namespace AccTrade.View.AppView
 
         private void Product_btn_Click(object sender, RoutedEventArgs e)
         {
-            frame.Navigate(new ProductPage());
+            frame.Navigate(new Product_pages());
+        }
+
+        private void Categories_Click(object sender, RoutedEventArgs e)
+        {
+            frame.Navigate(new Games());
         }
     }
 }

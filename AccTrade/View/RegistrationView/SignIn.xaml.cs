@@ -18,7 +18,6 @@ namespace AccTrade.View.RegistrationView
         {
             InitializeComponent();
         }
-        int count = 2;
         private void SignUp_btn_Click(object sender, RoutedEventArgs e)
         {
             SignUp Registartion = new SignUp();
@@ -31,33 +30,7 @@ namespace AccTrade.View.RegistrationView
 
             string username = Login_tb.Text;
             string password = md5.hashPassword(Password_tb.Password);
-            if (Login_tb.Text == "admin" && Password_tb.Password == "admin")
-            {
-                using (AppContext db = new AppContext())
-                {
-                    var admin = db.Logins.Where((u) => u.Username == "admin" && u.isAdmin == true).FirstOrDefault();
-                    if (admin != null)
-                    {
-
-                        count--;
-                        if (count == 0)
-                        {
-                            MessageBox.Show("You don't have access to the admin panel");
-                        }
-                        else if (count >0)
-                        {
-                            Admin2FA adm2 = new Admin2FA();
-                            adm2.Show();
-                        }
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("Wrong data");
-                    }
-                }
-            }
-            else if (Login_tb.Text != "" && Password_tb.Password != "" || Login_tb.Text != "admin" && Password_tb.Password != "admin")
+            if (Login_tb.Text != "" && Password_tb.Password != "" && Login_tb.Text != "admin")
             {
                 using (AppContext db = new AppContext())
                 {
@@ -73,15 +46,27 @@ namespace AccTrade.View.RegistrationView
                     {
                         MessageBox.Show("Wrong data");
                     }
-                   
+
                 }
             }
-            
+            else if (Login_tb.Text == "admin")
+            {
+                MessageBox.Show("You can't login here as administrator"); 
+            }
+
             else
             {
                 MessageBox.Show("Enter all data!");
             }
-           
+
+        }
+
+        private void Admin_btn_Click(object sender, RoutedEventArgs e)
+        {
+            
+            AdminSignIn admsgnin = new AdminSignIn();
+            Close();
+            admsgnin.Show();
         }
     }
 }

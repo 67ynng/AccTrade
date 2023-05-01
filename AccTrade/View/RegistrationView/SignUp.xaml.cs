@@ -68,5 +68,12 @@ namespace AccTrade.View.RegistrationView
             {
             }.Start();
         }
+
+        private void Back_btn_Click(object sender, RoutedEventArgs e)
+        {
+            SignIn sign = new SignIn();
+            Close();
+            sign.Show();
+        }
     }
 }

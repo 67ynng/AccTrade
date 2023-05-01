@@ -8,7 +8,7 @@ using System.Text;
 
 namespace AccTrade.Model.Models
 {
-    public class ByteArrayToImageConverter : IValueConverter
+    public class ImageConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
