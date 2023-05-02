@@ -5,16 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using AccTrade.View.AdminView;
-
 namespace AccTrade.Model.Models
 {
     public class Delete 
     {
-        public void DeleteProduct(string username)
+     public void DeleteProduct(int id)
         {
             using (var dbContext = new AppContext())
             {
-                var objectsToDelete = dbContext.Forms.Where(x => x.title == username).ToList();
+                var objectsToDelete = dbContext.Forms.Where(p => p.Id == id).ToList();
                 if (objectsToDelete.Any())
                 {
                     var userToDelete = objectsToDelete.First();
@@ -28,11 +27,11 @@ namespace AccTrade.Model.Models
                 }
             }
         }
-        public void DeleteUser(string username)
+        public void DeleteUser(int id)
         {
             using (var dbContext = new AppContext())
             {
-                var objectsToDelete = dbContext.Logins.Where(x => x.Username == username).ToList();
+                var objectsToDelete = dbContext.Logins.Where(p => p.Id == id).ToList();
                 if (objectsToDelete.Any())
                 {
                     var userToDelete = objectsToDelete.First();
@@ -46,11 +45,11 @@ namespace AccTrade.Model.Models
                 }
             }
         }
-        public void DeleteGame(string username)
+        public void DeleteGame(int Id)
         {
             using (var dbContext = new AppContext())
             {
-                var objectsToDelete = dbContext.Categories.Where(x => x.CategoryName == username).ToList();
+                var objectsToDelete = dbContext.Categories.Where(p => p.Id == Id).ToList();
                 if (objectsToDelete.Any())
                 {
                     var userToDelete = objectsToDelete.First();

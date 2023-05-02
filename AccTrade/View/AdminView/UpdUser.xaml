@@ -1,0 +1,22 @@
+﻿<Window x:Class="AccTrade.View.AdminView.UpdUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AccTrade.View.AdminView"
+        mc:Ignorable="d"
+        Title="Update" Height="250" Width="300" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Grid>
+        
+        <Label x:Name="ID" Content="Id:" HorizontalAlignment="Left" Margin="37,59,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Id_tb" HorizontalAlignment="Center" Margin="0,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="Search_btn" Content="Search" HorizontalAlignment="Center" Margin="0,146,0,0" VerticalAlignment="Top" Click="Search_btn_Click"/>
+        <TextBox x:Name="Username_tb" HorizontalAlignment="Center" Margin="0,35,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+        <TextBox x:Name="email_tb" HorizontalAlignment="Center" Margin="0,72,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+        <CheckBox x:Name="isadmincheck" Content="IsAdmin" HorizontalAlignment="Left" Margin="91,95,0,0" VerticalAlignment="Top" Checked="isadmincheck_Checked" Unchecked="isadmincheck_Unchecked" Visibility="Hidden"/>
+        <Button x:Name="updatebtn" Content="Update" HorizontalAlignment="Left" Margin="135,188,0,0" VerticalAlignment="Top" Click="Button_Click" Visibility="Hidden"/>
+        <Label x:Name="username_lbl" Content="Username" HorizontalAlignment="Left" Margin="85,14,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Label  x:Name="email_lbl" Content="Email" HorizontalAlignment="Left" Margin="86,51,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+
+    </Grid>
+</Window>

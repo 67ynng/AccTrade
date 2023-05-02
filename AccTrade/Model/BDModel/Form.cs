@@ -5,6 +5,7 @@ using System.Windows.Media;
 public class Form
 {
     [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
     public string username { get; set; }
     public string title { get; set; }

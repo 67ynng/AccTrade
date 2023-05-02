@@ -17,11 +17,14 @@ using AccTrade.View.AdminView;
 
 namespace AccTrade.View.AppView
 {
-    /// <summary>
-    /// Логика взаимодействия для AdminMainWindow.xaml
-    /// </summary>
+
     public partial class AdminMainWindow : Window
     {
+        public void RefreshPage()
+        {
+            // Обновляем страницу
+            // ...
+        }   
         public AdminMainWindow()
         {
             InitializeComponent();

@@ -7,15 +7,16 @@
       mc:Ignorable="d" 
       d:DesignHeight="355" d:DesignWidth="800"
       Loaded="Page_Loaded"
-      Title="UserPage" Background="White">
+      Title="Users" Background="White">
     <Grid MinHeight="355" MinWidth="800">
         <Grid.RowDefinitions>
             <RowDefinition Height="274*"/>
             <RowDefinition Height="81*"/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="DataGridUsers"  RowHeight="30" IsReadOnly="True"  AutoGenerateColumns="False"  Margin="0,0,0,5" SelectionChanged="DataGridUsers_SelectionChanged" Background="{x:Null}" FontSize="16" BorderThickness="1,1,1,1" FontWeight="Bold">
+        <DataGrid  ItemsSource="{Binding People}" x:Name="DataGridUsers"  RowHeight="30" IsReadOnly="True"  AutoGenerateColumns="False"  Margin="0,0,0,5" Background="{x:Null}" FontSize="16" BorderThickness="1,1,1,1" FontWeight="Bold">
 
             <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
                 <DataGridTextColumn Header="Userame" Binding="{Binding Username}" />
                 <DataGridTextColumn Header="Password" Binding="{Binding Password}" />
                 <DataGridTextColumn Header="Is Admin" Binding="{Binding isAdmin}" />
@@ -25,7 +26,7 @@
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="286" Margin="0,3,0,3" Grid.Row="1">
             <Button x:Name="Create_btn" Content="Create" Height="34" Width="62" Click="Create_btn_Click" RenderTransformOrigin="0.548,-1.253" VerticalAlignment="Center" Margin="25,0,0,0" />
-            <Button x:Name="Update_btn" Content="Update" Height="34" Width="62" Click="Update_btn_Click" RenderTransformOrigin="0.548,-1.253" VerticalAlignment="Center" Margin="25,0,0,0" />
+            <Button x:Name="Edit_btn" Content="Edit" Height="34" Width="62" Click="Edit_btn_Click" RenderTransformOrigin="0.548,-1.253" VerticalAlignment="Center" Margin="25,0,0,0" />
             <Button x:Name="Delete_btn" Content="Delete" Height="34" Width="62" Click="Delete_btn_Click" RenderTransformOrigin="0.548,-1.253" VerticalAlignment="Center" Margin="25,0,0,0" />
         </StackPanel>
     </Grid>

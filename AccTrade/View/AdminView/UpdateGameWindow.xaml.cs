@@ -1,6 +1,11 @@
 ﻿using AccTrade.Model.Models;
+using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+
 namespace AccTrade.View.AdminView
 {
     public partial class UpdateGameWindow : Window
@@ -9,11 +14,29 @@ namespace AccTrade.View.AdminView
         {
             InitializeComponent();
         }
+        private void OldGamename_tb_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            Regex inputRegex = new Regex(@"\d");
+            Match match = inputRegex.Match(e.Text);
+            if ((sender as TextBox).Text.Length >= 50 || !match.Success)
+            {
+                e.Handled = true;
+            }
+        }
+        private void OldGamename_tb_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.V && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                e.Handled = true;
+            }
+
+        }
         private void Search_tn_Click(object sender, RoutedEventArgs e)
         {
+            int idd = Int32.Parse(OldGamename_tb.Text);
             using (var context = new AppContext())
             {
-                var products = context.Categories.Where(p => p.CategoryName.Contains(OldGamename_tb.Text)).ToList();
+                var products = context.Categories.Where(p => p.Id == idd).ToList();
                 if (products.Any())
                 {
                     OldGamename_tb.Visibility= Visibility.Hidden;
@@ -32,9 +55,10 @@ namespace AccTrade.View.AdminView
         }
         private void Update_tn_Click(object sender, RoutedEventArgs e)
         {
+            int idd = Int32.Parse(OldGamename_tb.Text);
             using (var context = new AppContext())
             {
-                var products = context.Categories.Where(p => p.CategoryName.Contains(OldGamename_tb.Text)).ToList();
+                var products = context.Categories.Where(p => p.Id == idd).ToList();
                 if (products.Any())
                 {
                     foreach (var product in products)
@@ -44,6 +68,7 @@ namespace AccTrade.View.AdminView
                     }
                     MessageBox.Show("update successful");
                     context.SaveChanges();
+                    Close();
                 }
                 else
                 {
@@ -51,5 +76,7 @@ namespace AccTrade.View.AdminView
                 }
             }
         }
+
+        
     }
 }

@@ -1,20 +1,32 @@
 ﻿using AccTrade.Model.Models;
+using System.Collections.ObjectModel;
+using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Collections.Specialized;
+using Microsoft.EntityFrameworkCore;
+
 namespace AccTrade.View.AdminView
 {
     public partial class UserPage : Page
     {
-        private readonly AppContext _dbContext = new AppContext();
+       
+        private void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (e.Action == NotifyCollectionChangedAction.Add)
+            {
+                DataGridUsers.Items.Refresh();
+            }
+        }
+
+
+
         public UserPage()
         {
             InitializeComponent();
             
         }
-
-        private void Update_btn_Click(object sender, RoutedEventArgs e) => Page_Loaded(sender, e);
-
         private void Delete_btn_Click(object sender, RoutedEventArgs e)
         {
             var window = new DeleteUserWindow();
@@ -39,20 +51,22 @@ namespace AccTrade.View.AdminView
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            Refresh();
+        }
+        public void Refresh()
+        {
             using (var context = new AppContext())
             {
                 var customers = context.Logins.ToList();
                 DataGridUsers.ItemsSource = customers;
             }
         }
-        private void Save_btn_Click(object sender, RoutedEventArgs e)
-        {
-            _dbContext.SaveChanges();
-        }
 
-        private void DataGridUsers_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Edit_btn_Click(object sender, RoutedEventArgs e)
         {
-
+            var window = new UpdUser();
+            window.Closed += (s, eventArgs) => RefreshDataGrid();
+            window.Show();
         }
     }
 }

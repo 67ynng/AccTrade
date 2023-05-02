@@ -14,9 +14,12 @@ namespace AccTrade.View.AdminView
 {
     public partial class AddProductWindow : Window
     {
-        public AddProductWindow()
+        //public int ProductID { get; set; }
+        
+        public AddProductWindow(/*int ID*/)
         {
             InitializeComponent();
+            //ProductID = ID;
         }
         byte[] imageByte;
         MediaPlayer mediaPlayer = new MediaPlayer();
@@ -52,9 +55,9 @@ namespace AccTrade.View.AdminView
                 MessageBox.Show("Error");
             }
         }
-
         private void Add_btn_Click(object sender, RoutedEventArgs e)
         {
+
             string describe = Describe_tb.Text;
             int price = Int32.Parse(Price_tb.Text);
             string game = gamecategory_cb.Text;
@@ -71,7 +74,7 @@ namespace AccTrade.View.AdminView
                 
                 using (AppContext db = new AppContext())
                 {
-                    AddImageDB addimg = new AddImageDB();
+                    Add addimg = new Add();
                     addimg.AddImage(imageByte, title, username, game, describe, price);
                     this.Close();
                 }
@@ -84,6 +87,41 @@ namespace AccTrade.View.AdminView
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+        //    if (Describe_tb.Text == "" && Title_tb.Text== "" && gamecategory_cb.Text == "" && User_cb.Text=="" && Price_tb.Text=="")
+        //    {
+        //        Add_btn.Visibility = Visibility.Visible;
+
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show(ProductID.ToString());
+        //        using (var context = new AppContext())
+        //        {
+        //            var product = context.Forms.First(p => p.Id == ProductID);
+        //            var logins = context.Logins.ToList();
+        //            var games = context.Categories.ToList();
+        //            if (product != null)
+        //            {
+        //                gamecategory_cb.ItemsSource = games;
+        //                gamecategory_cb.DisplayMemberPath = "GameCategory";
+        //                User_cb.ItemsSource = logins;
+        //                gamecategory_cb.DisplayMemberPath = "username";
+        //                User_cb.Text = product.username;
+        //                Title_tb.Text = product.title;
+        //                User_cb.Text = product.username;
+        //                Price_tb.Text = product.Price.ToString();
+        //                Describe_tb.Text = product.Describe;
+        //                imageByte = product.ImageData;
+        //                BitmapImage image = new BitmapImage();
+        //                image.BeginInit();
+        //                image.StreamSource = new MemoryStream(imageByte);
+        //                image.EndInit();
+        //                img.Source = image;
+        //            }
+        //        }
+        //        Add_btn.Visibility = Visibility.Hidden;
+        //        Save.Visibility = Visibility.Visible;
+        //    }
             using (var db = new AppContext())
             {
                 var logins = db.Logins.ToList();
@@ -102,6 +140,11 @@ namespace AccTrade.View.AdminView
             {
                 e.Handled = true;
             }
+
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

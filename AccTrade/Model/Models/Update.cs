@@ -14,5 +14,13 @@ namespace AccTrade.Model.Models
         {
             
         }
+        public void UpdateUser(string? oldnamegame, string newgamename)
+        {
+
+        }
+        public void UpdateProduct(string? oldnamegame, string newgamename)
+        {
+
+        }
     }   
 }

@@ -22,6 +22,7 @@
         </StackPanel>
         <DataGrid x:Name="DataGridGames" AutoGenerateColumns="False" CellEditEnding="DataGridGames_CellEditEnding" BorderThickness="2" IsReadOnly="True" FontWeight="Bold" FontSize="14">
             <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
                 <DataGridTextColumn Header="Game" Binding="{Binding CategoryName}"/>
             </DataGrid.Columns>
         </DataGrid>

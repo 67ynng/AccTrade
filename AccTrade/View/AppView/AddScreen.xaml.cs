@@ -87,11 +87,11 @@ namespace AccTrade.View
                 string describe = DescribeTb.Text;
                 int price = Int32.Parse(PriceTb.Text);
                 string game = GameBox.Text;
-                string Title = Title_tb.Text;
+                string title = Title_tb.Text;
                 DescribeTb.MaxLength= 400;
                 PriceTb.MaxLength= 4;
-                AddImageDB addimg = new AddImageDB();
-                addimg.AddImage(imageByte,user,Title, game, describe, price);
+                Add addimg = new Add();
+                addimg.AddImage(imageByte,title,user, game, describe, price);
                 NavigationService.GoBack();
             }
             

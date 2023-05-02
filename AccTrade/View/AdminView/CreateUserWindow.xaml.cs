@@ -45,14 +45,14 @@ namespace AccTrade.View.AdminView
                 }
                 else if (Username_tb.Text != "" || Password_tb.Password != "" || email_tb.Text != "")
                 {
-                    AddUser add = new AddUser();
+                    Add add = new Add();
                     add.AddUsers(username, password, email, isAdmin);
                     this.Close();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Sorry");
+                MessageBox.Show(ex.Message);
             }
         }
     }

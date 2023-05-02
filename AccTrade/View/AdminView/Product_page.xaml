@@ -6,7 +6,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="350" d:DesignWidth="800"
-      Title="Product_pages" Background="White" Loaded="Page_Loaded">
+      Title="Products" Background="White" Loaded="Page_Loaded">
     <Page.Resources>
         <local:ImageConverter x:Key="ImageConverter.cs"/>
     </Page.Resources>
@@ -19,6 +19,7 @@
         </Grid.RowDefinitions>
         <DataGrid x:Name="DataGridProduct" AutoGenerateColumns="False" IsReadOnly="True" BorderBrush="Black" Margin="0,2,0,4" FontWeight="Bold" AddingNewItem="DataGridProduct_AddingNewItem">
             <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
                 <DataGridTextColumn Header="Username" Binding="{Binding username}" />
                 <DataGridTextColumn Header="Title" Binding="{Binding title}" />
                 <DataGridTemplateColumn Header="Image">
@@ -46,7 +47,7 @@
         </DataGrid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="282" Margin="0,3,0,12" Grid.Row="1">
             <Button x:Name="Create_btn" Content="Create" Height="34" Width="62" Click="Create_btn_Click" RenderTransformOrigin="0.548,-1.253" VerticalAlignment="Center" Margin="25,0,0,0" />
-            <Button x:Name="Edit_btn" Content="Update" Height="34" Width="62" Click="Edit_btn_Click" RenderTransformOrigin="0.548,-1.253" Margin="25,0,0,0" />
+            <Button x:Name="Edit_btn" Content="Edit" Height="34" Width="62" Click="Edit_btn_Click" RenderTransformOrigin="0.548,-1.253" Margin="25,0,0,0" />
             <Button x:Name="Delete_btn" Content="Delete" Height="34" Width="62" Click="Delete_btn_Click" RenderTransformOrigin="0.548,-1.253" Margin="25,0,0,0" />
         </StackPanel>
     </Grid>

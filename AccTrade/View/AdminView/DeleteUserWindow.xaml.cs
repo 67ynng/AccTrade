@@ -1,4 +1,5 @@
 ﻿using AccTrade.Model.Models;
+using System;
 using System.Linq;
 using System.Windows;
 
@@ -13,9 +14,9 @@ namespace AccTrade.View.AdminView
         }
         private void Delete_btn_Click(object sender, RoutedEventArgs e)
         {
-            string username = UserId_tb.Text;
+            int id  = Int32.Parse(UserId_tb.Text);
             Delete del = new Delete();
-            del.DeleteUser(username);
+            del.DeleteUser(id);
             this.Close();
         }
     }

@@ -49,14 +49,11 @@ namespace AccTrade.View.AdminView
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            using (AppContext db = new AppContext())
+            using (var db = new AppContext())
             {
                 var employees = from emp in db.Forms
                                 select emp;
                 DataGridProduct.ItemsSource= employees.ToList();
-            }
-            using (var db = new AppContext())
-            {
                 var images = db.Forms.ToList();
                 DataGridProduct.DataContext = new { Images = images };
                 DataGridProduct.ItemsSource = images;
@@ -67,13 +64,15 @@ namespace AccTrade.View.AdminView
         {
             if (DataGridProduct.IsReadOnly)
             {
-                e.NewItem = true;
+                e.NewItem = false;
             }
         }
 
         private void Edit_btn_Click(object sender, RoutedEventArgs e)
         {
-
+            var window = new UpdateProductWindow();
+            window.Closed += (s, eventArgs) => RefreshDataGrid();
+            window.Show();
         }
     }
 }

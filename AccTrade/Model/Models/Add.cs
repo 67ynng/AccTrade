@@ -1,17 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using AccTrade.View.AdminView;
-using Microsoft.EntityFrameworkCore;
 
 namespace AccTrade.Model.Models
 {
-   public class AddUser
+    class Add
     {
+        public void AddImage(byte[]? imageData, string? title, string? username, string? gameCategory, string? describe, int? price)
+        {
+            using (var db = new AppContext())
+            {
+                var image = new Form
+                {
+
+                    username = username,
+                    title = title,
+                    ImageData = imageData,
+                    GameCategory = gameCategory,
+                    Describe = describe,
+                    Price = price
+                };
+                db.Forms.AddRange(image);
+                db.SaveChanges();
+            }
+        }
         public void AddUsers(string? name, string? password, string? email, bool? isAdmin)
         {
             using (var db = new AppContext())
@@ -35,10 +50,10 @@ namespace AccTrade.Model.Models
                     db.Logins.AddRange(users);
                     db.SaveChanges();
                 }
-              
+
             }
         }
-        public void AddGame(string? GameName) 
+        public void AddGame(string? GameName)
         {
             using (var db = new AppContext())
             {

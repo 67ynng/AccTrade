@@ -28,7 +28,7 @@ namespace AccTrade.View.AdminView
         private void Add_btn_Click(object sender, RoutedEventArgs e)
         {
             string GameName = GameName_tb.Text;
-            AddUser add = new AddUser();
+            Add add = new Add();
             add.AddGame(GameName);
             this.Close();
         }
