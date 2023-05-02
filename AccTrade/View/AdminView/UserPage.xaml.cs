@@ -12,16 +12,6 @@ namespace AccTrade.View.AdminView
     public partial class UserPage : Page
     {
        
-        private void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            if (e.Action == NotifyCollectionChangedAction.Add)
-            {
-                DataGridUsers.Items.Refresh();
-            }
-        }
-
-
-
         public UserPage()
         {
             InitializeComponent();
@@ -51,17 +41,8 @@ namespace AccTrade.View.AdminView
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            Refresh();
+            RefreshDataGrid();
         }
-        public void Refresh()
-        {
-            using (var context = new AppContext())
-            {
-                var customers = context.Logins.ToList();
-                DataGridUsers.ItemsSource = customers;
-            }
-        }
-
         private void Edit_btn_Click(object sender, RoutedEventArgs e)
         {
             var window = new UpdUser();

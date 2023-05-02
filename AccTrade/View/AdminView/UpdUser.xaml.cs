@@ -76,6 +76,8 @@ namespace AccTrade.View.AdminView
                 if (product != null)
                 {
                     Username_tb.Visibility = Visibility.Visible;
+                    Username_tb.Text = product.Username;
+                    email_tb.Text= product.Email;
                     email_tb.Visibility = Visibility.Visible;
                     username_lbl.Visibility = Visibility.Visible;
                     email_tb.Visibility = Visibility.Visible;

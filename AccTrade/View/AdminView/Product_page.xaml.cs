@@ -70,7 +70,7 @@ namespace AccTrade.View.AdminView
 
         private void Edit_btn_Click(object sender, RoutedEventArgs e)
         {
-            var window = new UpdateProductWindow();
+            var window = new UpdProduct();
             window.Closed += (s, eventArgs) => RefreshDataGrid();
             window.Show();
         }

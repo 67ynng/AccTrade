@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AccTrade.View.AdminView"
         mc:Ignorable="d"
-        Title="Update" Height="250" Width="300" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+        Title="Update" Height="200" Width="200" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" ResizeMode="CanMinimize">
     <Grid>
-        
-        <Label x:Name="ID" Content="Id:" HorizontalAlignment="Left" Margin="37,59,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="Id_tb" HorizontalAlignment="Center" Margin="0,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="Search_btn" Content="Search" HorizontalAlignment="Center" Margin="0,146,0,0" VerticalAlignment="Top" Click="Search_btn_Click"/>
+
+        <Label x:Name="ID" Content="Id:" HorizontalAlignment="Left" Margin="40,44,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Id_tb" HorizontalAlignment="Center" Margin="0,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="Search_btn" Content="Search" HorizontalAlignment="Center" Margin="0,114,0,0" VerticalAlignment="Top" Click="Search_btn_Click"/>
         <TextBox x:Name="Username_tb" HorizontalAlignment="Center" Margin="0,35,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
         <TextBox x:Name="email_tb" HorizontalAlignment="Center" Margin="0,72,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
         <CheckBox x:Name="isadmincheck" Content="IsAdmin" HorizontalAlignment="Left" Margin="91,95,0,0" VerticalAlignment="Top" Checked="isadmincheck_Checked" Unchecked="isadmincheck_Unchecked" Visibility="Hidden"/>
-        <Button x:Name="updatebtn" Content="Update" HorizontalAlignment="Left" Margin="135,188,0,0" VerticalAlignment="Top" Click="Button_Click" Visibility="Hidden"/>
-        <Label x:Name="username_lbl" Content="Username" HorizontalAlignment="Left" Margin="85,14,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
-        <Label  x:Name="email_lbl" Content="Email" HorizontalAlignment="Left" Margin="86,51,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Button x:Name="updatebtn" Content="Update" HorizontalAlignment="Center" Margin="0,134,0,0" VerticalAlignment="Top" Click="Button_Click" Visibility="Hidden"/>
+        <Label x:Name="username_lbl" Content="Username" HorizontalAlignment="Left" Margin="34,14,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Label  x:Name="email_lbl" Content="Email" HorizontalAlignment="Left" Margin="37,51,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
 
     </Grid>
 </Window>
