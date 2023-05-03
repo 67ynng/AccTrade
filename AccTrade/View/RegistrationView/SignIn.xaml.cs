@@ -6,6 +6,8 @@ using Microsoft.Win32;
 using System.Diagnostics;
 using AccTrade.View.AppView;
 using System.Windows.Controls.Ribbon;
+using AccTrade.Model.Models;
+using AccTrade.View.AdminView;
 
 namespace AccTrade.View.RegistrationView
 {
@@ -14,6 +16,7 @@ namespace AccTrade.View.RegistrationView
     /// </summary>
     public partial class SignIn : Window
     {
+
         public SignIn()
         {
             InitializeComponent();
@@ -30,14 +33,15 @@ namespace AccTrade.View.RegistrationView
 
             string username = Login_tb.Text;
             string password = md5.hashPassword(Password_tb.Password);
-            if (Login_tb.Text != "" && Password_tb.Password != "" && Login_tb.Text != "admin")
+            if (Login_tb.Text != "" && Password_tb.Password != "")
             {
                 using (AppContext db = new AppContext())
                 {
+                  
                     var user = db.Logins.Where((u) => u.Username == username && u.Password == password).FirstOrDefault();
-
                     if (user != null)
                     {
+                        Session.UserId = user.Id;
                         MainWindow main = new MainWindow();
                         Close();
                         main.Show();
@@ -67,6 +71,24 @@ namespace AccTrade.View.RegistrationView
             AdminSignIn admsgnin = new AdminSignIn();
             Close();
             admsgnin.Show();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            using(AppContext db = new AppContext())
+            {
+                if(!db.Logins.Any(u => u.Username == "Admin"))
+                { 
+                    var adminLogin = new Login
+                    {
+                        Username = "Admin",
+                        Password = "admin",
+                        isAdmin = true
+                    };
+                    db.Logins.Add(adminLogin);
+                    db.SaveChanges();
+                }
+            }
         }
     }
 }

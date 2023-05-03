@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AccTrade.View.RegistrationView"
         mc:Ignorable="d"
-        Title="SignIn" Height="300" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="SignIn" Height="300" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Loaded="Window_Loaded">
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">

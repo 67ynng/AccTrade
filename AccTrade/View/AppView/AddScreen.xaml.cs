@@ -63,7 +63,7 @@ namespace AccTrade.View
             }
             else
             {
-                MessageBox.Show("Error");
+                MessageBox.Show("Add a photo of your product");
             }
 
 
@@ -77,25 +77,52 @@ namespace AccTrade.View
 
         private void Save_btn_Click(object sender, RoutedEventArgs e)
         {
-            using(AppContext db = new AppContext())
+            using (AppContext db = new AppContext())
             {
-                foreach (var login in db.Logins)
+                var PhoneNum = db.Logins.FirstOrDefault(u => u.Id == Session.UserId);
+                if (PhoneNum.PhoneNumber == null)
                 {
-                    var userName = login.Username;
-                    user = userName;
+                    MessageBox.Show("Enter your phone number in your account"); return;
                 }
-                string describe = DescribeTb.Text;
-                int price = Int32.Parse(PriceTb.Text);
-                string game = GameBox.Text;
-                string title = Title_tb.Text;
-                DescribeTb.MaxLength= 400;
-                PriceTb.MaxLength= 4;
-                Add addimg = new Add();
-                addimg.AddImage(imageByte,title,user, game, describe, price);
-                NavigationService.GoBack();
+                else if (DescribeTb.Text == "" && Title_tb.Text == "" && GameBox.Text == "" && PriceTb.Text == "")
+                    MessageBox.Show("Enter all data");
+                else if (imageByte == null)
+                    MessageBox.Show("Add a photo of your product");
+                else if (DescribeTb.Text == "")
+                    MessageBox.Show("Enter describe");
+                else if (Title_tb.Text == "")
+                    MessageBox.Show("Enter title");
+                else if (GameBox.Text == "")
+                    MessageBox.Show("Choose game");
+                else if (PriceTb.Text == "")
+                    MessageBox.Show("Enter price");
+
+
+                else
+                {
+                    foreach (var login in db.Logins)
+                    {
+                        var userName = login.Username;
+                        user = userName;
+                    }
+                    string describe = DescribeTb.Text;
+                    int price = Int32.Parse(PriceTb.Text);
+                    
+                    string game = GameBox.Text;
+                    string title = Title_tb.Text;
+                    DescribeTb.MaxLength= 400;
+                    PriceTb.MaxLength= 4;
+                    Add addimg = new Add();
+                    addimg.AddImage(imageByte, title, user, game, describe, price);
+                    MessageBox.Show("Your game was add!");
+                    NavigationService navigationService = NavigationService.GetNavigationService(this);
+                    navigationService.Navigate(new Uri("View\\AppView\\MainScreen.xaml", UriKind.Relative));
+
+                }
+
             }
-            
-           
+
+
 
         }
 
@@ -107,6 +134,17 @@ namespace AccTrade.View
                 GameBox.ItemsSource = games;
                 GameBox.DisplayMemberPath = "CategoryName";
 
+            }
+        }
+        private void PriceTb_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.V && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                e.Handled = true;
+            }
+            if (e.Key == Key.Enter)
+            {
+                e.Handled = true;
             }
         }
     }

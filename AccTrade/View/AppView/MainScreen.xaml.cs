@@ -33,16 +33,6 @@ namespace AccTrade.View
                 ListVVV.ItemsSource =  db.Forms.ToList();
             }
         }
-
-        private void Search()
-        {
-            using (var db = new AppContext())
-            {
-               var ss = db.Forms.ToList();
-                
-            }
-            
-        }
         private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
         {
 

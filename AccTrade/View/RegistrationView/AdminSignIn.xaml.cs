@@ -34,10 +34,18 @@ namespace AccTrade.View.RegistrationView
             string password = md5.hashPassword(Password_tb.Password);
             using (AppContext db = new AppContext())
             {
-                var admin = db.Logins.Where((u) => u.Username == "admin" && u.Password == password && u.isAdmin == true).FirstOrDefault();
-                AdminMainWindow adm = new AdminMainWindow();
-                Close();
-                adm.Show();
+                var admin = db.Logins.Where((u) => u.isAdmin == true).FirstOrDefault();
+                if(admin != null)
+                {
+                    AdminMainWindow adm = new AdminMainWindow();
+                    Close();
+                    adm.Show();
+                }
+                else
+                {
+                    MessageBox.Show("You are not admin");
+                }
+
             }
         }
         private void User_btn_Click(object sender, RoutedEventArgs e)

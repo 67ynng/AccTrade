@@ -21,6 +21,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
                 <DataGridTextColumn Header="Username" Binding="{Binding username}" />
+                <DataGridTextColumn Header="PhoneNumber" Binding="{Binding PhoneNumber}" />
                 <DataGridTextColumn Header="Title" Binding="{Binding title}" />
                 <DataGridTemplateColumn Header="Image">
                     <DataGridTemplateColumn.CellTemplate>

@@ -19,24 +19,10 @@ namespace AccTrade.View.AppView
 
     public partial class AdminMainWindow : Window
     {
-        public void RefreshPage()
-        {
-            // Обновляем страницу
-            // ...
-        }   
         public AdminMainWindow()
         {
             InitializeComponent();
         }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            
-
-        }
-
-        private void Update_btn_Click(object sender, RoutedEventArgs e) => Window_Loaded(sender, e);
-
         private void User_btn_Click(object sender, RoutedEventArgs e)
         {
             frame.Navigate(new UserPage());

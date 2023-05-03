@@ -14,12 +14,11 @@ namespace AccTrade.View.AdminView
 {
     public partial class AddProductWindow : Window
     {
-        //public int ProductID { get; set; }
+
         
-        public AddProductWindow(/*int ID*/)
+        public AddProductWindow()
         {
             InitializeComponent();
-            //ProductID = ID;
         }
         byte[] imageByte;
         MediaPlayer mediaPlayer = new MediaPlayer();
@@ -61,6 +60,7 @@ namespace AccTrade.View.AdminView
             string describe = Describe_tb.Text;
             int price = Int32.Parse(Price_tb.Text);
             string game = gamecategory_cb.Text;
+          
             string username = User_cb.Text;
             string title = Title_tb.Text;
             Describe_tb.MaxLength= 400;

@@ -9,12 +9,14 @@
     <Grid>
         <TextBox x:Name="Username_tb" HorizontalAlignment="Center" Margin="0,35,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="email_tb" HorizontalAlignment="Center" Margin="0,72,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-        <CheckBox x:Name="isadmincheck" Content="IsAdmin" HorizontalAlignment="Left" Margin="90,133,0,0" VerticalAlignment="Top" Checked="isadmincheck_Checked" Unchecked="isadmincheck_Unchecked"/>
-        <Button Content="Create" HorizontalAlignment="Left" Margin="135,188,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <CheckBox x:Name="isadmincheck" Content="IsAdmin" HorizontalAlignment="Left" Margin="87,181,0,0" VerticalAlignment="Top" Checked="isadmincheck_Checked" Unchecked="isadmincheck_Unchecked"/>
+        <Button Content="Create" HorizontalAlignment="Left" Margin="129,204,0,0" VerticalAlignment="Top" Click="Button_Click" RenderTransformOrigin="0.23,1.124"/>
         <Label Content="Username" HorizontalAlignment="Left" Margin="85,14,0,0" VerticalAlignment="Top"/>
         <Label Content="Email" HorizontalAlignment="Left" Margin="86,51,0,0" VerticalAlignment="Top"/>
         <Label Content="Password" HorizontalAlignment="Left" Margin="85,87,0,0" VerticalAlignment="Top"/>
         <PasswordBox x:Name="Password_tb" HorizontalAlignment="Center" Margin="0,110,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="PhoneNumber" HorizontalAlignment="Left" Margin="85,127,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="phonenumber_tb" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" Width="120" PreviewTextInput="PhoneNumber_PreviewTextInput"/>
 
     </Grid>
 </Window>

@@ -13,25 +13,31 @@ namespace AccTrade.Model.Models
         {
             using (var db = new AppContext())
             {
-                var image = new Form
+                var currentUser = db.Logins.Find(Session.UserId);
+                if (currentUser != null) 
                 {
+                    var image = new Form
+                    {
 
-                    username = username,
-                    title = title,
-                    ImageData = imageData,
-                    GameCategory = gameCategory,
-                    Describe = describe,
-                    Price = price
-                };
-                db.Forms.AddRange(image);
-                db.SaveChanges();
+                        username = username,
+                        PhoneNumber = currentUser.PhoneNumber,
+                        LoginId = currentUser.Id,
+                        title = title,
+                        ImageData = imageData,
+                        GameCategory = gameCategory,
+                        Describe = describe,
+                        Price = price
+                    };
+                    db.Forms.AddRange(image);
+                    db.SaveChanges();
+                }  
             }
         }
-        public void AddUsers(string? name, string? password, string? email, bool? isAdmin)
+        public void AddUsers(string? name,int? phonenum, string? password, string? email, bool? isAdmin)
         {
             using (var db = new AppContext())
             {
-                bool isUserExists = db.Logins.Any(u => u.Username == name || u.Email == email);
+                bool isUserExists = db.Logins.Any(u => u.Username == name || u.Email == email|| u.PhoneNumber == phonenum);
                 if (isUserExists)
                 {
                     MessageBox.Show("User is already in DataBase");
@@ -41,6 +47,7 @@ namespace AccTrade.Model.Models
                     var users = new Login
                     {
                         Username = name,
+                        PhoneNumber = phonenum,
                         Password = password,
                         Email = email,
                         isAdmin = isAdmin
@@ -74,6 +81,18 @@ namespace AccTrade.Model.Models
                     db.SaveChanges();
                 }
 
+            }
+        }
+        public void AddNumber(int Number)
+        {
+            using (var db = new AppContext())
+            {
+                var phoneNum = new Login
+                {
+                    PhoneNumber = Number
+                };
+                db.Logins.AddRange(phoneNum);
+                db.SaveChanges();
             }
         }
     }

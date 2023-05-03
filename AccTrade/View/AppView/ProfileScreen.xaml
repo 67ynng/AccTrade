@@ -1,18 +1,30 @@
-﻿<Page x:Class="AccTrade.View.MainScreen"
+﻿<Page x:Class="AccTrade.View.AppView.ProfileScreen"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:AccTrade.View"
+      xmlns:local="clr-namespace:AccTrade.View.AppView"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="MainScreen">
-    <Grid Background="Green" Loaded="Grid_Loaded">
+      Title="ProfileScreen"
+      Background="Red"
+      Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition Height="74*"/>
         </Grid.RowDefinitions>
-        <ListView x:Name="ListVVV" HorizontalAlignment="Center" Width="696" Margin="0,25,0,25" Grid.Row="1">
+        <Label Content="Username:" HorizontalAlignment="Left" Margin="68,8,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblusername" Content="" HorizontalAlignment="Left" Margin="129,5,0,0" VerticalAlignment="Top"/>
+        <Label Content="Email:" HorizontalAlignment="Left" Margin="65,65,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblemail" Content="" HorizontalAlignment="Left" Margin="102,66,0,0" VerticalAlignment="Top"/>
+        <Label Content="PhoneNumber:" HorizontalAlignment="Left" Margin="65,34,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="phonenumber_tb" HorizontalAlignment="Left" Margin="155,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="phonenumber_tb_PreviewTextInput" PreviewKeyDown="phonenumber_tb_PreviewKeyDown"/>
+        <Label Content="My Products:" HorizontalAlignment="Left" Margin="45,161,0,0" VerticalAlignment="Top"/>
+        <ListView x:Name="MyProducts" HorizontalAlignment="Center" Width="694" Margin="0,187,0,25">
             <ListView.Background>
                 <SolidColorBrush Color="White" Opacity="0.25"/>
             </ListView.Background>
@@ -23,23 +35,21 @@
                         <Image Height="200" Width="200" Source="{Binding ImageData}"/>
                         <StackPanel>
                             <Label Height="50" Width="180" Content="{Binding GameCategory}" ContentStringFormat="Game:{0}" FontWeight="Bold" />
+                            <Button x:Name="Edit_btn" Content="Edit" Width="50" Height="30" Margin="0,0,5,5" Click="Edit_btn_Click"/>
+                            <Button x:Name="Delete_btn" Content="Delete" Width="50" Height="30" Margin="0,0,5,5" Click="Delete_btn_Click"/>
                         </StackPanel>
                         <StackPanel>
                             <Label Height="50" Width="100" Content="{Binding Price}" ContentStringFormat="Price: {0}$" FontWeight="Bold"/>
                             <Label Height="50" Width="100" VerticalAlignment="Center" Content="{Binding PhoneNumber}" ContentStringFormat="+380 {0}$" FontWeight="Bold"/>
                             <TextBlock MinHeight="100" Width="250" MaxWidth="400" MaxHeight="800" Text="{Binding Describe}" TextWrapping="Wrap" FontWeight="Bold"/>
+                            
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <!--<StackPanel Grid.Row="1" Margin="433,0,242,418">
-            <TextBox x:Name="TbSearch" HorizontalAlignment="Stretch" TextWrapping="Wrap" Width="120" VerticalAlignment="Center" Margin="0,7,0,0" TextChanged="TextBox_TextChanged_1"/>
-            <Label Content="Search" Width="50" Height="20" HorizontalAlignment="Right"/>
 
 
-
-        </StackPanel>-->
 
     </Grid>
 </Page>
