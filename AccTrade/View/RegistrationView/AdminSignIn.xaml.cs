@@ -26,15 +26,13 @@ namespace AccTrade.View.RegistrationView
         {
             InitializeComponent();
         }
-        string[] content = File.ReadAllLines("2FA.txt");
-        int count = 3;
         private void SignIn_btn_Click(object sender, RoutedEventArgs e)
         {
             string username = Login_tb.Text;
             string password = md5.hashPassword(Password_tb.Password);
             using (AppContext db = new AppContext())
             {
-                var admin = db.Logins.Where((u) => u.isAdmin == true).FirstOrDefault();
+                var admin = db.Logins.Where((u) => u.isAdmin == true ).FirstOrDefault();
                 if(admin != null)
                 {
                     AdminMainWindow adm = new AdminMainWindow();

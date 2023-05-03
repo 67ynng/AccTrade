@@ -77,11 +77,11 @@ namespace AccTrade.View.RegistrationView
         {
             using(AppContext db = new AppContext())
             {
-                if(!db.Logins.Any(u => u.Username == "Admin"))
+                if(!db.Logins.Any(u => u.Username == "admin"))
                 { 
                     var adminLogin = new Login
                     {
-                        Username = "Admin",
+                        Username = "admin",
                         Password = "admin",
                         isAdmin = true
                     };

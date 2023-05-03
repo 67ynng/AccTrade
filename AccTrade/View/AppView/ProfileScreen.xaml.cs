@@ -116,10 +116,7 @@ namespace AccTrade.View.AppView
             {
                 int productId = selectedProduct.Id;
                 Delete del = new Delete();
-                if (MessageBox.Show("If the file save fails, do you want to automatically try again?",
-                    "Save file",
-                    MessageBoxButton.YesNo,
-                    MessageBoxImage.Question) == MessageBoxResult.Yes)
+                if (MessageBox.Show("Are you sure you want to remove this item?","Delete",MessageBoxButton.YesNo,MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
                     del.DeleteProduct(productId);
                     NavigationService navigationService = NavigationService.GetNavigationService(this);
