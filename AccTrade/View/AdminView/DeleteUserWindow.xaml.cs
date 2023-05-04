@@ -35,17 +35,23 @@ namespace AccTrade.View.AdminView
                 {
                     using (var dbContext = new AppContext())
                     {
-                        var objectsToDelete = dbContext.Logins.Where(p => p.Id == id).ToList();
-                        if (objectsToDelete.Any())
+                        var userToDelete = dbContext.Logins.FirstOrDefault(p => p.Id == id);
+                        if (userToDelete != null)
                         {
-                            Delete del = new Delete();
-                            del.DeleteUser(id);
-
-                            this.Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("There wasn't this record.");
+                            var roleName = userToDelete.Role;
+                            var roleToUpdate = dbContext.Roles.FirstOrDefault(r => r.Role == roleName);
+                            if (roleToUpdate != null && roleToUpdate.MembersInThisRole > 1)
+                            {
+                                roleToUpdate.MembersInThisRole--;
+                                dbContext.Logins.Remove(userToDelete);
+                                dbContext.SaveChanges();
+                                MessageBox.Show("User deleted successfully");
+                                Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Role not found for user");
+                            }
                         }
                     }
                 }

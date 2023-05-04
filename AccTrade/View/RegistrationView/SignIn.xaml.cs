@@ -33,6 +33,7 @@ namespace AccTrade.View.RegistrationView
                     if (user != null)
                     {
                         Session.UserId = user.Id;
+                        
                         MainWindow main = new MainWindow();
                         Close();
                         main.Show();
@@ -82,12 +83,13 @@ namespace AccTrade.View.RegistrationView
                     var admin = new Roles
                     {
                         Role = "admin",
+                        MembersInThisRole = 1
 
                     };
                     var user = new Roles
                     {
                         Role = "user",
-
+                        MembersInThisRole = 1
                     };
                     var game = new Category
                     {

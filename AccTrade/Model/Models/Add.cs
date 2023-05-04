@@ -55,6 +55,14 @@ namespace AccTrade.Model.Models
         {
             using (var db = new AppContext())
             {
+                var currentMembers = db.Roles.FirstOrDefault(r => r.Role == Role)?.MembersInThisRole ?? 0;
+                var newMembers = currentMembers + 1;
+                var role = db.Roles.FirstOrDefault(r => r.Role == Role);
+                if (role != null)
+                {
+                    role.MembersInThisRole = newMembers;
+                    db.SaveChanges();
+                }
                 var users = new Login
                 {
                     Username = name,
@@ -105,6 +113,7 @@ namespace AccTrade.Model.Models
                     var game = new Roles
                     {
                         Role = GameName,
+                        MembersInThisRole = 0,
 
                     };
                     db.Roles.AddRange(game);

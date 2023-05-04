@@ -61,7 +61,7 @@ namespace AccTrade.View.RegistrationView
                     string passwordConfirm = md5.hashPassword(PassConfirm_tb.Password.ToLower());
                     int phoneNum = 0;
                     
-                    string role = "User";
+                    string role = "user";
                     if (email == "" || password == "" || username == "" || PassConfirm_tb.Password == "" || PhoneNumber_tb.Text == "")
                         MessageBox.Show("All fields must be filled!");
                     else if (!Regex.IsMatch(email, @"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$"))
@@ -76,7 +76,8 @@ namespace AccTrade.View.RegistrationView
                         {
                             int pp = Convert.ToInt32(trimmedText);
 
-                          
+                            var currentMembers = db.Roles.FirstOrDefault(r => r.Role == "user")?.MembersInThisRole ?? 0;
+                            var newMembers = currentMembers + 1;
                             bool isExists = db.Logins.Any(value => value.Email == email);
                             bool isExists2 = db.Logins.Any(value => value.Username == username);
                             bool phonenumcheck = db.Logins.Any(value => value.PhoneNumber == phoneNum);
@@ -94,10 +95,14 @@ namespace AccTrade.View.RegistrationView
                                     Username = username,
                                     Email = email,
                                     Password = passwordConfirm,
-
                                     PhoneNumber = pp,
-                                    
                                 };
+                                var rolle = db.Roles.FirstOrDefault(r => r.Role == "user");
+                                if (rolle != null)
+                                {
+                                    rolle.MembersInThisRole = newMembers;
+                                    db.SaveChanges();
+                                }
                                 db.AddRange(add);
                                 db.SaveChanges();
                                 MessageBox.Show("Registration completed successfully!");

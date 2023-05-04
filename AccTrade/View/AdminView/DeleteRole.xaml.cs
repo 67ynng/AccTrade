@@ -38,13 +38,24 @@ namespace AccTrade.View.AdminView
                 {
                     using (var dbContext = new AppContext())
                     {
-                        var objectsToDelete = dbContext.Roles.Where(p => p.Id == id).ToList();
-                        if (objectsToDelete.Any())
+
+
+                        var user = dbContext.Roles.FirstOrDefault(u => u.Id == id);
+                        if(user != null) 
                         {
-                            Delete del = new Delete();
-                            del.DeleteRole(id);
-                            this.Close();
+                            var role = dbContext.Roles.FirstOrDefault(r => r.Role == user.Role);
+                            if (role != null && role.MembersInThisRole > 1)
+                            {
+                                MessageBox.Show("Members in this role more than 1");
+                            }
+                            else
+                            {
+                                Delete del = new Delete();
+                                del.DeleteRole(id);
+                                this.Close();
+                            }
                         }
+                        
                         else
                         {
                             MessageBox.Show("There wasn't this record.");
