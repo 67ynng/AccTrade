@@ -64,7 +64,7 @@ namespace AccTrade.View.RegistrationView
 
         private void Login_tb_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.V && Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.Space)
+            if (e.Key == Key.V && Keyboard.Modifiers == ModifierKeys.Control)
             {
                 if (Clipboard.ContainsText())
                 {
@@ -76,6 +76,10 @@ namespace AccTrade.View.RegistrationView
                         MessageBox.Show("Punctuation and special characters are not allowed");
                     }
                 }
+            }
+            if (e.Key == Key.Space)
+            {
+                e.Handled = true;
             }
         }
     }
