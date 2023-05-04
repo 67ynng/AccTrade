@@ -4,8 +4,6 @@ using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Collections.Specialized;
-using Microsoft.EntityFrameworkCore;
 
 namespace AccTrade.View.AdminView
 {
@@ -20,9 +18,9 @@ namespace AccTrade.View.AdminView
         private void Delete_btn_Click(object sender, RoutedEventArgs e)
         {
             var window = new DeleteUserWindow();
+            window.Closing += (s, e) => e.Cancel = window.DialogResult == false;
             window.Closed += (s, eventArgs) => RefreshDataGrid();
-            window.Show();
-
+            window.ShowDialog();
         }
         private void RefreshDataGrid()
         {

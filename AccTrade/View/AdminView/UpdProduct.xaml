@@ -10,13 +10,13 @@
         <Button x:Name="open_btn" Content="Open" HorizontalAlignment="Left" Margin="18,9,0,0" VerticalAlignment="Top" Height="51" Width="61" Click="open_btn_Click" Visibility="Hidden"/>
         <TextBox x:Name="Describe_tb" AcceptsReturn="True" HorizontalAlignment="Left" MaxLength="400" Margin="25,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="320" Height="74" Visibility="Hidden"/>
         <ComboBox x:Name="gamecategory_cb" HorizontalAlignment="Left" Margin="172,145,0,0" VerticalAlignment="Top" Width="109" Height="19" Visibility="Hidden"/>
-        <TextBox x:Name="Price_tb" Text="0"  MaxLength="4" HorizontalAlignment="Left" Margin="25,273,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" Height="24" PreviewTextInput="Price_tb_PreviewTextInput" PreviewKeyDown="Price_tb_PreviewKeyDown" Visibility="Hidden"/>
+        <TextBox x:Name="Price_tb" HorizontalAlignment="Left" Margin="25,273,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" Height="24" PreviewTextInput="Price_tb_PreviewTextInput" PreviewKeyDown="Price_tb_PreviewKeyDown" TextChanged="Price_tb_TextChanged" Visibility="Hidden"/>
         <Image x:Name="img" HorizontalAlignment="Left" Height="100" Margin="404,10,0,0" VerticalAlignment="Top" Width="100" Visibility="Hidden"/>
         <Button x:Name="Add_btn" Content="Save" HorizontalAlignment="Left" Margin="19,323,0,0" VerticalAlignment="Top" Height="41" Width="81" Click="Add_btn_Click" Visibility="Visible"/>
         <ComboBox x:Name="User_cb" HorizontalAlignment="Left" Margin="18,145,0,0" VerticalAlignment="Top" Width="109" Height="19" Visibility="Hidden"/>
         <TextBox x:Name="Title_tb" HorizontalAlignment="Left" Margin="19,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
         <Label x:Name="ID" Content="Id:" HorizontalAlignment="Left" Margin="37,59,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="Id_tb" HorizontalAlignment="Center" Margin="0,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Id_tb" HorizontalAlignment="Center" Margin="0,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewTextInput="Id_tb_PreviewTextInput" PreviewKeyDown="Id_tb_PreviewKeyDown"/>
         <Button x:Name="Search_btn" Content="Search" HorizontalAlignment="Center" Margin="0,146,0,0" VerticalAlignment="Top" Click="Search_btn_Click"/>
     </Grid>
 </Window>

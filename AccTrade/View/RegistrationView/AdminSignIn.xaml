@@ -7,12 +7,12 @@
         mc:Ignorable="d"
         Title="AdminSignIn" Height="300" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <Label Content="Sign In Admin" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
-        <Button x:Name="SignIn_btn" Content="Sign In" HorizontalAlignment="Center" Margin="0,230,0,0" VerticalAlignment="Top" Height="27" Width="85" Click="SignIn_btn_Click"/>
-        <TextBox x:Name="Login_tb" HorizontalAlignment="Center" Margin="0,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
-        <PasswordBox x:Name="Password_tb" HorizontalAlignment="Center" Margin="0,137,0,0" VerticalAlignment="Top" Width="165"/>
-        <Label Content="Login:" HorizontalAlignment="Left" Margin="57,67,0,0" VerticalAlignment="Top"/>
-        <Label Content="Password:" HorizontalAlignment="Left" Margin="57,115,0,0" VerticalAlignment="Top"/>
+        <Label Content="Sign In Admin" HorizontalAlignment="Center" Margin="0,37,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
+        <Button x:Name="SignIn_btn" Content="Sign In" HorizontalAlignment="Center" Margin="0,209,0,0" VerticalAlignment="Top" Height="27" Width="84" Click="SignIn_btn_Click"/>
+        <TextBox x:Name="Login_tb" MaxLength="25" HorizontalAlignment="Center" Margin="0,117,0,0" VerticalAlignment="Top" Width="164" PreviewTextInput="Login_tb_PreviewTextInput" PreviewKeyDown="Login_tb_PreviewKeyDown"/>
+        <PasswordBox x:Name="Password_tb" MaxLength="25" HorizontalAlignment="Center" Margin="0,164,0,0" VerticalAlignment="Top" Width="164" PreviewTextInput="Login_tb_PreviewTextInput" PreviewKeyDown="Login_tb_PreviewKeyDown"/>
+        <Label Content="Login:" HorizontalAlignment="Left" Margin="57,94,0,0" VerticalAlignment="Top"/>
+        <Label Content="Password:" HorizontalAlignment="Left" Margin="57,142,0,0" VerticalAlignment="Top"/>
         <Button x:Name="Admin_btn" Content="User" HorizontalAlignment="Left" Margin="254,10,0,0" VerticalAlignment="Top" Click="User_btn_Click" />
 
     </Grid>

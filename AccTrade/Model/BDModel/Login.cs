@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System;
-
 public class Login
 {
     [Key]
@@ -11,7 +10,7 @@ public class Login
     public string? Username { get; set; }
     public Nullable<int> PhoneNumber { get; set; }
     public string? Password { get; set; }
-    public bool? isAdmin { get; set; }
+    public string? Role { get; set; }
     public string? Email { get; set; }
    
 }

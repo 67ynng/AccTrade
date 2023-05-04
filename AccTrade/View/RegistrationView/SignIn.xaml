@@ -111,8 +111,8 @@
         <Label Content="Sign In" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
         <Button x:Name="SignIn_btn" Content="Sign In" HorizontalAlignment="Center" Margin="0,189,0,0" VerticalAlignment="Top" Height="27" Width="85" Click="SignIn_btn_Click"/>
         <Button x:Name="SignUp_btn" Content="Sign Up" HorizontalAlignment="Center" Margin="0,221,0,0" VerticalAlignment="Top" Height="27" Width="84" Click="SignUp_btn_Click"/>
-        <TextBox x:Name="Login_tb" HorizontalAlignment="Center" Margin="0,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
-        <PasswordBox x:Name="Password_tb" HorizontalAlignment="Center" Margin="0,144,0,0" VerticalAlignment="Top" Width="165"/>
+        <TextBox x:Name="Login_tb" HorizontalAlignment="Center" Margin="0,104,0,0" MaxLength="50" VerticalAlignment="Top" Width="165" PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Login_tb_PreviewTextInput"/>
+        <PasswordBox x:Name="Password_tb" MaxLength="25" HorizontalAlignment="Center" Margin="0,144,0,0" VerticalAlignment="Top" Width="165" PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Login_tb_PreviewTextInput"/>
         <Label Content="Login:" HorizontalAlignment="Left" Margin="57,81,0,0" VerticalAlignment="Top"/>
         <Label Content="Password:" HorizontalAlignment="Left" Margin="57,122,0,0" VerticalAlignment="Top"/>
         <Button x:Name="Admin_btn" Content="Admin" HorizontalAlignment="Left" Margin="252,7,0,0" VerticalAlignment="Top" Click="Admin_btn_Click"/>

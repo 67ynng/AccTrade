@@ -14,69 +14,102 @@ namespace AccTrade.View.AdminView
         {
             InitializeComponent();
         }
-        private void OldGamename_tb_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        private void OldGamename_tb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             Regex inputRegex = new Regex(@"\d");
             Match match = inputRegex.Match(e.Text);
-            if ((sender as TextBox).Text.Length >= 50 || !match.Success)
+            if ((sender as TextBox).Text.Length >= 8 || !match.Success)
             {
                 e.Handled = true;
             }
         }
-        private void OldGamename_tb_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void OldGamename_tb_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.V && Keyboard.Modifiers == ModifierKeys.Control)
             {
+                if (Clipboard.ContainsText())
+                {
+                    string clipboardText = Clipboard.GetText();
+                    bool isNumeric = int.TryParse(clipboardText, out _);
+                    if (isNumeric)
+                    {
+                        OldGamename_tb.Text = clipboardText;
+                    }
+                }
                 e.Handled = true;
             }
-
         }
         private void Search_tn_Click(object sender, RoutedEventArgs e)
         {
-            int idd = Int32.Parse(OldGamename_tb.Text);
-            using (var context = new AppContext())
+            bool containsDigits = false;
+            foreach (char c in OldGamename_tb.Text)
             {
-                var products = context.Categories.Where(p => p.Id == idd).ToList();
-                if (products.Any())
+                if (Char.IsDigit(c))
                 {
-                    OldGamename_tb.Visibility= Visibility.Hidden;
-                    OldGame_lbl.Visibility= Visibility.Hidden;
-                    Search_tn.Visibility= Visibility.Hidden;
-                    NewGamename_tb.Visibility= Visibility.Visible;
-                    NewGame_lbl.Visibility= Visibility.Visible;
-                    Update_tn.Visibility= Visibility.Visible;
-                    NewGamename_tb.Text= OldGamename_tb.Text;
-                }
-                else
-                {
-                    MessageBox.Show("There wasn't this record.");
+                    containsDigits = true;
+                    break;
                 }
             }
+
+            if (containsDigits)
+            {
+                int idd = Int32.Parse(OldGamename_tb.Text);
+                using (var context = new AppContext())
+                {
+                    var products = context.Categories.Where(p => p.Id == idd).ToList();
+                    if (products.Any())
+                    {
+                        OldGamename_tb.Visibility= Visibility.Hidden;
+                        OldGame_lbl.Visibility= Visibility.Hidden;
+                        Search_tn.Visibility= Visibility.Hidden;
+                        NewGamename_tb.Visibility= Visibility.Visible;
+                        NewGame_lbl.Visibility= Visibility.Visible;
+                        Update_tn.Visibility= Visibility.Visible;
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("There wasn't this record.");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Enter id.");
+            }
+           
         }
         private void Update_tn_Click(object sender, RoutedEventArgs e)
         {
-            int idd = Int32.Parse(OldGamename_tb.Text);
-            using (var context = new AppContext())
+            if(NewGamename_tb.Text.Contains(""))
             {
-                var products = context.Categories.Where(p => p.Id == idd).ToList();
-                if (products.Any())
+                MessageBox.Show("Enter a name.");
+            }
+            else
+            {
+                using (var context = new AppContext())
                 {
-                    foreach (var product in products)
-                    {
-                        product.CategoryName = NewGamename_tb.Text;
+                    int idd = Int32.Parse(OldGamename_tb.Text);
+                    string NewName = NewGamename_tb.Text;
+                    Update upd = new Update();
 
+                    var existingGame = context.Categories.FirstOrDefault(g => g.CategoryName == NewName);
+
+                    if (existingGame != null)
+                    {
+                        MessageBox.Show("A game with this name already exists.");
                     }
-                    MessageBox.Show("update successful");
-                    context.SaveChanges();
-                    Close();
-                }
-                else
-                {
-                    MessageBox.Show("There wasn't this record.");
+                    else
+                    {
+                        upd.UpdateGame(idd, NewName);
+                        Close();
+                    }
                 }
             }
+           
+            
         }
 
-        
+
     }
 }

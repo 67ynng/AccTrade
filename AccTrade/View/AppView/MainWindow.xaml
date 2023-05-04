@@ -22,8 +22,8 @@
         </Grid.RowDefinitions>
         <Frame  x:Name="MyFrame" Background="White" NavigationUIVisibility="Hidden" Source="MainScreen.xaml"  Margin="102,0,0,0" Grid.RowSpan="2" MinHeight="200" MinWidth="200"/>
         <StackPanel HorizontalAlignment="Left" Width="100" Height="450" VerticalAlignment="Top" Margin="2,5,5,5" Grid.RowSpan="2">
-            <Button x:Name="Profile_btn" Margin="3,45,5,15" Content="Profile" Height="65" Width="85" Click="Profile_btn_Click"/>
             <Button x:Name="MainScreen_btn" Margin="3,5,5,15" Content="Main" Height="65" Width="85" Click="MainScreen_btn_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Background="White" BorderBrush="#FF585555" Foreground="Black"/>
+            <Button x:Name="Profile_btn" Margin="3,5,5,15" Content="Profile" Height="65" Width="85" Click="Profile_btn_Click"/>
             <Button x:Name="Add_btn" Margin="3,5,5,15" Content="Add" Height="65" Width="85" Click="Add_btn_Click" RenderTransformOrigin="0.5,0.5" Background="White" BorderBrush="Gray" Foreground="Black"/>
         </StackPanel>
 

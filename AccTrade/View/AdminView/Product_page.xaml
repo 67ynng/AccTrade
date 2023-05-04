@@ -21,7 +21,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
                 <DataGridTextColumn Header="Username" Binding="{Binding username}" />
-                <DataGridTextColumn Header="PhoneNumber" Binding="{Binding PhoneNumber}" />
+                <DataGridTextColumn Header="Price" Binding="{Binding Price}" />
                 <DataGridTextColumn Header="Title" Binding="{Binding title}" />
                 <DataGridTemplateColumn Header="Image">
                     <DataGridTemplateColumn.CellTemplate>
@@ -43,7 +43,6 @@
                         </Style>
                     </DataGridTextColumn.EditingElementStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Price" Binding="{Binding Price}" />
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="282" Margin="0,3,0,12" Grid.Row="1">

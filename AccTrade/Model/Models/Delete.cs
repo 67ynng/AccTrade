@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
-using AccTrade.View.AdminView;
+
 namespace AccTrade.Model.Models
 {
     public class Delete 
@@ -54,6 +50,24 @@ namespace AccTrade.Model.Models
                 {
                     var userToDelete = objectsToDelete.First();
                     dbContext.Categories.RemoveRange(objectsToDelete);
+                    dbContext.SaveChanges();
+                    MessageBox.Show("Record was deleted from database.");
+                }
+                else
+                {
+                    MessageBox.Show("There wasn't this record.");
+                }
+            }
+        }
+        public void DeleteRole(int Id)
+        {
+            using (var dbContext = new AppContext())
+            {
+                var objectsToDelete = dbContext.Roles.Where(p => p.Id == Id).ToList();
+                if (objectsToDelete.Any())
+                {
+                    var userToDelete = objectsToDelete.First();
+                    dbContext.Roles.RemoveRange(objectsToDelete);
                     dbContext.SaveChanges();
                     MessageBox.Show("Record was deleted from database.");
                 }

@@ -13,15 +13,14 @@
             <RowDefinition Height="274*"/>
             <RowDefinition Height="81*"/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="DataGridUsers"  RowHeight="30" IsReadOnly="True"  AutoGenerateColumns="False"  Margin="0,0,0,5" Background="{x:Null}" FontSize="16" BorderThickness="1,1,1,1" FontWeight="Bold">
+        <DataGrid x:Name="DataGridUsers"  RowHeight="30" IsReadOnly="True"  AutoGenerateColumns="False"  Margin="0,0,0,5" Background="{x:Null}" FontSize="16" BorderThickness="1,1,1,1" FontWeight="Bold" HorizontalAlignment="Left" Width="790">
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
                 <DataGridTextColumn Header="UserName" Binding="{Binding Username}" />
                 <DataGridTextColumn Header="PhoneNumber" Binding="{Binding PhoneNumber}" />
-                <DataGridTextColumn Header="Password" Binding="{Binding Password}" />
-                <DataGridTextColumn Header="Phone Number" Binding="{Binding PhoneNumber}" />
-                <DataGridTextColumn Header="Role" Binding="{Binding isAdmin}" />
+                <DataGridTextColumn Header="Password" Binding="{Binding Password}"/>
+                <DataGridTextColumn Header="Role" Binding="{Binding Role}" />
                 <DataGridTextColumn Header="Email" Binding="{Binding Email}" />
             </DataGrid.Columns>
         </DataGrid>

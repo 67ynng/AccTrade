@@ -1,19 +1,19 @@
 ﻿using AccTrade.Model.Models;
 using System.Windows;
+
 namespace AccTrade.View.AdminView
 {
-    public partial class CreateGameWindow : Window
+    public partial class CreateRole : Window
     {
-        public CreateGameWindow()
+        public CreateRole()
         {
             InitializeComponent();
         }
-
         private void Add_btn_Click(object sender, RoutedEventArgs e)
         {
-            string GameName = GameName_tb.Text;
+            string Role = GameName_tb.Text;
             Add add = new Add();
-            add.AddGame(GameName);
+            add.AddRole(Role);
             this.Close();
         }
     }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AccTrade.View.RegistrationView"
         mc:Ignorable="d"
-        Title="SignUp" Height="300" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="SignUp" Height="370" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -65,15 +65,19 @@
     </Window.Resources>
     <Grid Margin="0,-2,0,2">
         <Label Content="Sign Up" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
-        <Button Style="{DynamicResource ButtonStyle1}" x:Name="SignIn_btn" Content="Sign In" HorizontalAlignment="Center" Margin="0,215,0,0" VerticalAlignment="Top" Height="27" Width="84" Click="SignIn_btn_Click"/>
-        <TextBox x:Name="Login_tb" HorizontalAlignment="Center" Margin="0,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164"/>
-        <TextBox x:Name="Email_tb" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" Margin="0,134,0,0"/>
-        <PasswordBox x:Name="Password_tb" HorizontalAlignment="Center" Margin="0,175,0,0" VerticalAlignment="Top" Width="164"/>
+        <Button Style="{DynamicResource ButtonStyle1}" x:Name="SignIn_btn" Content="Sign In" HorizontalAlignment="Center" Margin="0,300,0,0" VerticalAlignment="Top" Height="27" Width="84" Click="SignIn_btn_Click"/>
+        <TextBox x:Name="Login_tb" HorizontalAlignment="Center" Margin="0,93,0,0" MaxLength="50" VerticalAlignment="Top" Width="164"  PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Application_PreviewTextInput"/>
+        <TextBox x:Name="Email_tb" HorizontalAlignment="Center" MaxLength="50" VerticalAlignment="Top" Width="164" Margin="0,134,0,0" PreviewKeyDown="Email_tb_PreviewKeyDown" PreviewTextInput="Email_tb_PreviewTextInput"/>
+        <PasswordBox x:Name="Password_tb" MaxLength="25" HorizontalAlignment="Center" Margin="0,175,0,0" VerticalAlignment="Top" Width="164" PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Application_PreviewTextInput"/>
         <Label Content="Login:" HorizontalAlignment="Left" Margin="57,70,0,0" VerticalAlignment="Top"/>
         <Label Content="Password:" HorizontalAlignment="Left" Margin="57,153,0,0" VerticalAlignment="Top"/>
-
         <Label Content="E-mail:" HorizontalAlignment="Left" Margin="57,112,0,0" VerticalAlignment="Top"/>
         <Button x:Name="Back_btn" Content="Back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Back_btn_Click"/>
+        <PasswordBox x:Name="PassConfirm_tb" MaxLength="25" HorizontalAlignment="Center" Margin="0,219,0,0" VerticalAlignment="Top" Width="164" PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Application_PreviewTextInput"/>
+        <Label Content="Confirm your password:" HorizontalAlignment="Left" Margin="57,197,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="PhoneNumber_tb" MaxLength="9" HorizontalAlignment="Center" Margin="0,264,0,0" VerticalAlignment="Top" Width="164" PreviewTextInput="PhoneNumber_tb_PreviewTextInput" PreviewKeyDown="PhoneNumber_tb_PreviewKeyDown"/>
+        <Label Content="Phone Number:" HorizontalAlignment="Left" Margin="57,242,0,0" VerticalAlignment="Top"/>
+        <Label Content="+48" HorizontalAlignment="Left" Margin="32,260,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

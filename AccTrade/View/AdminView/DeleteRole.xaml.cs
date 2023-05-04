@@ -1,20 +1,19 @@
-﻿using System;
+﻿using AccTrade.Model.Models;
+using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using AccTrade.Model.Models;
 
 namespace AccTrade.View.AdminView
 {
-    public partial class DeleteGameWindow : Window
+    public partial class DeleteRole : Window
     {
-        public DeleteGameWindow()
+        public DeleteRole()
         {
             InitializeComponent();
         }
-
         private void Add_btn_Click(object sender, RoutedEventArgs e)
         {
             bool containsDigits = false;
@@ -26,21 +25,30 @@ namespace AccTrade.View.AdminView
                     break;
                 }
             }
+
             if (containsDigits)
             {
                 int id = Int32.Parse(GameName_tb.Text);
-                using (var dbContext = new AppContext())
+                if (id == 1)
                 {
-                    var objectsToDelete = dbContext.Categories.Where(p => p.Id == id).ToList();
-                    if (objectsToDelete.Any())
+
+                    MessageBox.Show("You cannot delete this role");
+                }
+                else
+                {
+                    using (var dbContext = new AppContext())
                     {
-                        Delete del = new Delete();
-                        del.DeleteGame(id);
-                        Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("There wasn't this record.");
+                        var objectsToDelete = dbContext.Roles.Where(p => p.Id == id).ToList();
+                        if (objectsToDelete.Any())
+                        {
+                            Delete del = new Delete();
+                            del.DeleteRole(id);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("There wasn't this record.");
+                        }
                     }
                 }
             }
@@ -49,9 +57,9 @@ namespace AccTrade.View.AdminView
                 MessageBox.Show("Enter id");
             }
         }
-
         private void GameName_tb_PreviewKeyDown(object sender, KeyEventArgs e)
         {
+
             if (e.Key == Key.V && Keyboard.Modifiers == ModifierKeys.Control)
             {
                 if (Clipboard.ContainsText())
@@ -66,7 +74,6 @@ namespace AccTrade.View.AdminView
                 e.Handled = true;
             }
         }
-
         private void GameName_tb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             Regex inputRegex = new Regex(@"\d");

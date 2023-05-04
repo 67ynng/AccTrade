@@ -1,25 +1,15 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using AccTrade.Model.Models;
 using System.IO;
-using Microsoft.EntityFrameworkCore;
-using System.Threading;
-using System.Threading.Channels;
-using AccTrade.View.AdminView;
 
 namespace AccTrade.View
 {
@@ -33,16 +23,7 @@ namespace AccTrade.View
         byte[] imageByte;
         MediaPlayer mediaPlayer = new MediaPlayer();
         string filename;
-        private void PriceTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
-            Regex inputRegex = new Regex(@"\d");
-            Match match = inputRegex.Match(e.Text);
-            if ((sender as TextBox).Text.Length >= 4 || !match.Success)
-            {
-                e.Handled = true;
-            }
-
-        }
+        double inputValue;
         private void Open_btn_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -86,8 +67,6 @@ namespace AccTrade.View
                 }
                 else if (DescribeTb.Text == "" && Title_tb.Text == "" && GameBox.Text == "" && PriceTb.Text == "")
                     MessageBox.Show("Enter all data");
-                else if (imageByte == null)
-                    MessageBox.Show("Add a photo of your product");
                 else if (DescribeTb.Text == "")
                     MessageBox.Show("Enter describe");
                 else if (Title_tb.Text == "")
@@ -96,8 +75,6 @@ namespace AccTrade.View
                     MessageBox.Show("Choose game");
                 else if (PriceTb.Text == "")
                     MessageBox.Show("Enter price");
-
-
                 else
                 {
                     foreach (var login in db.Logins)
@@ -106,23 +83,21 @@ namespace AccTrade.View
                         user = userName;
                     }
                     string describe = DescribeTb.Text;
-                    int price = Int32.Parse(PriceTb.Text);
-                    
+                    double price = double.Parse(PriceTb.Text);
+                    double roundedValue = Math.Round(price, 2);
+
                     string game = GameBox.Text;
                     string title = Title_tb.Text;
                     DescribeTb.MaxLength= 400;
                     PriceTb.MaxLength= 4;
                     Add addimg = new Add();
-                    addimg.AddImage(imageByte, title, user, game, describe, price);
+                    addimg.AddImage(imageByte, title, user, game, describe, roundedValue);
                     MessageBox.Show("Your game was add!");
                     NavigationService navigationService = NavigationService.GetNavigationService(this);
                     navigationService.Navigate(new Uri("View\\AppView\\MainScreen.xaml", UriKind.Relative));
 
                 }
-
             }
-
-
 
         }
 
@@ -145,6 +120,42 @@ namespace AccTrade.View
             if (e.Key == Key.Enter)
             {
                 e.Handled = true;
+            }
+        }
+        private void PriceTb_PreviewTextInput_1(object sender, TextCompositionEventArgs e)
+        { // Запрещаем ввод любых символов, кроме цифр и запятой
+            Regex regex = new Regex("[0-9,]+");
+            bool isValid = regex.IsMatch(e.Text);
+
+            // Проверяем, что количество символов не превышает 6 (4 цифры + запятая + 2 цифры после запятой)
+            if (((TextBox)sender).Text.Replace(",", "").Length >= 4 && ((TextBox)sender).Text.Contains(",") == false)
+            {
+                // Если после ввода еще одной цифры количество символов больше 4, ставим запятую
+                if ((((TextBox)sender).CaretIndex <= 4) && (((TextBox)sender).Text.Length >= 4))
+                {
+                    ((TextBox)sender).Text += ",";
+                    ((TextBox)sender).CaretIndex = ((TextBox)sender).Text.Length;
+                }
+            }
+            else if (((TextBox)sender).Text.Contains(","))
+            {
+                // Если вводим цифры после запятой, проверяем количество символов после запятой
+                int indexOfDecimalPoint = ((TextBox)sender).Text.IndexOf(",");
+                if (indexOfDecimalPoint >= 0 && ((TextBox)sender).Text.Substring(indexOfDecimalPoint + 1).Length >= 2)
+                {
+                    isValid = false;
+                }
+            }
+
+            e.Handled = !isValid;
+        }
+
+        private void PriceTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (PriceTb.Text.Length == 7 && !PriceTb.Text.Contains(","))
+            {
+                PriceTb.Text = PriceTb.Text.Insert(4, ",");
+                PriceTb.CaretIndex = PriceTb.Text.Length;
             }
         }
     }

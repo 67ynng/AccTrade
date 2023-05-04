@@ -1,8 +1,6 @@
 ﻿using System.Windows;  
 namespace AccTrade.View;
 using AccTrade.View.AppView;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.SqlServer;
 
 
 public partial class MainWindow : Window

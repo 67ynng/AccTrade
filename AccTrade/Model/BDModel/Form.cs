@@ -15,5 +15,5 @@ public class Form
     public byte[]? ImageData { get; set; }
     public string? GameCategory { get; set; }
     public string? Describe { get; set; }
-    public int? Price { get; set; }
+    public double? Price { get; set; }
 }

@@ -1,25 +1,13 @@
 ﻿using AccTrade.View.AppView;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using AccTrade.Model;
-using System.IO;
+using DevExpress.Internal;
+using System.Windows.Input;
+using AccTrade.Model.Models;
 
 namespace AccTrade.View.RegistrationView
 {
-    /// <summary>
-    /// Логика взаимодействия для AdminSignIn.xaml
-    /// </summary>
     public partial class AdminSignIn : Window
     {
         public AdminSignIn()
@@ -30,20 +18,31 @@ namespace AccTrade.View.RegistrationView
         {
             string username = Login_tb.Text;
             string password = md5.hashPassword(Password_tb.Password);
-            using (AppContext db = new AppContext())
+            if (Login_tb.Text == "")
+                MessageBox.Show("Enter your admin username");
+            else if (Password_tb.Password == "")
+                MessageBox.Show("Enter password");
+            else if (Login_tb.Text != "" && Password_tb.Password != "")
             {
-                var admin = db.Logins.Where((u) => u.isAdmin == true ).FirstOrDefault();
-                if(admin != null)
+                using (AppContext db = new AppContext())
                 {
-                    AdminMainWindow adm = new AdminMainWindow();
-                    Close();
-                    adm.Show();
+                    var user = db.Logins.Where((u) => u.Username == username && u.Password == password && u.Role == "admin").FirstOrDefault();
+                    if (user != null)
+                    {
+                        Session.UserId = user.Id;
+                        AdminMainWindow main = new AdminMainWindow();
+                        Close();
+                        main.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Wrong data");
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("You are not admin");
-                }
-
+            }
+            else
+            {
+                MessageBox.Show("Enter all data!");
             }
         }
         private void User_btn_Click(object sender, RoutedEventArgs e)
@@ -53,9 +52,31 @@ namespace AccTrade.View.RegistrationView
             sign.Show();
         }
 
-        private void FACode_tb_TextChanged(object sender, TextChangedEventArgs e)
-        {
 
+        private void Login_tb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            char[] forbiddenChars = new char[] { '|', '@', '.', '#', '\'', '`', '/', '\\', '{', '}', '[', ']', ';', '>', '<', ',', ':', ';', '$', '!', '%', '^', '&', '*', '(', ')', '_', '"', '-', ',', '+', '=', '?' };
+            if (forbiddenChars.Contains(e.Text[0]))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void Login_tb_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.V && Keyboard.Modifiers == ModifierKeys.Control && e.Key == Key.Space)
+            {
+                if (Clipboard.ContainsText())
+                {
+                    char[] forbiddenChars = new char[] { '|', '@', '.', '#', '\'', '`', '/', '\\', '{', '}', '[', ']', ';', '>', '<', ',', ':', ';', '$', '!', '%', '^', '&', '*', '(', ')', '_', '"', '-', ',', '+', '=', '?' };
+                    string clipboardText = Clipboard.GetText();
+                    if (forbiddenChars.Any(c => clipboardText.Contains(c)))
+                    {
+                        e.Handled = true;
+                        MessageBox.Show("Punctuation and special characters are not allowed");
+                    }
+                }
+            }
         }
     }
 }

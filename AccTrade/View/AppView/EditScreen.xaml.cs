@@ -1,22 +1,14 @@
-﻿using AccTrade.Model.Models;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace AccTrade.View.AppView
 {
@@ -109,7 +101,9 @@ namespace AccTrade.View.AppView
                         product.title= Title_tb.Text;
                         product.Describe = DescribeTb.Text;
                         product.GameCategory  = GameBox.Text;
-                        product.Price = Int32.Parse(PriceTb.Text);
+                        double price = double.Parse(PriceTb.Text);
+                        double roundedValue = Math.Round(price, 2);
+                        product.Price = roundedValue;
                         product.ImageData = imageByte;
                     }
 
@@ -126,12 +120,30 @@ namespace AccTrade.View.AppView
         }
         private void PriceTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            Regex inputRegex = new Regex(@"\d");
-            Match match = inputRegex.Match(e.Text);
-            if ((sender as TextBox).Text.Length >= 4 || !match.Success)
+            Regex regex = new Regex("[0-9,]+");
+            bool isValid = regex.IsMatch(e.Text);
+
+            // Проверяем, что количество символов не превышает 6 (4 цифры + запятая + 2 цифры после запятой)
+            if (((TextBox)sender).Text.Replace(",", "").Length >= 4 && ((TextBox)sender).Text.Contains(",") == false)
             {
-                e.Handled = true;
+                // Если после ввода еще одной цифры количество символов больше 4, ставим запятую
+                if ((((TextBox)sender).CaretIndex <= 4) && (((TextBox)sender).Text.Length >= 4))
+                {
+                    ((TextBox)sender).Text += ",";
+                    ((TextBox)sender).CaretIndex = ((TextBox)sender).Text.Length;
+                }
             }
+            else if (((TextBox)sender).Text.Contains(","))
+            {
+                // Если вводим цифры после запятой, проверяем количество символов после запятой
+                int indexOfDecimalPoint = ((TextBox)sender).Text.IndexOf(",");
+                if (indexOfDecimalPoint >= 0 && ((TextBox)sender).Text.Substring(indexOfDecimalPoint + 1).Length >= 2)
+                {
+                    isValid = false;
+                }
+            }
+
+            e.Handled = !isValid;
         }
 
         private void PriceTb_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -140,11 +152,15 @@ namespace AccTrade.View.AppView
             {
                 e.Handled = true;
             }
-            if (e.Key == Key.Enter)
-            {
-                e.Handled = true;
-            }
+        }
 
+        private void PriceTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (PriceTb.Text.Length == 7 && !PriceTb.Text.Contains(","))
+            {
+                PriceTb.Text = PriceTb.Text.Insert(4, ",");
+                PriceTb.CaretIndex = PriceTb.Text.Length;
+            }
         }
     }
 }

@@ -14,8 +14,6 @@ namespace AccTrade.View.AdminView
 {
     public partial class AddProductWindow : Window
     {
-
-        
         public AddProductWindow()
         {
             InitializeComponent();
@@ -25,12 +23,31 @@ namespace AccTrade.View.AdminView
         string filename;
         private void Price_tb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            Regex inputRegex = new Regex(@"\d");
-            Match match = inputRegex.Match(e.Text);
-            if ((sender as TextBox).Text.Length >= 4 || !match.Success)
+            // Запрещаем ввод любых символов, кроме цифр и запятой
+            Regex regex = new Regex("[0-9,]+");
+            bool isValid = regex.IsMatch(e.Text);
+
+            // Проверяем, что количество символов не превышает 6 (4 цифры + запятая + 2 цифры после запятой)
+            if (((TextBox)sender).Text.Replace(",", "").Length >= 4 && ((TextBox)sender).Text.Contains(",") == false)
             {
-                e.Handled = true;
+                // Если после ввода еще одной цифры количество символов больше 4, ставим запятую
+                if ((((TextBox)sender).CaretIndex <= 4) && (((TextBox)sender).Text.Length >= 4))
+                {
+                    ((TextBox)sender).Text += ",";
+                    ((TextBox)sender).CaretIndex = ((TextBox)sender).Text.Length;
+                }
             }
+            else if (((TextBox)sender).Text.Contains(","))
+            {
+                // Если вводим цифры после запятой, проверяем количество символов после запятой
+                int indexOfDecimalPoint = ((TextBox)sender).Text.IndexOf(",");
+                if (indexOfDecimalPoint >= 0 && ((TextBox)sender).Text.Substring(indexOfDecimalPoint + 1).Length >= 2)
+                {
+                    isValid = false;
+                }
+            }
+
+            e.Handled = !isValid;
         }
         private void open_btn_Click(object sender, RoutedEventArgs e)
         {
@@ -58,30 +75,33 @@ namespace AccTrade.View.AdminView
         {
 
             string describe = Describe_tb.Text;
-            int price = Int32.Parse(Price_tb.Text);
+            
             string game = gamecategory_cb.Text;
-          
             string username = User_cb.Text;
             string title = Title_tb.Text;
             Describe_tb.MaxLength= 400;
-            Price_tb.MaxLength= 4;
             if (username == "admin")
-            {
                 MessageBox.Show("This user can't add a product");
-            }
-            else if(title != null && price != 0 && describe !=null && game != null & username != null) 
+            else if (Price_tb.Text == "")
+                MessageBox.Show("Enter a price");
+            else if (title == "")
+                MessageBox.Show("Enter title");
+            else if (describe == "")
+                MessageBox.Show("Enter describe");
+            else if (game == "")
+                MessageBox.Show("Pick game");
+            else if (username == "")
+                MessageBox.Show("Enter username");
+            else
             {
-                
+                double price = double.Parse(Price_tb.Text);
+                double roundedValue = Math.Round(price, 2);
                 using (AppContext db = new AppContext())
                 {
                     Add addimg = new Add();
-                    addimg.AddImage(imageByte, title, username, game, describe, price);
+                    addimg.AddProduct(imageByte, title, username, game, describe, roundedValue);
                     this.Close();
                 }
-            }
-            else
-            {
-                MessageBox.Show("Enter all data");
             }
         }
 
@@ -146,6 +166,16 @@ namespace AccTrade.View.AdminView
         private void Save_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Price_tb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+            if (Price_tb.Text.Length == 7 && !Price_tb.Text.Contains(","))
+            {
+                Price_tb.Text = Price_tb.Text.Insert(4, ",");
+                Price_tb.CaretIndex = Price_tb.Text.Length;
+            }
         }
     }
 }

@@ -1,19 +1,11 @@
 ﻿using System.Linq;
 using AccTrade.Model;
 using System.Windows;
-using System.Threading;
-using Microsoft.Win32;
-using System.Diagnostics;
-using AccTrade.View.AppView;
-using System.Windows.Controls.Ribbon;
 using AccTrade.Model.Models;
-using AccTrade.View.AdminView;
+using System.Windows.Input;
 
 namespace AccTrade.View.RegistrationView
 {
-    /// <summary>
-    /// Логика взаимодействия для SignIn.xaml
-    /// </summary>
     public partial class SignIn : Window
     {
 
@@ -32,13 +24,12 @@ namespace AccTrade.View.RegistrationView
         {
 
             string username = Login_tb.Text;
-            string password = md5.hashPassword(Password_tb.Password);
+            string password = md5.hashPassword(Password_tb.Password.ToLower());
             if (Login_tb.Text != "" && Password_tb.Password != "")
             {
                 using (AppContext db = new AppContext())
                 {
-                  
-                    var user = db.Logins.Where((u) => u.Username == username && u.Password == password).FirstOrDefault();
+                    var user = db.Logins.Where((u) => u.Username == username && u.Password == password && u.Role == "user").FirstOrDefault();
                     if (user != null)
                     {
                         Session.UserId = user.Id;
@@ -50,14 +41,8 @@ namespace AccTrade.View.RegistrationView
                     {
                         MessageBox.Show("Wrong data");
                     }
-
                 }
             }
-            else if (Login_tb.Text == "admin")
-            {
-                MessageBox.Show("You can't login here as administrator"); 
-            }
-
             else
             {
                 MessageBox.Show("Enter all data!");
@@ -75,19 +60,74 @@ namespace AccTrade.View.RegistrationView
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            using(AppContext db = new AppContext())
+            using (AppContext db = new AppContext())
             {
-                if(!db.Logins.Any(u => u.Username == "admin"))
-                { 
+                db.Database.EnsureCreated();
+                if (!db.Logins.Any(u => u.Username == "admin") && !db.Logins.Any(u => u.Username == "user") && !db.Roles.Any(u => u.Role == "admin") && !db.Roles.Any(u => u.Role == "user") && !db.Categories.Any(u => u.CategoryName == "First Game"))
+                {
                     var adminLogin = new Login
                     {
                         Username = "admin",
-                        Password = "admin",
-                        isAdmin = true
+                        Password = "21232f297a57a5a743894a0e4a801fc3",
+                        Role = "admin",
                     };
-                    db.Logins.Add(adminLogin);
+                    var userlogin = new Login
+                    {
+                        Username = "user",
+                        PhoneNumber = 987654321,
+                        Password = "ee11cbb19052e40b07aac0ca060c23ee",
+                        Email = "user@gmail.com",
+                        Role = "user",
+                    };
+                    var admin = new Roles
+                    {
+                        Role = "admin",
+
+                    };
+                    var user = new Roles
+                    {
+                        Role = "user",
+
+                    };
+                    var game = new Category
+                    {
+                        CategoryName = "FirstName"
+                    };
+                    db.Logins.AddRange(adminLogin, userlogin);
+                    db.Categories.Add(game);
+                    db.Roles.AddRange(admin, user);
                     db.SaveChanges();
                 }
+            }
+        }
+
+        private void Login_tb_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.V && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                if (Clipboard.ContainsText())
+                {
+                    char[] forbiddenChars = new char[] { '|', '@', '.', '#', '\'', '`', '/', '\\', '{', '}', '[', ']', ';', '>', '<', ',', ':', ';', '$', '!', '%', '^', '&', '*', '(', ')', '_', '"', '-', ',', '+', '=', '?' };
+                    string clipboardText = Clipboard.GetText();
+                    if (forbiddenChars.Any(c => clipboardText.Contains(c)))
+                    {
+                        e.Handled = true;
+                        MessageBox.Show("Punctuation and special characters are not allowed");
+                    }
+                }
+            }
+            if (e.Key == Key.Space)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void Login_tb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            char[] forbiddenChars = new char[] { '|', '@', '.', '#', '\'', '`', '/', '\\', '{', '}', '[', ']', ';', '>', '<', ',', ':', ';', '$', '!', '%', '^', '&', '*', '(', ')', '_', '"', '-', ',', '+', '=', '?' };
+            if (forbiddenChars.Contains(e.Text[0]))
+            {
+                e.Handled = true;
             }
         }
     }

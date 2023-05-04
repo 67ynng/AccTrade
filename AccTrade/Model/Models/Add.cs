@@ -1,21 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace AccTrade.Model.Models
 {
     class Add
     {
-        public void AddImage(byte[]? imageData, string? title, string? username, string? gameCategory, string? describe, int? price)
+        public void AddImage(byte[]? imageData, string? title, string? username, string? gameCategory, string? describe,double? price)
         {
             using (var db = new AppContext())
             {
                 var currentUser = db.Logins.Find(Session.UserId);
                 if (currentUser != null) 
                 {
+                        
                     var image = new Form
                     {
 
@@ -30,34 +28,44 @@ namespace AccTrade.Model.Models
                     };
                     db.Forms.AddRange(image);
                     db.SaveChanges();
-                }  
+                }
+  
             }
         }
-        public void AddUsers(string? name,int? phonenum, string? password, string? email, bool? isAdmin)
+        public void AddProduct(byte[]? imageData, string? title, string? username, string? gameCategory, string? describe, double? price)
         {
             using (var db = new AppContext())
             {
-                bool isUserExists = db.Logins.Any(u => u.Username == name || u.Email == email|| u.PhoneNumber == phonenum);
-                if (isUserExists)
+                var image = new Form
                 {
-                    MessageBox.Show("User is already in DataBase");
-                }
-                else
+
+                    username = username,
+                    title = title,
+                    ImageData = imageData,
+                    GameCategory = gameCategory,
+                    Describe = describe,
+                    Price = price
+                };
+                db.Forms.AddRange(image);
+                db.SaveChanges();
+
+            }
+        }
+        public void AddUsers(string? name,int? phonenum, string? password, string? email,string? Role)
+        {
+            using (var db = new AppContext())
+            {
+                var users = new Login
                 {
-                    var users = new Login
-                    {
-                        Username = name,
-                        PhoneNumber = phonenum,
-                        Password = password,
-                        Email = email,
-                        isAdmin = isAdmin
+                    Username = name,
+                    PhoneNumber = phonenum,
+                    Password = password,
+                    Email = email,
+                    Role = Role
 
-                    };
-                    MessageBox.Show("User was added in DataBase");
-                    db.Logins.AddRange(users);
-                    db.SaveChanges();
-                }
-
+                };
+                db.Logins.AddRange(users);
+                db.SaveChanges();
             }
         }
         public void AddGame(string? GameName)
@@ -83,16 +91,45 @@ namespace AccTrade.Model.Models
 
             }
         }
+        public void AddRole(string? GameName)
+        {
+            using (var db = new AppContext())
+            {
+                bool isUserExists = db.Roles.Any(u => u.Role == GameName);
+                if (isUserExists)
+                {
+                    MessageBox.Show("Role is already in DataBase");
+                }
+                else
+                {
+                    var game = new Roles
+                    {
+                        Role = GameName,
+
+                    };
+                    db.Roles.AddRange(game);
+                    db.SaveChanges();
+                }
+            }
+        }
         public void AddNumber(int Number)
         {
             using (var db = new AppContext())
             {
-                var phoneNum = new Login
+                bool isUserExists = db.Logins.Any(u => u.PhoneNumber == Number);
+                if (isUserExists)
                 {
-                    PhoneNumber = Number
-                };
-                db.Logins.AddRange(phoneNum);
-                db.SaveChanges();
+                    MessageBox.Show("Number is already in DataBase");
+                }
+                else
+                {
+                    var phoneNum = new Login
+                    {
+                        PhoneNumber = Number
+                    };
+                    db.Logins.AddRange(phoneNum);
+                    db.SaveChanges();
+                }
             }
         }
     }

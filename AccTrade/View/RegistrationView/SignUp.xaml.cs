@@ -3,58 +3,102 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 using AccTrade.Model;
-using Microsoft.EntityFrameworkCore.SqlServer;
+using AccTrade.Model.Models;
+
 namespace AccTrade.View.RegistrationView
 {
-    /// <summary>
-    /// Логика взаимодействия для SignUp.xaml
-    /// </summary>
     public partial class SignUp : Window
     {
         public SignUp()
         {
             InitializeComponent();
         }
+        private string myVariable;
+        private void Application_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            char[] forbiddenChars = new char[] { '|', '@', '.','#', '\'', '`', '/', '\\', '{', '}', '[', ']', ';', '>', '<', ',', ':', ';', '$', '!', '%', '^', '&', '*', '(', ')', '_', '"', '-',',','+','=','?'};
+            if (forbiddenChars.Contains(e.Text[0]))
+            {
+                e.Handled = true;
+            }
+        }
+        //private void Application_PreviewKeyDown(object sender, KeyEventArgs e)
+        //{
+        //    // Проверяем, является ли нажатая комбинация клавиш CTRL + V
+        //    if (e.Key == Key.V && Keyboard.Modifiers == ModifierKeys.Control)
+        //    {
+        //        // Получаем вставляемый текст из буфера обмена
+        //        string clipboardText = Clipboard.GetText();
 
+        //        // Удаляем запрещенные символы из вставляемого текста
+        //        char[] forbiddenChars = new char[] { '|', '@', '.', '#', '\'', '`', '/', '\\', '{', '}', '[', ']', ';', '>', '<', ',', ':', ';', '$', '!', '%', '^', '&', '*', '(', ')', '_', '"', '-', ',', '+', '=', '?' };
+        //        clipboardText = new string(clipboardText.Where(c => !forbiddenChars.Contains(c)).ToArray());
+
+        //        // Вставляем отредактированный текст в TextBox
+        //        var textBox = (TextBox)sender;
+        //        var text = textBox.Text.Remove(textBox.SelectionStart, textBox.SelectionLength);
+        //        textBox.Text = text.Insert(textBox.SelectionStart, clipboardText);
+
+        //        // Отменяем обработку клавиши, чтобы символы не вставились в TextBox
+        //        e.Handled = true;
+        //    }
+        //}
         private void SignIn_btn_Click(object sender, RoutedEventArgs e)
         {
             new Thread(() =>
             {
                 Dispatcher.Invoke(() =>
                 {
+                    
+                    myVariable = PhoneNumber_tb.Text;
+                    string trimmedText = myVariable.Replace(" ", "");
                     string username = Login_tb.Text;
                     string email = Email_tb.Text;
-                    string password = md5.hashPassword(Password_tb.Password);
-
-                    if (email == "" || password == "" || username == "")
+                    string password = md5.hashPassword(Password_tb.Password.ToLower());
+                    string passwordConfirm = md5.hashPassword(PassConfirm_tb.Password.ToLower());
+                    int phoneNum = 0;
+                    
+                    string role = "User";
+                    if (email == "" || password == "" || username == "" || PassConfirm_tb.Password == "" || PhoneNumber_tb.Text == "")
                         MessageBox.Show("All fields must be filled!");
                     else if (!Regex.IsMatch(email, @"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$"))
                         MessageBox.Show("Wrong mail format!");
-                    else if (email.Length < 13)
-                        MessageBox.Show("Email length cannot be less than 13 characters!");
+                    else if (password != passwordConfirm)
+                        MessageBox.Show("Password mismatch");
+                    else if (trimmedText.Length < 9 || trimmedText.Length > 10)
+                        MessageBox.Show("Your phone number must be no more than 9-10 characters");
                     else
                     {
                         using (AppContext db = new AppContext())
                         {
-                            db.Database.EnsureCreated();
+                            int pp = Convert.ToInt32(trimmedText);
+
+                          
                             bool isExists = db.Logins.Any(value => value.Email == email);
                             bool isExists2 = db.Logins.Any(value => value.Username == username);
-
+                            bool phonenumcheck = db.Logins.Any(value => value.PhoneNumber == phoneNum);
                             if (isExists)
                                 MessageBox.Show("This mail is already in the database!");
                             else if (isExists2)
                                 MessageBox.Show("This username is already in the database!");
+                            else if (phonenumcheck)
+                                MessageBox.Show("This phone number is already in the database!");
                             else
                             {
-                                var user = new Login
+                                var add = new Login
                                 {
+                                    Role = role,
                                     Username = username,
                                     Email = email,
-                                    Password = password,
-                                    isAdmin= false
+                                    Password = passwordConfirm,
+
+                                    PhoneNumber = pp,
+                                    
                                 };
-                                db.AddRange(user);
+                                db.AddRange(add);
                                 db.SaveChanges();
                                 MessageBox.Show("Registration completed successfully!");
                                 SignIn log = new SignIn();
@@ -74,6 +118,97 @@ namespace AccTrade.View.RegistrationView
             SignIn sign = new SignIn();
             Close();
             sign.Show();
+        }
+
+        private void PhoneNumber_tb_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.V && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                if (Clipboard.ContainsText())
+                {
+                    char[] forbiddenChars = new char[] { '|', '@', '.', '#', '\'', '`', '/', '\\', '{', '}', '[', ']', ';', '>', '<', ',', ':', ';', '$', '!', '%', '^', '&', '*', '(', ')', '_', '"', '-', ',', '+', '=', '?' };
+                    string clipboardText = Clipboard.GetText();
+                    if (forbiddenChars.Any(c => clipboardText.Contains(c)))
+                    {
+                        e.Handled = true;
+                    }
+                }
+            }
+            if (e.Key == Key.Space)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void PhoneNumber_tb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex inputRegex = new Regex(@"\d");
+            Match match = inputRegex.Match(e.Text);
+            if (!match.Success || e.Text == " ")
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void Email_tb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            char[] forbiddenChars = new char[] { '|', '#', '\'', '`', '/', '\\', '{', '}', '[', ']', ';', '>', '<', ',', ':', ';', '$', '!', '%', '^', '&', '*', '(', ')', '_', '"', '-', ',', '+', '=', '?' };
+            if (forbiddenChars.Contains(e.Text[0]))
+            {
+                MessageBox.Show("Punctuation and special characters are not allowed");
+                e.Handled = true;
+            }
+        }
+
+        private void Login_tb_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            char[] forbiddenChars = new char[] { '|', '@','.', '#', '\'', '`', '/', '\\', '{', '}', '[', ']', ';', '>', '<', ',', ':', ';', '$', '!', '%', '^', '&', '*', '(', ')', '_', '"', '-', ',', '+', '=', '?' };
+            if (forbiddenChars.Contains(e.Text[0]))
+            {
+                MessageBox.Show("Punctuation and special characters are not allowed");
+                e.Handled = true;
+            }
+        }
+        private void Login_tb_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.V && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                if (Clipboard.ContainsText())
+                {
+                    char[] forbiddenChars = new char[] { '|', '@', '.', '#', '\'', '`', '/', '\\', '{', '}', '[', ']', ';', '>', '<', ',', ':', ';', '$', '!', '%', '^', '&', '*', '(', ')', '_', '"', '-', ',', '+', '=', '?' };
+                    string clipboardText = Clipboard.GetText();
+                    if (forbiddenChars.Any(c => clipboardText.Contains(c)))
+                    {
+                        MessageBox.Show("Punctuation and special characters are not allowed");
+                        e.Handled = true;
+                    }
+                }
+            }
+            if (e.Key == Key.Space)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void Email_tb_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.V && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                if (Clipboard.ContainsText())
+                {
+                    char[] forbiddenChars = new char[] { '|', '#', '\'', '`', '/', '\\', '{', '}', '[', ']', ';', '>', '<', ',', ':', ';', '$', '!', '%', '^', '&', '*', '(', ')', '_', '"', '-', ',', '+', '=', '?' };
+                    string clipboardText = Clipboard.GetText();
+                    if (forbiddenChars.Any(c => clipboardText.Contains(c)))
+                    {
+                        MessageBox.Show("Punctuation and special characters are not allowed");
+                        e.Handled = true;
+                    }
+                }
+            }
+            if (e.Key == Key.Space)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

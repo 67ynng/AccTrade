@@ -8,14 +8,19 @@
         Title="Create" Height="400" Width="600" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
         <Button x:Name="open_btn" Content="Open" HorizontalAlignment="Left" Margin="18,9,0,0" VerticalAlignment="Top" Height="51" Width="61" Click="open_btn_Click"/>
-        <TextBox x:Name="Describe_tb" AcceptsReturn="True" HorizontalAlignment="Left" MaxLength="400" Margin="25,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="320" Height="74"/>
+        <TextBox x:Name="Describe_tb" AcceptsReturn="True" HorizontalAlignment="Left" MaxLength="400" Margin="18,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="320" Height="74"/>
         <ComboBox x:Name="gamecategory_cb" HorizontalAlignment="Left" Margin="172,145,0,0" VerticalAlignment="Top" Width="109" Height="19"/>
-        <TextBox x:Name="Price_tb" Text="0"  MaxLength="4" HorizontalAlignment="Left" Margin="25,273,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" Height="24" PreviewTextInput="Price_tb_PreviewTextInput" PreviewKeyDown="Price_tb_PreviewKeyDown" />
+        <TextBox x:Name="Price_tb" HorizontalAlignment="Left" Margin="25,287,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" Height="24" PreviewTextInput="Price_tb_PreviewTextInput" PreviewKeyDown="Price_tb_PreviewKeyDown" TextChanged="Price_tb_TextChanged" />
         <Image x:Name="img" HorizontalAlignment="Left" Height="100" Margin="404,10,0,0" VerticalAlignment="Top" Width="100"/>
-        <Button x:Name="Add_btn" Content="Add" HorizontalAlignment="Left" Margin="25,326,0,0" VerticalAlignment="Top" Height="45" Width="95" Click="Add_btn_Click"/>
+        <Button x:Name="Add_btn" Content="Add" HorizontalAlignment="Left" Margin="19,326,0,0" VerticalAlignment="Top" Height="45" Width="95" Click="Add_btn_Click"/>
         <ComboBox x:Name="User_cb" HorizontalAlignment="Left" Margin="18,145,0,0" VerticalAlignment="Top" Width="109" Height="19"/>
         <TextBox x:Name="Title_tb" HorizontalAlignment="Left" Margin="19,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="25,326,0,0" VerticalAlignment="Top" Height="45" Width="95" Click="Save_Click" Visibility="Hidden"/>
+        <Label Content="Title" HorizontalAlignment="Left" Margin="8,68,0,0" VerticalAlignment="Top"/>
+        <Label Content="User:" HorizontalAlignment="Left" Margin="9,119,0,0" VerticalAlignment="Top"/>
+        <Label Content="Game:" HorizontalAlignment="Left" Margin="163,119,0,0" VerticalAlignment="Top"/>
+        <Label Content="Describe:" HorizontalAlignment="Left" Margin="9,164,0,0" VerticalAlignment="Top"/>
+        <Label Content="Price:" HorizontalAlignment="Left" Margin="10,263,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

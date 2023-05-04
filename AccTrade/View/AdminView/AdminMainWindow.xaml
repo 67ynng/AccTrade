@@ -10,7 +10,8 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" MinWidth="76"/>
             <ColumnDefinition Width="Auto" MinWidth="70"/>
-            <ColumnDefinition Width="654"/>
+            <ColumnDefinition Width="Auto" MinWidth="79"/>
+            <ColumnDefinition Width="563"/>
         </Grid.ColumnDefinitions>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -24,8 +25,9 @@
         </Grid.RowDefinitions>
         <Button x:Name="User_btn" Content="Users" HorizontalAlignment="Left" VerticalAlignment="Center" Height="47" Width="70" Click="User_btn_Click" />
         <Button x:Name="Product_btn" Content="Product" HorizontalAlignment="Center" VerticalAlignment="Center" Height="47" Width="70" Grid.Column="1" Click="Product_btn_Click" />
-        <Button x:Name="Games_btn" Content="Games" HorizontalAlignment="Left" VerticalAlignment="Center" Height="47" Width="70" Grid.Column="2" Margin="6,0,0,0" Click="Categories_Click" />
-        <Frame x:Name="frame" Background="Lime" Grid.Row="1" Grid.ColumnSpan="3" NavigationUIVisibility="Hidden" Source="UserPage.xaml"  />
+        <Button x:Name="Games_btn" Content="Games" HorizontalAlignment="Center" VerticalAlignment="Center" Height="47" Width="70" Grid.Column="2" Click="Categories_Click" />
+        <Frame x:Name="frame" Background="Lime" Grid.Row="1" Grid.ColumnSpan="4" NavigationUIVisibility="Hidden" Source="UserPage.xaml"  />
+        <Button x:Name="Role" Content="Role" HorizontalAlignment="Left" VerticalAlignment="Center" Height="47" Width="70" Grid.Column="3" Margin="6,0,0,0" Click="Role_Click" />
 
 
     </Grid>
