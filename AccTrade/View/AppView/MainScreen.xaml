@@ -7,7 +7,16 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MainScreen">
-    <Grid Background="Green" Loaded="Grid_Loaded">
+    <Grid  Loaded="Grid_Loaded">
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#61a6f9" Offset="-0.25" />
+                <GradientStop Color="#b965e4" Offset="0.25" />
+                <GradientStop Color="#eb88b1" Offset="0.50" />
+                <GradientStop Color="#f5c05a" Offset="1" />
+            </LinearGradientBrush>
+        </Grid.Background>
+
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="74*"/>

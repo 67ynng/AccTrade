@@ -12,18 +12,20 @@
         <Border>
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#4496c6" Offset="0.0" />
-                    <GradientStop Color="#50689f" Offset="0.25" />
-                    <GradientStop Color="#d85b6d" Offset="1" />
+                    <GradientStop Color="#61a6f9" Offset="-0.25" />
+                    <GradientStop Color="#b965e4" Offset="0.25" />
+                    <GradientStop Color="#eb88b1" Offset="0.50" />
+                    <GradientStop Color="#f5c05a" Offset="1" />
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
         <Border MinWidth="50" MaxWidth="300" Margin="25" Padding="20" CornerRadius="10">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#4496c6" Offset="0.0" />
-                    <GradientStop Color="#50689f" Offset="0.25" />
-                    <GradientStop Color="#d85b6d" Offset="1" />
+                    <GradientStop Color="#61a6f9" Offset="-0.25" />
+                    <GradientStop Color="#b965e4" Offset="0.25" />
+                    <GradientStop Color="#eb88b1" Offset="0.50" />
+                    <GradientStop Color="#f5c05a" Offset="1" />
                 </LinearGradientBrush>
             </Border.Background>
             <Border.Effect>
@@ -32,7 +34,7 @@
         </Border>
 
 
-        <TextBox x:Name="Login_tb" HorizontalAlignment="Center" Margin="0,110,0,0" MaxLength="50" VerticalAlignment="Top" Width="164" PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Login_tb_PreviewTextInput" Style="{DynamicResource MaterialDesignTextBox}" Foreground="White" >
+        <TextBox x:Name="Login_tb" HorizontalAlignment="Center" Margin="0,110,0,0" MaxLength="25" VerticalAlignment="Top" Width="164" PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Login_tb_PreviewTextInput" Style="{DynamicResource MaterialDesignTextBox}" Foreground="White" >
             <TextBox.BorderBrush>
                 <SolidColorBrush Color="#89FFF6F6" Opacity="1"/>
             </TextBox.BorderBrush>

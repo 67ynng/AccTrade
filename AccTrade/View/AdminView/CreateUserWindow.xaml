@@ -5,20 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AccTrade.View.AdminView"
         mc:Ignorable="d"
-        Title="Create" Height="300" Width="300" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" ResizeMode="NoResize">
+        Title="Create" Height="350" Width="250" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" ResizeMode="NoResize">
     <Grid>
-        <TextBox x:Name="Username_tb" MaxLength="25" HorizontalAlignment="Center" Margin="0,35,0,0" VerticalAlignment="Top" Width="120" PreviewKeyDown="Username_tb_PreviewKeyDown" PreviewTextInput="Username_tb_PreviewTextInput"/>
-        <TextBox x:Name="email_tb" MaxLength="50" HorizontalAlignment="Center" Margin="0,72,0,0"  VerticalAlignment="Top" Width="120" PreviewKeyDown="email_tb_PreviewKeyDown" PreviewTextInput="email_tb_PreviewTextInput"/>
-        <Button Content="Create" HorizontalAlignment="Center" Margin="0,241,0,0" VerticalAlignment="Top" Click="Button_Click" RenderTransformOrigin="0.23,1.124"/>
-        <Label Content="Username" HorizontalAlignment="Left" Margin="80,14,0,0" VerticalAlignment="Top"/>
-        <Label Content="Email" HorizontalAlignment="Left" Margin="80,51,0,0" VerticalAlignment="Top"/>
-        <Label Content="Password"  HorizontalAlignment="Left" Margin="80,87,0,0" VerticalAlignment="Top"/>
-        <PasswordBox x:Name="Password_tb" MaxLength="25" HorizontalAlignment="Center" Margin="0,110,0,0" VerticalAlignment="Top" Width="120" PreviewKeyDown="Username_tb_PreviewKeyDown"  PreviewTextInput="Username_tb_PreviewTextInput"/>
-        <Label Content="PhoneNumber" HorizontalAlignment="Left" Margin="80,127,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="phonenumber_tb" MaxLength="9" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" Width="120" PreviewTextInput="PhoneNumber_PreviewTextInput" PreviewKeyDown="phonenumber_tb_PreviewKeyDown_1"/>
-        <Label Content="Role" HorizontalAlignment="Left" Margin="80,171,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="Role_cb" HorizontalAlignment="Center" Margin="0,194,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="+48" HorizontalAlignment="Left" Margin="53,145,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.468,0.4"/>
+        <TextBox x:Name="Username_tb" MaxLength="25" HorizontalAlignment="Left" Margin="63,29,0,0" VerticalAlignment="Top" Width="120" PreviewKeyDown="Username_tb_PreviewKeyDown" PreviewTextInput="Username_tb_PreviewTextInput"/>
+        <TextBox x:Name="email_tb" MaxLength="50" HorizontalAlignment="Center" Margin="0,74,0,0"  VerticalAlignment="Top" Width="120" PreviewKeyDown="email_tb_PreviewKeyDown" PreviewTextInput="email_tb_PreviewTextInput"/>
+        <Button Content="Create" HorizontalAlignment="Left" Margin="87,276,0,0" VerticalAlignment="Top" Click="Button_Click" RenderTransformOrigin="0.23,1.124"/>
+        <Label Content="Username" HorizontalAlignment="Left" Margin="53,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="53,55,0,0" VerticalAlignment="Top"/>
+        <Label Content="Password"  HorizontalAlignment="Left" Margin="53,109,0,0" VerticalAlignment="Top"/>
+        <PasswordBox x:Name="Password_tb" MaxLength="25" HorizontalAlignment="Left" Margin="62,127,0,0" VerticalAlignment="Top" Width="120" PreviewKeyDown="Username_tb_PreviewKeyDown"  PreviewTextInput="Username_tb_PreviewTextInput"/>
+        <Label Content="PhoneNumber" HorizontalAlignment="Left" Margin="53,153,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="phonenumber_tb" MaxLength="9" HorizontalAlignment="Left" Margin="63,174,0,0" VerticalAlignment="Top" Width="120" PreviewTextInput="PhoneNumber_PreviewTextInput" PreviewKeyDown="phonenumber_tb_PreviewKeyDown_1"/>
+        <Label Content="Role" HorizontalAlignment="Left" Margin="53,208,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="Role_cb" HorizontalAlignment="Left" Margin="63,230,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="+48" HorizontalAlignment="Left" Margin="34,174,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.468,0.4"/>
 
     </Grid>
 </Window>

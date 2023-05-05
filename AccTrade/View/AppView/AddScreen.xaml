@@ -16,16 +16,18 @@
             <ColumnDefinition Width="300*"/>
         </Grid.ColumnDefinitions>
         <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FFFE8140"/>
-                <GradientStop Color="#FFFED04F" Offset="1"/>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#61a6f9" Offset="-0.25" />
+                <GradientStop Color="#b965e4" Offset="0.25" />
+                <GradientStop Color="#eb88b1" Offset="0.50" />
+                <GradientStop Color="#f5c05a" Offset="1" />
             </LinearGradientBrush>
         </Grid.Background>
 
         <Button x:Name="Open_btn" Content="Open:" HorizontalAlignment="Left" Margin="16,3,0,0" VerticalAlignment="Top" Height="54" Width="72" Click="Open_btn_Click"/>
         <Image x:Name="img" HorizontalAlignment="Left" Height="100" Margin="159,30,0,0" VerticalAlignment="Top" Width="100" Grid.Column="2"/>
         <ComboBox x:Name="GameBox" Margin="16,150,227,234" FontWeight="Bold" FontFamily="Gotham Black"/>
-        <TextBox x:Name="DescribeTb" Margin="16,203,3,68" TextWrapping="Wrap" MaxLength="400" AcceptsReturn="True" FontWeight="Bold" FontFamily="Gotham Black" BorderBrush="Black">
+        <TextBox x:Name="DescribeTb" Margin="16,203,3,68" TextWrapping="Wrap" MaxLength="400" TextAlignment="Left" AcceptsReturn="True" FontWeight="Bold" FontFamily="Gotham Black" BorderBrush="Black" Style="{DynamicResource MaterialDesignTextBox}">
             <TextBox.Background>
                 <SolidColorBrush Color="White" Opacity="0.25"/>
             </TextBox.Background>
@@ -40,7 +42,7 @@
         <Label Visibility="Hidden" Content="Game:"  Margin="16,74,314,300"  FontSize="14" Padding="0,5,5,5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <TextBlock x:Name="TextBoxFile_btn" TextWrapping="Wrap" Text="TextBlock" Margin="92,7,83,370"/>
         <Label Content="Price"  Margin="16,337,314,40" Padding="0,5,5,5"/>
-        <TextBox x:Name="Title_tb" Margin="7,87,12,289" TextWrapping="Wrap" FontWeight="Bold" MaxLength="50" FontFamily="Gotham Black" BorderBrush="Black">
+        <TextBox x:Name="Title_tb" Margin="7,87,0,289" TextWrapping="Wrap" FontWeight="Bold" MaxLength="50" FontFamily="Gotham Black" BorderBrush="Black">
             <TextBox.Background>
                 <SolidColorBrush Color="White" Opacity="0.25"/>
             </TextBox.Background>

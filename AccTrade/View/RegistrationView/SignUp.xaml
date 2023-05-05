@@ -11,18 +11,20 @@
         <Border>
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#4496c6" Offset="0.0" />
-                    <GradientStop Color="#50689f" Offset="0.25" />
-                    <GradientStop Color="#d85b6d" Offset="1" />
+                    <GradientStop Color="#61a6f9" Offset="-0.25" />
+                    <GradientStop Color="#b965e4" Offset="0.25" />
+                    <GradientStop Color="#eb88b1" Offset="0.50" />
+                    <GradientStop Color="#f5c05a" Offset="1" />
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
         <Border MinWidth="50" MaxWidth="300" Margin="25" Padding="20" CornerRadius="10">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#4496c6" Offset="0.0" />
-                    <GradientStop Color="#50689f" Offset="0.25" />
-                    <GradientStop Color="#d85b6d" Offset="1" />
+                    <GradientStop Color="#61a6f9" Offset="-0.25" />
+                    <GradientStop Color="#b965e4" Offset="0.25" />
+                    <GradientStop Color="#eb88b1" Offset="0.50" />
+                    <GradientStop Color="#f5c05a" Offset="1" />
                 </LinearGradientBrush>
             </Border.Background>
             <Border.Effect>
@@ -30,10 +32,10 @@
             </Border.Effect>
         </Border>
         <StackPanel Width="250" Margin="25,45,25,32">
-            <Button x:Name="Back_btn" Content="&lt;" Click="Back_btn_Click" Width="42" Margin="-190,0,0,0"/>
-            <Label Content="Sign Up" HorizontalAlignment="Center" Margin="10,-45,0,0" FontSize="36" FontWeight="Bold" Height="56" Foreground="#DDFFFFFF"/>
+            <Button x:Name="Back_btn" Content="&lt;" Click="Back_btn_Click" Width="40" Height="20" FontSize="10" Margin="-190,0,0,0"/>
+            <Label Content="Sign Up" HorizontalAlignment="Center" Margin="10,-35,0,0" FontSize="36" FontWeight="Bold" Height="56" Foreground="#DDFFFFFF"/>
             <Label Content="Login:" HorizontalAlignment="Left" Margin="35,-5,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
-            <TextBox x:Name="Login_tb" Margin="5,-5,0,0" HorizontalAlignment="Center"  MaxLength="50" VerticalAlignment="Top" Width="164"  PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Application_PreviewTextInput" Foreground="White" BorderBrush="#89FFFFFF"/>
+            <TextBox x:Name="Login_tb" Margin="5,-5,0,0" HorizontalAlignment="Center"  MaxLength="25" VerticalAlignment="Top" Width="164"  PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Application_PreviewTextInput" Foreground="White" BorderBrush="#89FFFFFF"/>
             <Label Content="E-mail:" HorizontalAlignment="Left" Margin="35,5,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
             <TextBox x:Name="Email_tb" HorizontalAlignment="Center" MaxLength="50" VerticalAlignment="Top" Width="164" Margin="5,-5,0,0" PreviewKeyDown="Email_tb_PreviewKeyDown" PreviewTextInput="Email_tb_PreviewTextInput" Foreground="White" BorderBrush="#89FFFFFF"/>
             <Label Content="Password:" HorizontalAlignment="Left" Margin="35,10,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
