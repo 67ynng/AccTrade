@@ -6,28 +6,14 @@
         xmlns:local="clr-namespace:AccTrade.View.AppView"
         mc:Ignorable="d"
         Title="AdminPanel" Height="450" Width="800"  MinHeight="450" MinWidth="800" WindowStartupLocation="CenterScreen">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" MinWidth="76"/>
-            <ColumnDefinition Width="Auto" MinWidth="70"/>
-            <ColumnDefinition Width="Auto" MinWidth="79"/>
-            <ColumnDefinition Width="563"/>
-        </Grid.ColumnDefinitions>
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FF5B0808"/>
-                <GradientStop Color="#FFE31212" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Button x:Name="User_btn" Content="Users" HorizontalAlignment="Left" VerticalAlignment="Center" Height="47" Width="70" Click="User_btn_Click" />
-        <Button x:Name="Product_btn" Content="Product" HorizontalAlignment="Center" VerticalAlignment="Center" Height="47" Width="70" Grid.Column="1" Click="Product_btn_Click" />
-        <Button x:Name="Games_btn" Content="Games" HorizontalAlignment="Center" VerticalAlignment="Center" Height="47" Width="70" Grid.Column="2" Click="Categories_Click" />
-        <Frame x:Name="frame" Background="Lime" Grid.Row="1" Grid.ColumnSpan="4" NavigationUIVisibility="Hidden" Source="UserPage.xaml"  />
-        <Button x:Name="Role" Content="Role" HorizontalAlignment="Left" VerticalAlignment="Center" Height="47" Width="70" Grid.Column="3" Margin="6,0,0,0" Click="Role_Click" />
+    <Grid >
+
+
+        <Button x:Name="User_btn" Content="Users" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="70" Click="User_btn_Click" Margin="98,10,0,0" />
+        <Button x:Name="Product_btn" Content="Product" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="84" Click="Product_btn_Click" Margin="289,10,0,0" />
+        <Button x:Name="Games_btn" Content="Games" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="70" Click="Categories_Click" Margin="194,10,0,0" />
+        <Frame x:Name="frame" Background="Black" NavigationUIVisibility="Hidden" Source="UserPage.xaml" Height="372" VerticalAlignment="Top" Margin="0,62,0,0"  />
+        <Button x:Name="Role" Content="Role" HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Width="70" Margin="10,10,0,0" Click="Role_Click" />
 
 
     </Grid>

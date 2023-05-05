@@ -5,15 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AccTrade.View.RegistrationView"
         mc:Ignorable="d"
-        Title="AdminSignIn" Height="300" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="AdminSignIn" Height="325" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <Label Content="Sign In Admin" HorizontalAlignment="Center" Margin="0,37,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
-        <Button x:Name="SignIn_btn" Content="Sign In" HorizontalAlignment="Center" Margin="0,209,0,0" VerticalAlignment="Top" Height="27" Width="84" Click="SignIn_btn_Click"/>
-        <TextBox x:Name="Login_tb" MaxLength="25" HorizontalAlignment="Center" Margin="0,117,0,0" VerticalAlignment="Top" Width="164" PreviewTextInput="Login_tb_PreviewTextInput" PreviewKeyDown="Login_tb_PreviewKeyDown"/>
-        <PasswordBox x:Name="Password_tb" MaxLength="25" HorizontalAlignment="Center" Margin="0,164,0,0" VerticalAlignment="Top" Width="164" PreviewTextInput="Login_tb_PreviewTextInput" PreviewKeyDown="Login_tb_PreviewKeyDown"/>
-        <Label Content="Login:" HorizontalAlignment="Left" Margin="57,94,0,0" VerticalAlignment="Top"/>
-        <Label Content="Password:" HorizontalAlignment="Left" Margin="57,142,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Admin_btn" Content="User" HorizontalAlignment="Left" Margin="254,10,0,0" VerticalAlignment="Top" Click="User_btn_Click" />
+        <Border>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#4496c6" Offset="0.0" />
+                    <GradientStop Color="#50689f" Offset="0.25" />
+                    <GradientStop Color="#d85b6d" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <Border MinWidth="50" MaxWidth="300" MaxHeight="350" Margin="25" Padding="20" CornerRadius="10">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#4496c6" Offset="0.0" />
+                    <GradientStop Color="#50689f" Offset="0.25" />
+                    <GradientStop Color="#d85b6d" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="40" Color="Black" ShadowDepth="5"/>
+            </Border.Effect>
+        </Border>
+        <Label Content="Sign In Admin" HorizontalAlignment="Center" Margin="13,45,0,0" VerticalAlignment="Top" FontSize="34" FontWeight="Bold" Width="250">
+            <Label.Foreground>
+                <SolidColorBrush Color="#DDFFFFFF" Opacity="0.55"/>
+            </Label.Foreground>
+        </Label>
+        <Button x:Name="SignIn_btn" Content="Sign In" HorizontalAlignment="Center" Margin="0,226,0,0" VerticalAlignment="Top" Height="27" Width="84" Click="SignIn_btn_Click"/>
+        <TextBox x:Name="Login_tb" MaxLength="25" HorizontalAlignment="Center" Margin="0,117,0,0" VerticalAlignment="Top" Width="164" PreviewTextInput="Login_tb_PreviewTextInput" PreviewKeyDown="Login_tb_PreviewKeyDown" BorderBrush="#89FFFFFF" Foreground="White"/>
+        <PasswordBox x:Name="Password_tb" MaxLength="25" HorizontalAlignment="Center" Margin="0,183,0,0" VerticalAlignment="Top" Width="164" PreviewTextInput="Login_tb_PreviewTextInput" PreviewKeyDown="Login_tb_PreviewKeyDown" Foreground="White" BorderBrush="#89FFFFFF"/>
+        <Label Content="Login:" HorizontalAlignment="Left" Margin="57,94,0,0" VerticalAlignment="Top" Foreground="#DDF9F9F9"/>
+        <Label Content="Password:" HorizontalAlignment="Left" Margin="57,161,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
+        <Button x:Name="Admin_btn" Width="60" Height="20" FontSize="10" Content="User" HorizontalAlignment="Left" Margin="195,30,0,0" VerticalAlignment="Top" Click="User_btn_Click" />
 
     </Grid>
 </Window>

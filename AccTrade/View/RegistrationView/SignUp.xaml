@@ -5,79 +5,63 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AccTrade.View.RegistrationView"
         mc:Ignorable="d"
-        Title="SignUp" Height="370" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
-    <Window.Resources>
-        <Style x:Key="FocusVisual">
-            <Setter Property="Control.Template">
-                <Setter.Value>
-                    <ControlTemplate>
-                        <Rectangle Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
-        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
-        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
-        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
-        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
-        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
-        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
-        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
-            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
-            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
-            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Padding" Value="1"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border CornerRadius="10" x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
-                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsDefaulted" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
-                            </Trigger>
-                            <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
-                            </Trigger>
-                            <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
-                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
-    <Grid Margin="0,-2,0,2">
-        <Label Content="Sign Up" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
-        <Button Style="{DynamicResource ButtonStyle1}" x:Name="SignIn_btn" Content="Sign In" HorizontalAlignment="Center" Margin="0,300,0,0" VerticalAlignment="Top" Height="27" Width="84" Click="SignIn_btn_Click"/>
-        <TextBox x:Name="Login_tb" HorizontalAlignment="Center" Margin="0,93,0,0" MaxLength="50" VerticalAlignment="Top" Width="164"  PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Application_PreviewTextInput"/>
-        <TextBox x:Name="Email_tb" HorizontalAlignment="Center" MaxLength="50" VerticalAlignment="Top" Width="164" Margin="0,134,0,0" PreviewKeyDown="Email_tb_PreviewKeyDown" PreviewTextInput="Email_tb_PreviewTextInput"/>
-        <PasswordBox x:Name="Password_tb" MaxLength="25" HorizontalAlignment="Center" Margin="0,175,0,0" VerticalAlignment="Top" Width="164" PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Application_PreviewTextInput"/>
-        <Label Content="Login:" HorizontalAlignment="Left" Margin="57,70,0,0" VerticalAlignment="Top"/>
-        <Label Content="Password:" HorizontalAlignment="Left" Margin="57,153,0,0" VerticalAlignment="Top"/>
-        <Label Content="E-mail:" HorizontalAlignment="Left" Margin="57,112,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Back_btn" Content="Back" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Back_btn_Click"/>
-        <PasswordBox x:Name="PassConfirm_tb" MaxLength="25" HorizontalAlignment="Center" Margin="0,219,0,0" VerticalAlignment="Top" Width="164" PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Application_PreviewTextInput"/>
-        <Label Content="Confirm your password:" HorizontalAlignment="Left" Margin="57,197,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="PhoneNumber_tb" MaxLength="9" HorizontalAlignment="Center" Margin="0,264,0,0" VerticalAlignment="Top" Width="164" PreviewTextInput="PhoneNumber_tb_PreviewTextInput" PreviewKeyDown="PhoneNumber_tb_PreviewKeyDown"/>
-        <Label Content="Phone Number:" HorizontalAlignment="Left" Margin="57,242,0,0" VerticalAlignment="Top"/>
-        <Label Content="+48" HorizontalAlignment="Left" Margin="32,260,0,0" VerticalAlignment="Top"/>
+        Title="SignUp" Height="470" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+
+    <Grid >
+        <Border>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#4496c6" Offset="0.0" />
+                    <GradientStop Color="#50689f" Offset="0.25" />
+                    <GradientStop Color="#d85b6d" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <Border MinWidth="50" MaxWidth="300" Margin="25" Padding="20" CornerRadius="10">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#4496c6" Offset="0.0" />
+                    <GradientStop Color="#50689f" Offset="0.25" />
+                    <GradientStop Color="#d85b6d" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="40" Color="Black" ShadowDepth="5"/>
+            </Border.Effect>
+        </Border>
+        <StackPanel Width="250" Margin="25,45,25,32">
+            <Button x:Name="Back_btn" Content="&lt;" Click="Back_btn_Click" Width="42" Margin="-190,0,0,0"/>
+            <Label Content="Sign Up" HorizontalAlignment="Center" Margin="10,-45,0,0" FontSize="36" FontWeight="Bold" Height="56" Foreground="#DDFFFFFF"/>
+            <Label Content="Login:" HorizontalAlignment="Left" Margin="35,-5,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
+            <TextBox x:Name="Login_tb" Margin="5,-5,0,0" HorizontalAlignment="Center"  MaxLength="50" VerticalAlignment="Top" Width="164"  PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Application_PreviewTextInput" Foreground="White" BorderBrush="#89FFFFFF"/>
+            <Label Content="E-mail:" HorizontalAlignment="Left" Margin="35,5,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
+            <TextBox x:Name="Email_tb" HorizontalAlignment="Center" MaxLength="50" VerticalAlignment="Top" Width="164" Margin="5,-5,0,0" PreviewKeyDown="Email_tb_PreviewKeyDown" PreviewTextInput="Email_tb_PreviewTextInput" Foreground="White" BorderBrush="#89FFFFFF"/>
+            <Label Content="Password:" HorizontalAlignment="Left" Margin="35,10,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
+            <PasswordBox x:Name="Password_tb" MaxLength="25" HorizontalAlignment="Center" Margin="5,-5,0,0" VerticalAlignment="Top" Width="164" PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Application_PreviewTextInput" Foreground="White" BorderBrush="#89FFFFFF"/>
+            <Label Content="Confirm your password:" HorizontalAlignment="Left" Margin="35,5,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
+            <PasswordBox x:Name="PassConfirm_tb" MaxLength="25" HorizontalAlignment="Center" Margin="5,-5,0,0" VerticalAlignment="Top" Width="164" PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Application_PreviewTextInput" BorderBrush="#89FFFFFF" Foreground="White"/>
+            <Label Content="Phone Number:" HorizontalAlignment="Left" Margin="35,0,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
+            <TextBox x:Name="PhoneNumber_tb" MaxLength="9" HorizontalAlignment="Center" Margin="5,-5,0,0" Width="161" PreviewTextInput="PhoneNumber_tb_PreviewTextInput" PreviewKeyDown="PhoneNumber_tb_PreviewKeyDown" Foreground="White" BorderBrush="#89FFFFFF"/>
+            <Label Content="+48" HorizontalAlignment="Left" Margin="15,-25,15,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontSize="14"/>
+            <Button x:Name="SignIn_btn" Content="Sign In" HorizontalAlignment="Center" Margin="5,25,0,0" VerticalAlignment="Top" Height="27" Width="84" Click="SignIn_btn_Click"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </StackPanel>
+
+
 
     </Grid>
 </Window>

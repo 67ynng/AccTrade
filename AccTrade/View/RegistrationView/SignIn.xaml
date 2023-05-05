@@ -3,119 +3,66 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:AccTrade.View.RegistrationView"
         mc:Ignorable="d"
-        Title="SignIn" Height="300" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Loaded="Window_Loaded">
-    <Window.Resources>
-        <Style x:Key="FocusVisual">
-            <Setter Property="Control.Template">
-                <Setter.Value>
-                    <ControlTemplate>
-                        <Rectangle  Margin="2" StrokeDashArray="1 2" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" SnapsToDevicePixels="true" StrokeThickness="1"/>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
-        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
-        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
-        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
-        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
-        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
-        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
-        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
-        <Style TargetType="{x:Type Button}">
-            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
-            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
-            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="VerticalContentAlignment" Value="Center"/>
-            <Setter Property="Padding" Value="1"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border  CornerRadius="10" x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
-                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsDefaulted" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
-                            </Trigger>
-                            <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
-                            </Trigger>
-                            <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
-                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <SolidColorBrush x:Key="TextBox.Static.Border" Color="#FFABAdB3"/>
-        <SolidColorBrush x:Key="TextBox.MouseOver.Border" Color="#FF7EB4EA"/>
-        <SolidColorBrush x:Key="TextBox.Focus.Border" Color="#FF569DE5"/>
-        <Style TargetType="{x:Type TextBox}">
-            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource TextBox.Static.Border}"/>
-            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
-            <Setter Property="HorizontalContentAlignment" Value="Left"/>
-            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-            <Setter Property="AllowDrop" Value="true"/>
-            <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
-            <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type TextBox}">
-                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="True">
-                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Opacity" TargetName="border" Value="0.56"/>
-                            </Trigger>
-                            <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.MouseOver.Border}"/>
-                            </Trigger>
-                            <Trigger Property="IsKeyboardFocused" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource TextBox.Focus.Border}"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <MultiTrigger>
-                    <MultiTrigger.Conditions>
-                        <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
-                        <Condition Property="IsSelectionActive" Value="false"/>
-                    </MultiTrigger.Conditions>
-                    <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
-                </MultiTrigger>
-            </Style.Triggers>
-        </Style>
-    </Window.Resources>
-    <Grid>
-        <Label Content="Sign In" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
-        <Button x:Name="SignIn_btn" Content="Sign In" HorizontalAlignment="Center" Margin="0,189,0,0" VerticalAlignment="Top" Height="27" Width="85" Click="SignIn_btn_Click"/>
-        <Button x:Name="SignUp_btn" Content="Sign Up" HorizontalAlignment="Center" Margin="0,221,0,0" VerticalAlignment="Top" Height="27" Width="84" Click="SignUp_btn_Click"/>
-        <TextBox x:Name="Login_tb" HorizontalAlignment="Center" Margin="0,104,0,0" MaxLength="50" VerticalAlignment="Top" Width="165" PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Login_tb_PreviewTextInput"/>
-        <PasswordBox x:Name="Password_tb" MaxLength="25" HorizontalAlignment="Center" Margin="0,144,0,0" VerticalAlignment="Top" Width="165" PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Login_tb_PreviewTextInput"/>
-        <Label Content="Login:" HorizontalAlignment="Left" Margin="57,81,0,0" VerticalAlignment="Top"/>
-        <Label Content="Password:" HorizontalAlignment="Left" Margin="57,122,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Admin_btn" Content="Admin" HorizontalAlignment="Left" Margin="252,7,0,0" VerticalAlignment="Top" Click="Admin_btn_Click"/>
+        Title="SignIn" Height="350" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Loaded="Window_Loaded">
 
+    <Grid>
+        <Border>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#4496c6" Offset="0.0" />
+                    <GradientStop Color="#50689f" Offset="0.25" />
+                    <GradientStop Color="#d85b6d" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <Border MinWidth="50" MaxWidth="300" Margin="25" Padding="20" CornerRadius="10">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#4496c6" Offset="0.0" />
+                    <GradientStop Color="#50689f" Offset="0.25" />
+                    <GradientStop Color="#d85b6d" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="40" Color="Black" ShadowDepth="5"/>
+            </Border.Effect>
+        </Border>
+
+
+        <TextBox x:Name="Login_tb" HorizontalAlignment="Center" Margin="0,110,0,0" MaxLength="50" VerticalAlignment="Top" Width="164" PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Login_tb_PreviewTextInput" Style="{DynamicResource MaterialDesignTextBox}" Foreground="White" >
+            <TextBox.BorderBrush>
+                <SolidColorBrush Color="#89FFF6F6" Opacity="1"/>
+            </TextBox.BorderBrush>
+        </TextBox>
+        <PasswordBox x:Name="Password_tb" MaxLength="25" HorizontalAlignment="Center" Margin="0,164,0,0" VerticalAlignment="Top" Width="164" PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Login_tb_PreviewTextInput" BorderBrush="#89FFFFFF" Foreground="White"/>
+        <Label Content="Login:" HorizontalAlignment="Left" Margin="60,85,0,0" VerticalAlignment="Top">
+            <Label.Foreground>
+                <SolidColorBrush Color="#DDFFFFFF" Opacity="0.85"/>
+            </Label.Foreground>
+        </Label>
+        <Label Content="Password:" HorizontalAlignment="Left" Margin="60,140,0,0" VerticalAlignment="Top">
+            <Label.Foreground>
+                <SolidColorBrush Color="#DDFFFFFF" Opacity="0.85"/>
+            </Label.Foreground>
+        </Label>
+
+        <StackPanel Width="230" Height="280">
+
+            <Label Content="Sign In" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="36" FontWeight="Bold" Height="59">
+                <Label.Foreground>
+                    <SolidColorBrush Color="#DDFFFFFF" Opacity="0.65"/>
+                </Label.Foreground>
+                <Label.Background>
+                    <SolidColorBrush Opacity="0.265"/>
+                </Label.Background>
+            </Label>
+            <Button x:Name="Admin_btn" Content="Admin" Width="60" Height="20" FontSize="9" HorizontalAlignment="Right" Margin="0,-95,3,0" Click="Admin_btn_Click"/>
+            <Button x:Name="SignIn_btn" Content="Sign In" Height="27" Width="86" Margin="5,130,5,5" VerticalAlignment="Bottom" Click="SignIn_btn_Click"/>
+            <Button x:Name="SignUp_btn" Content="Sign Up" Height="27" Width="84"  Click="SignUp_btn_Click"/>
+            <Label Content="Password:" HorizontalAlignment="Left" Margin="57,122,0,0" VerticalAlignment="Top"/>
+        </StackPanel>
     </Grid>
 </Window>

@@ -7,16 +7,19 @@
       mc:Ignorable="d" 
       d:DesignHeight="355" d:DesignWidth="800"
       Loaded="Page_Loaded"
-      Title="Users" Background="White">
-    <Grid MinHeight="355" MinWidth="800">
+      Title="Users" Background="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Grid  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="274*"/>
-            <RowDefinition Height="81*"/>
+            <RowDefinition Height="Auto" MinHeight="205"/>
+            <RowDefinition Height="Auto" MinHeight="49"/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="DataGridUsers"  RowHeight="30" IsReadOnly="True"  AutoGenerateColumns="False"  Margin="0,0,0,5" Background="{x:Null}" FontSize="16" BorderThickness="1,1,1,1" FontWeight="Bold" HorizontalAlignment="Left" Width="790">
+        <DataGrid x:Name="DataGridUsers" RowHeight="40" IsReadOnly="True" MinHeight="285" MinWidth="700"  AutoGenerateColumns="False" Background="{x:Null}" FontSize="14"  FontWeight="Bold" Margin="5,5,10,0" BorderBrush="#1F000000" Style="{DynamicResource MaterialDesignDataGrid}" Height="200" VerticalAlignment="Stretch">
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"  />
                 <DataGridTextColumn Header="UserName" Binding="{Binding Username}" />
                 <DataGridTextColumn Header="PhoneNumber" Binding="{Binding PhoneNumber}" />
                 <DataGridTextColumn Header="Password" Binding="{Binding Password}"/>
@@ -25,10 +28,10 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="286" Margin="0,3,0,3" Grid.Row="1">
-            <Button x:Name="Create_btn" Content="Create" Height="34" Width="62" Click="Create_btn_Click" RenderTransformOrigin="0.548,-1.253" VerticalAlignment="Center" Margin="25,0,0,0" />
-            <Button x:Name="Edit_btn" Content="Edit" Height="34" Width="62" Click="Edit_btn_Click" RenderTransformOrigin="0.548,-1.253" VerticalAlignment="Center" Margin="25,0,0,0" />
-            <Button x:Name="Delete_btn" Content="Delete" Height="34" Width="62" Click="Delete_btn_Click" RenderTransformOrigin="0.548,-1.253" VerticalAlignment="Center" Margin="25,0,0,0" />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Width="326" VerticalAlignment="Top" Height="34" Margin="230,15,0,0" Grid.Row="1">
+            <Button x:Name="Create_btn" Content="Create" Height="34" Width="85" Click="Create_btn_Click" RenderTransformOrigin="0.548,-1.253" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0,0,0" />
+            <Button x:Name="Edit_btn" Content="Edit" Height="34" Width="62" Click="Edit_btn_Click" RenderTransformOrigin="0.548,-1.253" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0,0,0" />
+            <Button x:Name="Delete_btn" Content="Delete" Height="34" Width="78" Click="Delete_btn_Click" RenderTransformOrigin="0.548,-1.253" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="25,0,0,0" />
         </StackPanel>
     </Grid>
 </Page>

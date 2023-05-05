@@ -10,7 +10,7 @@
     <Grid>
         <TextBox x:Name="GameName_tb" HorizontalAlignment="Center" Margin="0,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewKeyDown="GameName_tb_PreviewKeyDown" PreviewTextInput='GameName_tb_PreviewTextInput'/>
         <Label Content="Id:" HorizontalAlignment="Left" Margin="37,52,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Delete_btn" Content="Delete" HorizontalAlignment="Center" Margin="0,130,0,0" VerticalAlignment="Top" Height="35" Width="45" Click="Add_btn_Click"/>
+        <Button x:Name="Delete_btn" Content="Delete" HorizontalAlignment="Center" Margin="0,130,0,0" VerticalAlignment="Top" Height="35" Width="78" Click="Add_btn_Click"/>
 
     </Grid>
 </Window>
