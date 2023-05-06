@@ -80,22 +80,14 @@ namespace AccTrade.Model.Models
         {
             using (var db = new AppContext())
             {
-                bool isUserExists = db.Categories.Any(u => u.CategoryName == GameName);
-                if (isUserExists)
+                var game = new Category
                 {
-                    MessageBox.Show("Game is already in DataBase");
-                }
-                else
-                {
-                    var game = new Category
-                    {
-                        CategoryName = GameName,
+                    CategoryName = GameName,
 
-                    };
-                    MessageBox.Show("Game was added to DataBase");
-                    db.Categories.AddRange(game);
-                    db.SaveChanges();
-                }
+                };
+                MessageBox.Show("Game was added to DataBase");
+                db.Categories.AddRange(game);
+                db.SaveChanges();
 
             }
         }
@@ -103,22 +95,14 @@ namespace AccTrade.Model.Models
         {
             using (var db = new AppContext())
             {
-                bool isUserExists = db.Roles.Any(u => u.Role == GameName);
-                if (isUserExists)
-                {
-                    MessageBox.Show("Role is already in DataBase");
-                }
-                else
-                {
-                    var game = new Roles
-                    {
-                        Role = GameName,
-                        MembersInThisRole = 0,
 
-                    };
-                    db.Roles.AddRange(game);
-                    db.SaveChanges();
-                }
+                var game = new Roles
+                {
+                    Role = GameName,
+                    MembersInThisRole = 0,
+                };
+                db.Roles.AddRange(game);
+                db.SaveChanges();
             }
         }
         public void AddNumber(int Number)

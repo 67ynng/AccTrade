@@ -5,22 +5,23 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AccTrade.View.AdminView"
       mc:Ignorable="d" 
-      d:DesignHeight="355" d:DesignWidth="800"
+      d:DesignHeight="620" d:DesignWidth="1110"
       Title="RolePage"
       Loaded="Page_Loaded">
 
-    <Grid MinHeight="355" MinWidth="800" Background="White" >
+    <Grid Background="White" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="60*"/>
-            <RowDefinition Height="11*"/>
+            <RowDefinition Height="539"/>
         </Grid.RowDefinitions>
-
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Width="325" VerticalAlignment="Center" Grid.Row="1">
-            <Button x:Name="Create_btn" Content="Create" Height="34" Width="75" Click="Create_btn_Click" RenderTransformOrigin="0.548,-1.253" VerticalAlignment="Center" Margin="25,0,0,0" />
+        <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" Width="332" Margin="0,579,0,-74">
+            <Button x:Name="Create_btn" Content="Create" Height="34" Width="85" Click="Create_btn_Click" RenderTransformOrigin="0.548,-1.253" VerticalAlignment="Center" Margin="25,0,0,0" />
             <Button x:Name="Update_btn" Content="Edit" Height="34" Width="62"  Click="Update_btn_Click"  Margin="25,0,0,0" />
-            <Button x:Name="Delete_btn" Content="Delete" Height="34" Width="73" Click="Delete_btn_Click" RenderTransformOrigin="0.548,-1.253" Margin="25,0,0,0" />
+            <Button x:Name="Delete_btn" Content="Delete" Height="34" Width="85" Click="Delete_btn_Click" RenderTransformOrigin="0.548,-1.253" Margin="25,0,0,0" />
         </StackPanel>
-        <DataGrid x:Name="DataGridRole" AutoGenerateColumns="False" BorderThickness="2" IsReadOnly="True" FontWeight="Bold" FontSize="14">
+        <DataGrid x:Name="DataGridRole"  AutoGenerateColumns="False"  MinHeight="285" MinWidth="700" Margin="5,5,5,-35" BorderThickness="2" IsReadOnly="True" FontWeight="Bold" FontSize="16">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
                 <DataGridTextColumn Header="Role" Binding="{Binding Role}"/>

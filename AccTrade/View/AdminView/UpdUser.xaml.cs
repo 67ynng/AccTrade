@@ -32,28 +32,33 @@ namespace AccTrade.View.AdminView
                 string trimmedText = myVariable.Replace(" ", "");
                 using (var context = new AppContext())
                 {
-                    bool phonenumcheck = context.Logins.Any(value => value.PhoneNumber == Convert.ToInt64(trimmedText));
+                    
 
                     var logins = context.Logins.Where(p => p.Id == id).ToList();
                     if (logins.Any())
                     {
-                        if (phonenumcheck)
-                            MessageBox.Show("This number is already in DataBase");
-                        else if (trimmedText.Length < 9  || trimmedText.Length > 10)
+                        if (trimmedText.Length < 9)
                         {
-                            MessageBox.Show("Your phone number must be no more than 9-10 characters");
+                            MessageBox.Show("Invalid number format");
                         }
                         else
                         {
                             foreach (var add in logins)
                             {
-                                add.Username = Username_tb.Text;
-                                add.Email = email_tb.Text;
+                                //bool phonenumcheck = context.Logins.Any(value => value.PhoneNumber == Convert.ToInt64(trimmedText));
+                                //if (phonenumcheck)
+                                //    MessageBox.Show("This number is already in DataBase");
+                                //else
+                                //{
+                                    add.Username = Username_tb.Text;
+                                    add.Email = email_tb.Text;
 
-                                add.PhoneNumber = Convert.ToInt32(phonenum_tb.Text);
-                                MessageBox.Show("update successful");
-                                context.SaveChanges();
-                                Close();
+                                    add.PhoneNumber = Convert.ToInt32(phonenum_tb.Text);
+                                    MessageBox.Show("update successful");
+                                    context.SaveChanges();
+                                    Close();
+                                //}
+                               
                             }
                         }
                     }

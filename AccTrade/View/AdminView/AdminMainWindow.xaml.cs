@@ -1,4 +1,6 @@
-﻿using AccTrade.View.AdminView;
+﻿using AccTrade.Model.Models;
+using AccTrade.View.AdminView;
+using AccTrade.View.RegistrationView;
 using System.Windows;
 
 namespace AccTrade.View.AppView
@@ -28,6 +30,14 @@ namespace AccTrade.View.AppView
         private void Role_Click(object sender, RoutedEventArgs e)
         {
             frame.Navigate(new RolePage());
+        }
+
+        private void LogOut_btn_Click(object sender, RoutedEventArgs e)
+        {
+            SignIn sign = new SignIn();
+            this.Close();
+            Session.UserId = 0;
+            sign.Show();
         }
     }
 }

@@ -58,7 +58,7 @@ namespace AccTrade.View.RegistrationView
             Close();
             admsgnin.Show();
         }
-
+        
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             using (AppContext db = new AppContext())

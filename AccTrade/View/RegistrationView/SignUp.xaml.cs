@@ -68,8 +68,8 @@ namespace AccTrade.View.RegistrationView
                         MessageBox.Show("Wrong mail format!");
                     else if (password != passwordConfirm)
                         MessageBox.Show("Password mismatch");
-                    else if (trimmedText.Length < 9 || trimmedText.Length > 10)
-                        MessageBox.Show("Your phone number must be no more than 9-10 characters");
+                    else if (trimmedText.Length < 9)
+                        MessageBox.Show("Invalid phone number format");
                     else
                     {
                         using (AppContext db = new AppContext())

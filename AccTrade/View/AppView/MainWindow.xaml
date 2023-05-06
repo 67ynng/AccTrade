@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AccTrade.View"
         mc:Ignorable="d"
-        Title="Main" Height="450" Width="800" WindowStartupLocation="CenterScreen" MinHeight="450" MinWidth="800">
+        Title="Main" Height="720" Width="1280" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Loaded="Window_Loaded">
     <Grid  ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Auto">
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -23,10 +23,11 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Frame  x:Name="MyFrame" Background="White" NavigationUIVisibility="Hidden" Source="MainScreen.xaml"  Margin="102,0,0,0" Grid.RowSpan="2" MinHeight="200" MinWidth="200"/>
-        <StackPanel HorizontalAlignment="Left" Width="100" Height="450" VerticalAlignment="Top" Margin="2,5,5,5" Grid.RowSpan="2">
+        <StackPanel HorizontalAlignment="Left" Width="100" Height="699" VerticalAlignment="Top" Margin="2,5,0,0" Grid.RowSpan="2">
             <Button x:Name="MainScreen_btn" Margin="3,5,5,15" Content="Main" Height="65" Width="85" Click="MainScreen_btn_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Background="White" BorderBrush="#FF585555" Foreground="Black"/>
             <Button x:Name="Profile_btn" Margin="3,5,5,15" Content="Profile" Height="65" Width="85" Click="Profile_btn_Click" Background="White" Foreground="#DD000000"/>
             <Button x:Name="Add_btn" Margin="3,5,5,15" Content="Add" Height="65" Width="85" Click="Add_btn_Click" RenderTransformOrigin="0.5,0.5" Background="White" BorderBrush="Gray" Foreground="Black"/>
+            <Button Content="Log Out" Margin="0,380,0,0" Width="86" Click="Button_Click"/>
         </StackPanel>
 
 

@@ -5,19 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AccTrade.View.AdminView"
         mc:Ignorable="d"
-        Title="Update" Height="200" Width="200" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" ResizeMode="NoResize">
+        Title="Update" Height="250" Width="200" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" ResizeMode="NoResize">
     <Grid>
 
         <Label x:Name="ID" Content="Id:" HorizontalAlignment="Left" Margin="40,44,0,0" VerticalAlignment="Top" Visibility="Visible"/>
         <TextBox x:Name="Id_tb" HorizontalAlignment="Center" Margin="0,72,0,0" MaxLength="8" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Visibility="Visible" PreviewTextInput="Id_tb_PreviewTextInput" PreviewKeyDown="Id_tb_PreviewKeyDown"/>
-        <Button x:Name="Search_btn" Content="Search" HorizontalAlignment="Center" Margin="0,114,0,0" VerticalAlignment="Top" Click="Search_btn_Click"/>
-        <TextBox x:Name="Username_tb" HorizontalAlignment="Center" Margin="0,35,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
-        <TextBox x:Name="email_tb" HorizontalAlignment="Center" Margin="0,72,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
-        <Button x:Name="updatebtn" Content="Update" HorizontalAlignment="Center" Margin="0,142,0,0" VerticalAlignment="Top" Click="Button_Click" Visibility="Hidden"/>
-        <Label x:Name="username_lbl" Content="Username:" HorizontalAlignment="Left" Margin="34,14,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
-        <TextBox x:Name="phonenum_tb" HorizontalAlignment="Center" Margin="0,114,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Visibility="Hidden" PreviewTextInput="phonenum_tb_PreviewTextInput" PreviewKeyDown="phonenum_tb_PreviewKeyDown"/>
-        <Label  x:Name="email_lbl" Content="Email:" HorizontalAlignment="Left" Margin="37,51,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
-        <Label  x:Name="phonenum_lbl" Content="Phone Number:" HorizontalAlignment="Left" Margin="37,92,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Button x:Name="Search_btn" Content="Search" HorizontalAlignment="Center" Margin="0,120,0,0" VerticalAlignment="Top" Click="Search_btn_Click" Visibility="Visible"/>
+        <TextBox x:Name="Username_tb" HorizontalAlignment="Center" Margin="0,19,0,0"  VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+        <TextBox x:Name="email_tb" HorizontalAlignment="Center" Margin="0,57,0,0"   VerticalAlignment="Top" Width="120" Visibility="Hidden"/>
+        <Button x:Name="updatebtn" Content="Update" HorizontalAlignment="Center" Margin="0,145,0,0" VerticalAlignment="Top" Click="Button_Click" Visibility="Hidden"/>
+        <Label x:Name="username_lbl" Content="Username:" HorizontalAlignment="Left" Margin="27,2,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <TextBox x:Name="phonenum_tb" MaxLength="9" HorizontalAlignment="Center" Margin="0,98,0,0"  VerticalAlignment="Top" Width="120" Visibility="Hidden" PreviewTextInput="phonenum_tb_PreviewTextInput" PreviewKeyDown="phonenum_tb_PreviewKeyDown"/>
+        <Label  x:Name="email_lbl" Content="Email:" HorizontalAlignment="Left" Margin="27,45,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Label  x:Name="phonenum_lbl" Content="Phone Number:" HorizontalAlignment="Left" Margin="27,85,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
 
     </Grid>
 </Window>

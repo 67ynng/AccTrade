@@ -50,44 +50,45 @@ namespace AccTrade.View.AdminView
             string game = gamecategory_cb.Text;
             double price = double.Parse(Price_tb.Text);
             double roundedValue = Math.Round(price, 2);
-            using (var context = new AppContext())
+            if (User_cb.Text == "admin")
+                MessageBox.Show("This user can't add a product");
+            else
             {
-                var products = context.Forms.Where(p => p.Id == id).ToList();
-                if (products.Any())
+                using (var context = new AppContext())
                 {
-                    foreach (var product in products)
+                    var products = context.Forms.Where(p => p.Id == id).ToList();
+                    if (products.Any())
                     {
-                        Update upd = new Update();
-                        product.username =usercb;
-                        product.title= title;
-                        product.Describe =describe;
-                        product.GameCategory  = game;
-                        product.Price = roundedValue;
-                        product.ImageData = imageByte;
+                        foreach (var product in products)
+                        {
+                            Update upd = new Update();
+                            product.username = usercb;
+                            product.title = title;
+                            product.Describe = describe;
+                            product.GameCategory = game;
+                            product.Price = roundedValue;
+                            product.ImageData = imageByte;
 
-
+                        }
+                        MessageBox.Show("update successful");
+                        context.SaveChanges();
+                        Close();
                     }
-                    MessageBox.Show("update successful");
-                    context.SaveChanges();
-                    Close();
-                }
-                else
-                {
-                    MessageBox.Show("There wasn't this record.");
+                    else
+                    {
+                        MessageBox.Show("There wasn't this record.");
+                    }
                 }
             }
+            
         }
 
         private void Price_tb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            // Запрещаем ввод любых символов, кроме цифр и запятой
             Regex regex = new Regex("[0-9,]+");
             bool isValid = regex.IsMatch(e.Text);
-
-            // Проверяем, что количество символов не превышает 6 (4 цифры + запятая + 2 цифры после запятой)
             if (((TextBox)sender).Text.Replace(",", "").Length >= 4 && ((TextBox)sender).Text.Contains(",") == false)
             {
-                // Если после ввода еще одной цифры количество символов больше 4, ставим запятую
                 if ((((TextBox)sender).CaretIndex <= 4) && (((TextBox)sender).Text.Length >= 4))
                 {
                     ((TextBox)sender).Text += ",";
@@ -96,7 +97,6 @@ namespace AccTrade.View.AdminView
             }
             else if (((TextBox)sender).Text.Contains(","))
             {
-                // Если вводим цифры после запятой, проверяем количество символов после запятой
                 int indexOfDecimalPoint = ((TextBox)sender).Text.IndexOf(",");
                 if (indexOfDecimalPoint >= 0 && ((TextBox)sender).Text.Substring(indexOfDecimalPoint + 1).Length >= 2)
                 {
@@ -105,7 +105,6 @@ namespace AccTrade.View.AdminView
             }
 
             e.Handled = !isValid;
-
         }
 
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
@@ -143,6 +142,13 @@ namespace AccTrade.View.AdminView
                         Describe_tb.Visibility = Visibility.Visible;
                         Price_tb.Visibility = Visibility.Visible;
                         img.Visibility = Visibility.Visible;
+                        photo_lbl.Visibility = Visibility.Visible;
+                        price_lbl.Visibility = Visibility.Visible;
+                        Title_lbl.Visibility = Visibility.Visible;
+                        describe_lbl.Visibility=  Visibility.Visible;
+                        photo_lbl.Visibility = Visibility.Visible;
+                        game_lbl.Visibility = Visibility.Visible;
+                        user_lbl.Visibility = Visibility.Visible;   
                         ID.Visibility = Visibility.Hidden;
                         Id_tb.Visibility = Visibility.Hidden;
                         Search_btn.Visibility= Visibility.Hidden;
@@ -152,6 +158,7 @@ namespace AccTrade.View.AdminView
 
                         gamecategory_cb.ItemsSource = game;
                         gamecategory_cb.DisplayMemberPath = "CategoryName";
+
                         User_cb.ItemsSource = login;
                         User_cb.DisplayMemberPath = "Username";
                         User_cb.Text = product.username;

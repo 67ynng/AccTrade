@@ -5,15 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AccTrade.View"
       mc:Ignorable="d" 
-      d:DesignHeight="400" d:DesignWidth="700"
+      d:DesignHeight="680" d:DesignWidth="1110"
       Loaded="Page_Loaded"
       Title="Add">
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="399*"/>
             <ColumnDefinition/>
-            <ColumnDefinition Width="300*"/>
         </Grid.ColumnDefinitions>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -24,30 +22,38 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <Button x:Name="Open_btn" Content="Open:" HorizontalAlignment="Left" Margin="16,3,0,0" VerticalAlignment="Top" Height="54" Width="72" Click="Open_btn_Click"/>
-        <Image x:Name="img" HorizontalAlignment="Left" Height="100" Margin="159,30,0,0" VerticalAlignment="Top" Width="100" Grid.Column="2"/>
-        <ComboBox x:Name="GameBox" Margin="16,150,227,234" FontWeight="Bold" FontFamily="Gotham Black"/>
-        <TextBox x:Name="DescribeTb" Margin="16,203,3,68" TextWrapping="Wrap" MaxLength="400" TextAlignment="Left" AcceptsReturn="True" FontWeight="Bold" FontFamily="Gotham Black" BorderBrush="Black" Style="{DynamicResource MaterialDesignTextBox}">
+        <Button x:Name="Open_btn" Content="Add photo"  Margin="115,0,889,586" Click="Open_btn_Click" Height="52" VerticalAlignment="Bottom"/>
+        <Image x:Name="img" HorizontalAlignment="Left" Height="250" Margin="681,68,0,0" VerticalAlignment="Top" Width="304"/>
+        <ComboBox x:Name="GameBox" Margin="99,212,865,0" FontWeight="Bold" FontFamily="Gotham Black" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="36">
+            <ComboBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ComboBox.RenderTransform>
+        </ComboBox>
+        <TextBox x:Name="DescribeTb" Margin="10,327,600,135" TextWrapping="Wrap" TextAlignment="Left" MaxLength="400" FontSize="24" AcceptsReturn="True" FontWeight="Bold" FontFamily="Gotham Black" BorderBrush="Black" Style="{DynamicResource MaterialDesignFloatingHintTextBox}" Grid.IsSharedSizeScope="True" HorizontalScrollBarVisibility="Visible" MinWidth="500" MinHeight="10" MaxWidth="500" MaxHeight="300">
             <TextBox.Background>
                 <SolidColorBrush Color="White" Opacity="0.25"/>
             </TextBox.Background>
         </TextBox>
-        <TextBox x:Name="PriceTb" Margin="16,364,251,10" TextWrapping="Wrap" FontSize="20"  PreviewTextInput="PriceTb_PreviewTextInput_1" FontWeight="Bold" FontFamily="Gotham Black" BorderBrush="Black" TextChanged="PriceTb_TextChanged">
+        <TextBox x:Name="PriceTb" Margin="100,556,880,92" TextWrapping="Wrap" FontSize="16"  PreviewTextInput="PriceTb_PreviewTextInput_1" FontWeight="Bold" FontFamily="Gotham Black" BorderBrush="Black" TextChanged="PriceTb_TextChanged">
             <TextBox.Background>
                 <SolidColorBrush Color="White" Opacity="0.25"/>
             </TextBox.Background>
         </TextBox>
-        <Button x:Name="Save_btn" Content="Save" Margin="159,332,10,5" Click="Save_btn_Click" Grid.Column="2" />
-        <Label Content="Describe:" Margin="16,171,298,202" FontSize="14" Padding="0,5,5,5"/>
-        <Label Visibility="Hidden" Content="Game:"  Margin="16,74,314,300"  FontSize="14" Padding="0,5,5,5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBlock x:Name="TextBoxFile_btn" TextWrapping="Wrap" Text="TextBlock" Margin="92,7,83,370"/>
-        <Label Content="Price"  Margin="16,337,314,40" Padding="0,5,5,5"/>
-        <TextBox x:Name="Title_tb" Margin="7,87,0,289" TextWrapping="Wrap" FontWeight="Bold" MaxLength="50" FontFamily="Gotham Black" BorderBrush="Black">
+        <Button x:Name="Save_btn" Content="Save" Click="Save_btn_Click" Margin="983,0,10,28" Height="85" VerticalAlignment="Bottom" />
+        <Label Content="Describe:" Margin="10,282,0,353" FontSize="28" Padding="0,5,5,5" RenderTransformOrigin="0.631,2.119" HorizontalAlignment="Left" Width="128"/>
+        <Label Content="Price:"  Margin="10,550,0,0" FontSize="28" Padding="0,5,5,5" RenderTransformOrigin="0.516,0.573" HorizontalAlignment="Left" Width="76" Height="44" VerticalAlignment="Top"/>
+        <TextBox x:Name="Title_tb" Margin="10,160,563,479" TextWrapping="Wrap" FontSize="24" FontWeight="Bold" MaxLength="50" FontFamily="Gotham Black" BorderBrush="Black">
             <TextBox.Background>
                 <SolidColorBrush Color="White" Opacity="0.25"/>
             </TextBox.Background>
         </TextBox>
-        <Label Content="Game:" Margin="16,123,298,250" FontSize="14" Padding="0,5,5,5" RenderTransformOrigin="0.419,-1.363"/>
-        <Label Content="Title:" Margin="10,60,304,313" FontSize="14" Padding="0,5,5,5" RenderTransformOrigin="0.419,-1.363"/>
+        <Label Content="Game:" Margin="10,206,1009,426" FontSize="28" Padding="0,5,5,5" RenderTransformOrigin="0.462,0.562"/>
+        <Label Content="Title:" Margin="10,0,1033,525" FontSize="28" Padding="0,5,5,5" RenderTransformOrigin="0.46,0.653" Height="45" VerticalAlignment="Bottom"/>
+        <Label Content="Photo:" Margin="10,42,1016,597" FontSize="28" Padding="0,5,5,5" RenderTransformOrigin="0.502,0.593"/>
     </Grid>
 </Page>

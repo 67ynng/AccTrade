@@ -42,12 +42,18 @@ namespace AccTrade.View.AppView
                     Title_tb.Text = product.title;
                     PriceTb.Text = product.Price.ToString();
                     DescribeTb.Text = product.Describe;
+
                     imageByte = product.ImageData;
-                    BitmapImage image = new BitmapImage();
-                    image.BeginInit();
-                    image.StreamSource = new MemoryStream(imageByte);
-                    image.EndInit();
-                    img.Source = image;
+                    if(imageByte != null)
+                    {
+                        BitmapImage image = new BitmapImage();
+                        image.BeginInit();
+                        image.StreamSource = new MemoryStream(imageByte);
+                        image.EndInit();
+                        img.Source = image;
+
+                    }
+
                 }
                 else
                 {
@@ -73,10 +79,6 @@ namespace AccTrade.View.AppView
                 image.StreamSource = new MemoryStream(imageByte);
                 image.EndInit();
                 img.Source = image;
-            }
-            else
-            {
-                MessageBox.Show("Add a photo of your product");
             }
 
         }

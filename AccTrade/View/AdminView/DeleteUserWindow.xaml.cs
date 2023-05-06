@@ -53,6 +53,10 @@ namespace AccTrade.View.AdminView
                                 MessageBox.Show("Role not found for user");
                             }
                         }
+                        else
+                        {
+                            MessageBox.Show("There wasn't this record");
+                        }
                     }
                 }
                 
