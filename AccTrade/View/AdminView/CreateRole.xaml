@@ -9,7 +9,7 @@
     <Grid>
         <TextBox x:Name="GameName_tb" HorizontalAlignment="Center" Margin="0,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="Role:" HorizontalAlignment="Left" Margin="37,52,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Add_btn" Content="Add" HorizontalAlignment="Center" Margin="0,130,0,0" VerticalAlignment="Top" Height="35" Width="65" Click="Add_btn_Click"/>
+        <Button x:Name="Add_btn" Content="Add" HorizontalAlignment="Center" Margin="0,116,0,0" VerticalAlignment="Top" Height="35" Width="120" Click="Add_btn_Click"/>
 
     </Grid>
 </Window>

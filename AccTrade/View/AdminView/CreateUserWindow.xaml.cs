@@ -27,7 +27,7 @@ namespace AccTrade.View.AdminView
             string role = Role_cb.Text;
             if (username == "" || Password_tb.Password == "" || email == "" || phonenumber_tb.Text == "")
                 MessageBox.Show("Enter all data");
-            else if (!Regex.IsMatch(email, @"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$"))
+            else if (!Regex.IsMatch(email, @"^[\w\.-]+@[\w\.-]+(\.[\w-]+)*$"))
                 MessageBox.Show("Wrong mail format!");
             else
             {

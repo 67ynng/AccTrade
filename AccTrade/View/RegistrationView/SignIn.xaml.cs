@@ -3,6 +3,7 @@ using AccTrade.Model;
 using System.Windows;
 using AccTrade.Model.Models;
 using System.Windows.Input;
+using System.Threading.Tasks;
 
 namespace AccTrade.View.RegistrationView
 {
@@ -12,6 +13,10 @@ namespace AccTrade.View.RegistrationView
         public SignIn()
         {
             InitializeComponent();
+            using (var context = new AppContext())
+            {
+                context.Database.EnsureCreated();
+            }
         }
         private void SignUp_btn_Click(object sender, RoutedEventArgs e)
         {
@@ -63,7 +68,6 @@ namespace AccTrade.View.RegistrationView
         {
             using (AppContext db = new AppContext())
             {
-                db.Database.EnsureCreated();
                 if (!db.Logins.Any(u => u.Username == "admin") && !db.Logins.Any(u => u.Username == "user") && !db.Roles.Any(u => u.Role == "admin") && !db.Roles.Any(u => u.Role == "user") && !db.Categories.Any(u => u.CategoryName == "First Game"))
                 {
                     var adminLogin = new Login

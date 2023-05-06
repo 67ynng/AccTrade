@@ -23,19 +23,19 @@ namespace AccTrade.View.AdminView
         string filename;
         private void Price_tb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            Regex regex = new Regex("[0-9.]+");
+            Regex regex = new Regex("[0-9,]+");
             bool isValid = regex.IsMatch(e.Text);
-            if (((TextBox)sender).Text.Replace(".", "").Length >= 4 && ((TextBox)sender).Text.Contains(",") == false)
+            if (((TextBox)sender).Text.Replace(",", "").Length >= 4 && ((TextBox)sender).Text.Contains(",") == false)
             {
                 if ((((TextBox)sender).CaretIndex <= 4) && (((TextBox)sender).Text.Length >= 4))
                 {
-                    ((TextBox)sender).Text += ".";
+                    ((TextBox)sender).Text += ",";
                     ((TextBox)sender).CaretIndex = ((TextBox)sender).Text.Length;
                 }
             }
-            else if (((TextBox)sender).Text.Contains("."))
+            else if (((TextBox)sender).Text.Contains(","))
             {
-                int indexOfDecimalPoint = ((TextBox)sender).Text.IndexOf(".");
+                int indexOfDecimalPoint = ((TextBox)sender).Text.IndexOf(",");
                 if (indexOfDecimalPoint >= 0 && ((TextBox)sender).Text.Substring(indexOfDecimalPoint + 1).Length >= 2)
                 {
                     isValid = false;
@@ -165,9 +165,9 @@ namespace AccTrade.View.AdminView
         private void Price_tb_TextChanged(object sender, TextChangedEventArgs e)
         {
 
-            if (Price_tb.Text.Length == 7 && !Price_tb.Text.Contains("."))
+            if (Price_tb.Text.Length == 7 && !Price_tb.Text.Contains(","))
             {
-                Price_tb.Text = Price_tb.Text.Insert(4, ".");
+                Price_tb.Text = Price_tb.Text.Insert(4, ",");
                 Price_tb.CaretIndex = Price_tb.Text.Length;
             }
         }

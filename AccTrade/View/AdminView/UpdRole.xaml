@@ -9,7 +9,7 @@
     <Grid>
         <TextBox x:Name="OldGamename_tb" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" PreviewTextInput="OldGamename_tb_PreviewTextInput" PreviewKeyDown="OldGamename_tb_PreviewKeyDown"/>
         <Label x:Name="OldGame_lbl" Content="Id:" HorizontalAlignment="Left" Margin="30,50,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Search_tn" Content="Search" HorizontalAlignment="Center" Margin="0,142,0,0" VerticalAlignment="Top" Click="Search_tn_Click"/>
+        <Button x:Name="Search_tn" Content="Search" HorizontalAlignment="Center" Margin="0,126,0,0" VerticalAlignment="Top" Click="Search_tn_Click" Width="120"/>
         <Button x:Name="Update_tn" Content="Update" HorizontalAlignment="Center" Margin="0,142,0,0" VerticalAlignment="Top" Click="Update_tn_Click" Visibility="Hidden"/>
         <TextBox x:Name="NewGamename_tb" HorizontalAlignment="Center" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Visibility="Hidden"/>
         <Label x:Name="NewGame_lbl" Content="Role name:" HorizontalAlignment="Left" Margin="30,50,0,0" VerticalAlignment="Top" Visibility="Hidden"/>

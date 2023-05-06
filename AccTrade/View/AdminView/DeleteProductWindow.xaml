@@ -8,7 +8,7 @@
         Title="Delete" Height="200" Width="200" WindowStartupLocation="CenterScreen">
     <Grid>
         <TextBox x:Name="UserId_tb" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="0,74,0,0" PreviewTextInput="UserId_tb_PreviewTextInput" PreviewKeyDown="UserId_tb_PreviewKeyDown"/>
-        <Button x:Name="Delete_btn" Content="Delete Product" HorizontalAlignment="Center" Margin="0,143,0,0" VerticalAlignment="Top" Click="Delete_btn_Click"/>
+        <Button x:Name="Delete_btn" Content="Delete Product" HorizontalAlignment="Center" Margin="0,123,0,0" VerticalAlignment="Top" Click="Delete_btn_Click"/>
         <Label Content="Id:" HorizontalAlignment="Left" Margin="40,53,0,0" VerticalAlignment="Top"/>
 
     </Grid>

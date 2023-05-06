@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AccTrade.View"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+       d:DesignHeight="680" d:DesignWidth="1110"
       Title="MainScreen">
     <Grid  Loaded="Grid_Loaded">
         <Grid.Background>
@@ -16,12 +16,7 @@
                 <GradientStop Color="#f5c05a" Offset="1" />
             </LinearGradientBrush>
         </Grid.Background>
-
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="74*"/>
-        </Grid.RowDefinitions>
-        <ListView x:Name="ListVVV" HorizontalAlignment="Center" Width="696" Margin="0,25,0,25" Grid.Row="1">
+        <ListView x:Name="ListVVV" HorizontalAlignment="Center" Width="950" Margin="0,63,0,25">
             <ListView.Background>
                 <SolidColorBrush Color="White" Opacity="0.25"/>
             </ListView.Background>
@@ -34,21 +29,15 @@
                             <Label Height="50" Width="180" Content="{Binding GameCategory}" ContentStringFormat="Game:{0}" FontWeight="Bold" />
                         </StackPanel>
                         <StackPanel>
-                            <Label Height="50" Width="100" Content="{Binding Price}" ContentStringFormat="Price: {0}$" FontWeight="Bold"/>
-                            <Label Height="50" Width="100" VerticalAlignment="Center" Content="{Binding PhoneNumber}" ContentStringFormat="+380 {0}$" FontWeight="Bold"/>
-                            <TextBlock MinHeight="100" Width="250" MaxWidth="400" MaxHeight="800" Text="{Binding Describe}" TextWrapping="Wrap" FontWeight="Bold"/>
+                            <Label Height="50" Width="100" Content="{Binding Price}" ContentStringFormat="Price:{0}zł" FontWeight="Bold"/>
+                            <Label Height="50" Width="300" VerticalAlignment="Top" HorizontalAlignment="Left" Content="{Binding PhoneNumber}" ContentStringFormat="Phone number:+48{0}" FontWeight="Bold"/>
+                            <Label Content="Description:" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Describe}" Height="250" Width="300" TextWrapping="Wrap" FontWeight="Bold"/>
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <!--<StackPanel Grid.Row="1" Margin="433,0,242,418">
-            <TextBox x:Name="TbSearch" HorizontalAlignment="Stretch" TextWrapping="Wrap" Width="120" VerticalAlignment="Center" Margin="0,7,0,0" TextChanged="TextBox_TextChanged_1"/>
-            <Label Content="Search" Width="50" Height="20" HorizontalAlignment="Right"/>
-
-
-
-        </StackPanel>-->
-
+        <Label Content="Hello!" FontSize="36" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontWeight="Bold" Margin="0,7,0,0"/>
     </Grid>
 </Page>

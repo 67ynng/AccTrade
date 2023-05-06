@@ -64,7 +64,7 @@ namespace AccTrade.View.RegistrationView
                     string role = "user";
                     if (email == "" || password == "" || username == "" || PassConfirm_tb.Password == "" || PhoneNumber_tb.Text == "")
                         MessageBox.Show("All fields must be filled!");
-                    else if (!Regex.IsMatch(email, @"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$"))
+                    else if (!Regex.IsMatch(email, @"^[\w\.-]+@[\w\.-]+(\.[\w-]+)*$"))
                         MessageBox.Show("Wrong mail format!");
                     else if (password != passwordConfirm)
                         MessageBox.Show("Password mismatch");

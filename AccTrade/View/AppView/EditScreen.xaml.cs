@@ -72,7 +72,6 @@ namespace AccTrade.View.AppView
 
                 imageByte = File.ReadAllBytes(openFileDialog.FileName);
                 filename = openFileDialog.FileName;
-                TextBoxFile_btn.Text = filename;
                 mediaPlayer.Open(new Uri(filename));
                 BitmapImage image = new BitmapImage();
                 image.BeginInit();

@@ -28,7 +28,7 @@
         <Label Content="PhoneNumber:" FontSize="25" HorizontalAlignment="Left" Margin="5,48,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="phonenumber_tb"  FontSize="25" HorizontalAlignment="Left" Margin="225,47,0,0" MaxLength="9" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" PreviewTextInput="phonenumber_tb_PreviewTextInput" PreviewKeyDown="phonenumber_tb_PreviewKeyDown"/>
         <Label Content="Your Products:"  FontSize="25" HorizontalAlignment="Left" Margin="5,141,0,0" VerticalAlignment="Top"/>
-        <ListView x:Name="MyProducts" HorizontalAlignment="Stretch" MinHeight="250"  Margin="0,187,0,10" SelectedIndex="-1" VerticalAlignment="Stretch" PreviewMouseLeftButtonDown="MyProducts_PreviewMouseLeftButtonDown" Width="691">
+        <ListView x:Name="MyProducts" MinHeight="250"  Margin="41,188,41,11" SelectedIndex="-1" PreviewMouseLeftButtonDown="MyProducts_PreviewMouseLeftButtonDown">
             <ListView.Background>
                 <SolidColorBrush Color="White" Opacity="0.25"/>
             </ListView.Background>
@@ -43,9 +43,10 @@
                             <Button x:Name="Delete_btn" Content="Delete" Width="75" Height="30" Margin="0,0,5,5" Click="Delete_btn_Click"/>
                         </StackPanel>
                         <StackPanel>
-                            <Label Height="50" Width="100" Content="{Binding Price}" ContentStringFormat="Price: {0}$" FontWeight="Bold"/>
-                            <Label Height="50" Width="100" VerticalAlignment="Center" Content="{Binding PhoneNumber}" ContentStringFormat="+380 {0}$" FontWeight="Bold"/>
-                            <TextBlock MinHeight="100" Width="250" MaxWidth="400" MaxHeight="800" Text="{Binding Describe}" TextWrapping="Wrap" FontWeight="Bold"/>
+                            <Label Height="50" Width="100" Content="{Binding Price}" ContentStringFormat="Price:{0}zł" FontWeight="Bold"/>
+                            <Label Height="50" Width="300" VerticalAlignment="Center" HorizontalAlignment="Left" Content="{Binding PhoneNumber}" ContentStringFormat="Phone number{0}$" FontWeight="Bold"/>
+                            <Label Content="Description:" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Describe}"  Height="250" Width="300" TextWrapping="Wrap" FontWeight="Bold"/>
 
                         </StackPanel>
                     </StackPanel>
