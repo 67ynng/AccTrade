@@ -1,5 +1,4 @@
-﻿using AccTrade.Model.Models;
-using System;
+﻿using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -63,9 +62,9 @@ namespace AccTrade.View.AdminView
                 {
                     using (var context = new AppContext())
                     {
-                        var products = context.Roles.Where(p => p.Id == idd).ToList();
+                        var products = context.Roles.FirstOrDefault(p => p.Id == idd);
 
-                        if (products.Any())
+                        if (products != null)
                         {
                             OldGamename_tb.Visibility= Visibility.Hidden;
                             OldGame_lbl.Visibility= Visibility.Hidden;
@@ -73,6 +72,7 @@ namespace AccTrade.View.AdminView
                             NewGamename_tb.Visibility= Visibility.Visible;
                             NewGame_lbl.Visibility= Visibility.Visible;
                             Update_tn.Visibility= Visibility.Visible;
+                            NewGamename_tb.Text = products.Role;
                         }
                         else
                         {
@@ -89,24 +89,40 @@ namespace AccTrade.View.AdminView
         }
         private void Update_tn_Click(object sender, RoutedEventArgs e)
         {
-            using (var context = new AppContext())
+            using (var db = new AppContext())
             {
-                int idd = Int32.Parse(OldGamename_tb.Text);
-                string NewName = NewGamename_tb.Text;
-                Update upd = new Update();
-
-                var existingGame = context.Roles.FirstOrDefault(g => g.Role == NewName);
-
-                if (existingGame != null)
+                if (!int.TryParse(OldGamename_tb.Text, out int idd))
                 {
-                    MessageBox.Show("Game with this name is already in Database");
+                    MessageBox.Show("Enter a valid ID.");
+                    return;
                 }
-                else
+
+                var product = db.Roles.FirstOrDefault(p => p.Id == idd);
+                if (product == null)
                 {
-                    upd.UpdateRole(idd, NewName);
-                    Close();
+                    MessageBox.Show("There wasn't this record.");
+                    return;
                 }
+
+                string newName = NewGamename_tb.Text.Trim();
+                if (string.IsNullOrEmpty(newName))
+                {
+                    MessageBox.Show("Enter a role.");
+                    return;
+                }
+
+                var existingGame = db.Roles.FirstOrDefault(g => g.Role == newName);
+                if (existingGame != null && existingGame.Id != idd)
+                {
+                    MessageBox.Show("A game with this name already exists.");
+                    return;
+                }
+
+                product.Role = newName;
+                db.SaveChanges();
+                Close();
             }
         }
+    
     }
 }

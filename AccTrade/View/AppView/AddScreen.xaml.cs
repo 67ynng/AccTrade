@@ -41,12 +41,6 @@ namespace AccTrade.View
                 image.EndInit();
                 img.Source = image;
             }
-            else
-            {
-                MessageBox.Show("Add a photo of your product");
-            }
-
-
         }
         private void DescribeTb_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {

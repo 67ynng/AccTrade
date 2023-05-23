@@ -17,11 +17,13 @@ namespace AccTrade.View.AppView
         string user;
         private Page _previousPage;
         private int _productId;
-        public EditScreen(int productId, Page previousPage)
+        private string _username;
+        public EditScreen(int productId,string username, Page previousPage)
         {
             InitializeComponent();
             _previousPage = previousPage;
             _productId = productId;
+            _username = username;
         }
                 byte[] imageByte;
         MediaPlayer mediaPlayer = new MediaPlayer();
@@ -90,15 +92,9 @@ namespace AccTrade.View.AppView
                 var products = context.Forms.Where(p => p.Id == _productId).ToList();
                 if (products.Any())
                 {
-                    foreach (var login in context.Logins)
-                    {
-                        var userName = login.Username;
-                        user = userName;
-                    }
                     foreach (var product in products)
                     {
-
-                        product.username = user;
+                        product.username = _username;
                         product.title= Title_tb.Text;
                         product.Describe = DescribeTb.Text;
                         product.GameCategory  = GameBox.Text;
@@ -107,7 +103,6 @@ namespace AccTrade.View.AppView
                         product.Price = roundedValue;
                         product.ImageData = imageByte;
                     }
-
                     MessageBox.Show("Update successful");
                     context.SaveChanges();
                     NavigationService navigationService = NavigationService.GetNavigationService(this);

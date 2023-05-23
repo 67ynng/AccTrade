@@ -38,7 +38,7 @@ namespace AccTrade.View.RegistrationView
                     if (user != null)
                     {
                         Session.UserId = user.Id;
-                        
+                        Session.UserName = user.Username;
                         MainWindow main = new MainWindow();
                         Close();
                         main.Show();

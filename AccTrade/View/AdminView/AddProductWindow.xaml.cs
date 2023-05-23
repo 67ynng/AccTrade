@@ -60,10 +60,6 @@ namespace AccTrade.View.AdminView
                 image.EndInit();
                 img.Source = image;
             }
-            else
-            {
-                MessageBox.Show("Error");
-            }
         }
         private void Add_btn_Click(object sender, RoutedEventArgs e)
         {

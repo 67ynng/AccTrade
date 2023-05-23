@@ -5,21 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AccTrade.View.AdminView"
         mc:Ignorable="d"
-        Title="Create" Height="400" Width="600" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+        Title="Create" Height="400" Width="600" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" ResizeMode="NoResize">
     <Grid>
         <Button x:Name="open_btn" Content="Add photo" HorizontalAlignment="Left" Margin="57,246,0,0" VerticalAlignment="Top" Height="38" Width="106" Click="open_btn_Click"/>
-        <TextBox x:Name="Describe_tb" AcceptsReturn="True" HorizontalAlignment="Left" MaxLength="400" Margin="10,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="320" Height="74"/>
-        <ComboBox x:Name="gamecategory_cb" HorizontalAlignment="Left" Margin="173,116,0,0" VerticalAlignment="Top" Width="109" Height="25"/>
+        <TextBox x:Name="Describe_tb" AcceptsReturn="True" HorizontalAlignment="Left" MaxLength="400" Margin="10,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="320" Height="74"/>
+        <ComboBox x:Name="gamecategory_cb" HorizontalAlignment="Left" Margin="173,96,0,0" VerticalAlignment="Top" Width="109" Height="25"/>
         <TextBox x:Name="Price_tb" HorizontalAlignment="Left" Margin="54,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96" Height="24" PreviewTextInput="Price_tb_PreviewTextInput" PreviewKeyDown="Price_tb_PreviewKeyDown" TextChanged="Price_tb_TextChanged" />
         <Image x:Name="img" HorizontalAlignment="Left" Height="161" Margin="362,22,0,0" VerticalAlignment="Top" Width="216"/>
         <Button x:Name="Add_btn" Content="Add" HorizontalAlignment="Left" Margin="472,292,0,0" VerticalAlignment="Top" Height="44" Width="96" Click="Add_btn_Click"/>
-        <ComboBox x:Name="User_cb" HorizontalAlignment="Left" Margin="11,116,0,0" VerticalAlignment="Top" Width="109" Height="25"/>
-        <TextBox x:Name="Title_tb" HorizontalAlignment="Left" MaxLength="50" Margin="20,65,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="User_cb" HorizontalAlignment="Left" Margin="11,96,0,0" VerticalAlignment="Top" Width="109" Height="25"/>
+        <TextBox x:Name="Title_tb" HorizontalAlignment="Left" MaxLength="50" Margin="20,45,0,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="25,326,0,0" VerticalAlignment="Top" Height="45" Width="95" Click="Save_Click" Visibility="Hidden"/>
-        <Label Content="Title:" HorizontalAlignment="Left" Margin="9,39,0,0" VerticalAlignment="Top"/>
-        <Label Content="User:" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top"/>
-        <Label Content="Game:" HorizontalAlignment="Left" Margin="164,90,0,0" VerticalAlignment="Top"/>
-        <Label Content="Description:" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top"/>
+        <Label Content="Title:" HorizontalAlignment="Left" Margin="9,19,0,0" VerticalAlignment="Top"/>
+        <Label Content="User:" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
+        <Label Content="Game:" HorizontalAlignment="Left" Margin="164,70,0,0" VerticalAlignment="Top"/>
+        <Label Content="Description:" HorizontalAlignment="Left" Margin="10,119,0,0" VerticalAlignment="Top"/>
         <Label Content="Price:" HorizontalAlignment="Left" Margin="13,302,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.514,0.953"/>
         <Label Content="Photo:" HorizontalAlignment="Left" Margin="10,253,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.127,7.239"/>
 

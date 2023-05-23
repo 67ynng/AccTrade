@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AccTrade.View.AdminView"
         mc:Ignorable="d"
-        Title="AddProductWindow" Height="200" Width="200" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded_1" ResizeMode="CanMinimize">
+        Title="AddProductWindow" Height="200" Width="200" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded_1"  ResizeMode="NoResize">
     <Grid>
         <Button x:Name="open_btn" Content="Add photo" HorizontalAlignment="Left" Margin="53,18,0,0" VerticalAlignment="Top" Height="32" Width="121" Click="open_btn_Click" Visibility="Hidden"/>
         <TextBox x:Name="Describe_tb" AcceptsReturn="True" HorizontalAlignment="Left" MaxLength="400" Margin="10,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="320" Height="74" Visibility="Hidden"/>

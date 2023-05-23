@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AccTrade.View.AdminView"
         mc:Ignorable="d"
-        Title="Create" Height="200" Width="200" WindowStartupLocation="CenterScreen">
+        Title="Create" Height="200" Width="200" WindowStartupLocation="CenterScreen"  ResizeMode="NoResize">
     <Grid>
         <TextBox x:Name="GameName_tb" HorizontalAlignment="Center" Margin="0,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="Role:" HorizontalAlignment="Left" Margin="37,52,0,0" VerticalAlignment="Top"/>

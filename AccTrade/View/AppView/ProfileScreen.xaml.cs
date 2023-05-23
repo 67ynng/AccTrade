@@ -20,12 +20,10 @@ namespace AccTrade.View.AppView
         private string myVariable;
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            
-
             using (var context = new AppContext())
             {
-                var user = context.Logins.FirstOrDefault(u => u.Id == Session.UserId);
-                var forms = context.Forms.Where(f => f.LoginId == Session.UserId).ToList();
+                var user = context.Logins.FirstOrDefault(u => u.Id == Session.UserId || u.Username == Session.UserName);
+                var forms = context.Forms.Where(f => f.LoginId == Session.UserId || f.username == Session.UserName).ToList();
                 if (user != null)
                 {
                     lblusername.Content = user.Username;
@@ -122,8 +120,9 @@ namespace AccTrade.View.AppView
                 if (selectedProduct != null)
                 {
                     int productId = selectedProduct.Id;
+                    string username = selectedProduct.username;
                     NavigationService navigationService = NavigationService.GetNavigationService(this);
-                    navigationService.Navigate(new EditScreen(productId, this));
+                    navigationService.Navigate(new EditScreen(productId,username, this));
                 }
             }
         }

@@ -10,5 +10,12 @@ namespace AccTrade.Model.Models
             set { _userId = value; }
         }
 
+        private static string _Username;
+        public static string UserName
+        {
+            get { return _Username; }
+            set { _Username = value; }
+        }
+
     }
 }
