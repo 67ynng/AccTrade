@@ -38,10 +38,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Resources\home.png" />
     <Resource Include="Resources\plus.png" />
   </ItemGroup>

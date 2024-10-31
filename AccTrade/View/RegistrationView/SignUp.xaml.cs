@@ -25,27 +25,6 @@ namespace AccTrade.View.RegistrationView
                 e.Handled = true;
             }
         }
-        //private void Application_PreviewKeyDown(object sender, KeyEventArgs e)
-        //{
-        //    // Проверяем, является ли нажатая комбинация клавиш CTRL + V
-        //    if (e.Key == Key.V && Keyboard.Modifiers == ModifierKeys.Control)
-        //    {
-        //        // Получаем вставляемый текст из буфера обмена
-        //        string clipboardText = Clipboard.GetText();
-
-        //        // Удаляем запрещенные символы из вставляемого текста
-        //        char[] forbiddenChars = new char[] { '|', '@', '.', '#', '\'', '`', '/', '\\', '{', '}', '[', ']', ';', '>', '<', ',', ':', ';', '$', '!', '%', '^', '&', '*', '(', ')', '_', '"', '-', ',', '+', '=', '?' };
-        //        clipboardText = new string(clipboardText.Where(c => !forbiddenChars.Contains(c)).ToArray());
-
-        //        // Вставляем отредактированный текст в TextBox
-        //        var textBox = (TextBox)sender;
-        //        var text = textBox.Text.Remove(textBox.SelectionStart, textBox.SelectionLength);
-        //        textBox.Text = text.Insert(textBox.SelectionStart, clipboardText);
-
-        //        // Отменяем обработку клавиши, чтобы символы не вставились в TextBox
-        //        e.Handled = true;
-        //    }
-        //}
         private void SignIn_btn_Click(object sender, RoutedEventArgs e)
         {
             new Thread(() =>
@@ -135,9 +114,16 @@ namespace AccTrade.View.RegistrationView
                     string clipboardText = Clipboard.GetText();
                     if (forbiddenChars.Any(c => clipboardText.Contains(c)))
                     {
+                        MessageBox.Show("Punctuation and special characters are not allowed");
                         e.Handled = true;
                     }
+                    bool isNumeric = int.TryParse(clipboardText, out _);
+                    if (isNumeric)
+                    {
+                        PhoneNumber_tb.Text = clipboardText;
+                    }
                 }
+                e.Handled = true;
             }
             if (e.Key == Key.Space)
             {

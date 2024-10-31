@@ -13,7 +13,7 @@ namespace AccTrade.Model
             byte[]hash = md5.ComputeHash(b);
             StringBuilder stringBuilder= new StringBuilder();
             foreach(var a in hash)
-                stringBuilder.Append(a.ToString("X2"));
+                stringBuilder.Append(a  .ToString("X2"));
             return Convert.ToString(stringBuilder);
         }
     }
