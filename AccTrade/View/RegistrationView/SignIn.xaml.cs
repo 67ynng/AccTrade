@@ -68,7 +68,7 @@ namespace AccTrade.View.RegistrationView
         {
             using (AppContext db = new AppContext())
             {
-                if (!db.Logins.Any(u => u.Username == "admin") && !db.Logins.Any(u => u.Username == "user") && !db.Roles.Any(u => u.Role == "admin") && !db.Roles.Any(u => u.Role == "user") && !db.Categories.Any(u => u.CategoryName == "First Game"))
+                if (!db.Logins.Any(u => u.Username == "admin") && !db.Logins.Any(u => u.Username == "user") && !db.Roles.Any(u => u.Role == "admin") && !db.Roles.Any(u => u.Role == "user") && !db.Categories.Any(u => u.CategoryName == "First Category"))
                 {
                     var adminLogin = new Login
                     {
@@ -97,7 +97,7 @@ namespace AccTrade.View.RegistrationView
                     };
                     var game = new Category
                     {
-                        CategoryName = "FirstName"
+                        CategoryName = "First Category"
                     };
                     db.Logins.AddRange(adminLogin, userlogin);
                     db.Categories.Add(game);

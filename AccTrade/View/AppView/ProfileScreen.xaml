@@ -10,7 +10,7 @@
       Background="Red"
       Loaded="Page_Loaded">
 
-    <Grid>
+    <Grid Opacity="1">
         <Border>
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -21,14 +21,14 @@
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
-        <Label Content="Username:"  FontSize="25" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblusername"  Content="" HorizontalAlignment="Left" FontSize="25" Margin="123,5,0,0" VerticalAlignment="Top" Foreground="#DDC5C0C0"/>
-        <Label Content="Email:"  FontSize="25" HorizontalAlignment="Left" Margin="5,88,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblemail" FontSize="25" Content="" HorizontalAlignment="Left" Margin="71,88,0,0" VerticalAlignment="Top" Foreground="#DDC5C0C0"/>
-        <Label Content="PhoneNumber:" FontSize="25" HorizontalAlignment="Left" Margin="5,48,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="phonenumber_tb"  FontSize="25" HorizontalAlignment="Left" Margin="225,47,0,0" MaxLength="9" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" PreviewTextInput="phonenumber_tb_PreviewTextInput" PreviewKeyDown="phonenumber_tb_PreviewKeyDown"/>
-        <Label Content="Your Products:"  FontSize="25" HorizontalAlignment="Left" Margin="5,141,0,0" VerticalAlignment="Top"/>
-        <ListView x:Name="MyProducts" MinHeight="250"  Margin="129,187,129,12" SelectedIndex="-1" PreviewMouseLeftButtonDown="MyProducts_PreviewMouseLeftButtonDown">
+        <Label  Content="Username:" FontWeight="Bold" FontSize="25" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblusername"   Content="" HorizontalAlignment="Left" FontSize="25" Margin="144,5,0,0" VerticalAlignment="Top" Foreground="#DDC5C0C0"/>
+        <Label Content="Email:" FontWeight="Bold"  FontSize="25" HorizontalAlignment="Left" Margin="5,84,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblemail" FontSize="25" Content="" HorizontalAlignment="Left" Margin="86,87,0,0" VerticalAlignment="Top" Foreground="#DDC5C0C0"/>
+        <Label Content="Phone number:+48" FontWeight="Bold" FontSize="25" HorizontalAlignment="Left" Margin="5,44,0,0" VerticalAlignment="Top"/>
+        <TextBox  x:Name="phonenumber_tb"   FontSize="25" HorizontalAlignment="Left" Margin="241,46,0,0" MaxLength="9" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" PreviewTextInput="phonenumber_tb_PreviewTextInput" PreviewKeyDown="phonenumber_tb_PreviewKeyDown" TextChanged="phonenumber_tb_TextChanged"/>
+        <Label Content="Your Products:" FontWeight="Bold"  FontSize="25" HorizontalAlignment="Left" Margin="5,122,0,0" VerticalAlignment="Top"/>
+        <ListView x:Name="MyProducts"  MinHeight="250"  Margin="129,187,129,12" SelectedIndex="0" PreviewMouseLeftButtonDown="MyProducts_PreviewMouseLeftButtonDown">
             <ListView.Background>
                 <SolidColorBrush Color="White" Opacity="0.25"/>
             </ListView.Background>
@@ -53,8 +53,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button x:Name="SaveNumber_btn"  Content="Save" HorizontalAlignment="Left" Margin="418,48,0,0" VerticalAlignment="Top" Click="SaveNumber_btn_Click" Height="41" Width="72"/>
-        <Label Content="+48"  FontSize="25" HorizontalAlignment="Left" Margin="173,48,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="SaveNumber_btn" Background="#80FFFFFF" Foreground="Black"  Content="Save" HorizontalAlignment="Left" Margin="413,47,0,0" VerticalAlignment="Top" Click="SaveNumber_btn_Click" Height="41" Width="72"/>
 
 
 

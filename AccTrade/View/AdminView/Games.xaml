@@ -19,7 +19,7 @@
         <DataGrid x:Name="DataGridGames" AutoGenerateColumns="False" Margin="5,0,5,67" BorderThickness="2" IsReadOnly="True" FontWeight="Bold" FontSize="16">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="Game" Binding="{Binding CategoryName}"/>
+                <DataGridTextColumn Header="Category" Binding="{Binding CategoryName}"/>
             </DataGrid.Columns>
         </DataGrid>
 

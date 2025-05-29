@@ -16,10 +16,8 @@
                 <GradientStop Color="#f5c05a" Offset="1" />
             </LinearGradientBrush>
         </Grid.Background>
-        <ListView x:Name="ListVVV" HorizontalAlignment="Center" Width="950" Margin="0,63,0,25">
-            <ListView.Background>
-                <SolidColorBrush Color="White" Opacity="0.25"/>
-            </ListView.Background>
+        <ListView x:Name="ListVVV" HorizontalAlignment="Center" Width="950" Margin="0,63,0,25" Background="#55CCCCCC" BorderBrush="#55CCCCCC" Foreground="Black">
+            
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

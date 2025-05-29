@@ -156,5 +156,10 @@ namespace AccTrade.View.AppView
         {
 
         }
+
+        private void phonenumber_tb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

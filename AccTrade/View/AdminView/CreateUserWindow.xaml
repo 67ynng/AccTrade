@@ -7,17 +7,17 @@
         mc:Ignorable="d"
         Title="Create" Height="350" Width="250" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" ResizeMode="NoResize">
     <Grid>
-        <TextBox x:Name="Username_tb" MaxLength="25" HorizontalAlignment="Left" Margin="63,29,0,0" VerticalAlignment="Top" Width="120" PreviewKeyDown="Username_tb_PreviewKeyDown" PreviewTextInput="Username_tb_PreviewTextInput"/>
-        <TextBox x:Name="email_tb" MaxLength="50" HorizontalAlignment="Center" Margin="0,74,0,0"  VerticalAlignment="Top" Width="120" PreviewKeyDown="email_tb_PreviewKeyDown" PreviewTextInput="email_tb_PreviewTextInput"/>
+        <TextBox x:Name="Username_tb" MaxLength="25" HorizontalAlignment="Center" Margin="0,29,0,0" VerticalAlignment="Top" Width="122" PreviewKeyDown="Username_tb_PreviewKeyDown" PreviewTextInput="Username_tb_PreviewTextInput"/>
+        <TextBox x:Name="email_tb" MaxLength="50" Margin="63,74,64,234" PreviewKeyDown="email_tb_PreviewKeyDown" PreviewTextInput="email_tb_PreviewTextInput"/>
         <Button Content="Create" HorizontalAlignment="Left" Margin="87,276,0,0" VerticalAlignment="Top" Click="Button_Click" RenderTransformOrigin="0.23,1.124"/>
-        <Label Content="Username" HorizontalAlignment="Left" Margin="53,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Username" HorizontalAlignment="Left" Margin="53,0,0,301" VerticalAlignment="Bottom"/>
         <Label Content="Email" HorizontalAlignment="Left" Margin="53,55,0,0" VerticalAlignment="Top"/>
-        <Label Content="Password"  HorizontalAlignment="Left" Margin="53,109,0,0" VerticalAlignment="Top"/>
-        <PasswordBox x:Name="Password_tb" MaxLength="25" HorizontalAlignment="Left" Margin="62,127,0,0" VerticalAlignment="Top" Width="120" PreviewKeyDown="Username_tb_PreviewKeyDown"  PreviewTextInput="Username_tb_PreviewTextInput"/>
+        <Label Content="Password"  HorizontalAlignment="Left" Margin="53,106,0,0" VerticalAlignment="Top"/>
+        <PasswordBox x:Name="Password_tb" MaxLength="25" Margin="63,127,64,0" VerticalAlignment="Top" PreviewKeyDown="Username_tb_PreviewKeyDown"  PreviewTextInput="Username_tb_PreviewTextInput"/>
         <Label Content="PhoneNumber" HorizontalAlignment="Left" Margin="53,153,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="phonenumber_tb" MaxLength="9" HorizontalAlignment="Left" Margin="63,174,0,0" VerticalAlignment="Top" Width="120" PreviewTextInput="PhoneNumber_PreviewTextInput" PreviewKeyDown="phonenumber_tb_PreviewKeyDown_1"/>
+        <TextBox x:Name="phonenumber_tb" MaxLength="9" HorizontalAlignment="Center" Margin="0,174,0,0" VerticalAlignment="Top" Width="123" PreviewTextInput="PhoneNumber_PreviewTextInput" PreviewKeyDown="phonenumber_tb_PreviewKeyDown_1"/>
         <Label Content="Role" HorizontalAlignment="Left" Margin="53,208,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="Role_cb" HorizontalAlignment="Left" Margin="63,230,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="Role_cb" HorizontalAlignment="Center" Margin="0,230,0,0" VerticalAlignment="Top" Width="123"/>
         <Label Content="+48" HorizontalAlignment="Left" Margin="34,174,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.468,0.4"/>
 
     </Grid>

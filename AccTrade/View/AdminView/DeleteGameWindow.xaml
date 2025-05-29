@@ -9,8 +9,8 @@
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <TextBox x:Name="GameName_tb" HorizontalAlignment="Center" Margin="0,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" PreviewKeyDown="GameName_tb_PreviewKeyDown" PreviewTextInput='GameName_tb_PreviewTextInput'/>
-        <Label Content="Id:" HorizontalAlignment="Left" Margin="37,52,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Delete_btn" Content="Delete" HorizontalAlignment="Center" Margin="0,120,0,0" VerticalAlignment="Top" Height="35" Width="120" Click="Add_btn_Click"/>
+        <Label Content="Id:" HorizontalAlignment="Left" Margin="37,48,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="Delete_btn" Content="Delete category" HorizontalAlignment="Center" Margin="0,120,0,0" VerticalAlignment="Top" Height="35" Width="120" Click="Add_btn_Click"/>
         
     </Grid>
 </Window>

@@ -8,7 +8,7 @@
          Title="Id" Height="200" Width="200" Background="White" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <TextBox x:Name="OldGamename_tb" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" PreviewTextInput="OldGamename_tb_PreviewTextInput" PreviewKeyDown="OldGamename_tb_PreviewKeyDown"/>
-        <Label x:Name="OldGame_lbl" Content="Id:" HorizontalAlignment="Left" Margin="30,50,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="OldGame_lbl" Content="Id:" HorizontalAlignment="Left" Margin="37,47,0,0" VerticalAlignment="Top" Height="29"/>
         <Button x:Name="Search_tn" Content="Search" HorizontalAlignment="Center" Margin="0,126,0,0" VerticalAlignment="Top" Click="Search_tn_Click" Width="120"/>
         <Button x:Name="Update_tn" Content="Update" HorizontalAlignment="Center" Margin="0,131,0,0" VerticalAlignment="Top" Click="Update_tn_Click" Visibility="Hidden"/>
         <TextBox x:Name="NewGamename_tb" HorizontalAlignment="Center" Text="" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Visibility="Hidden"/>

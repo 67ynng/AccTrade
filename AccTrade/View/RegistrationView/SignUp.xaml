@@ -18,7 +18,7 @@
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
-        <Border MinWidth="50" MaxWidth="300" Margin="25" Padding="20" CornerRadius="10">
+        <Border MinWidth="50" MaxWidth="300" Margin="22,25,28,25" Padding="20" CornerRadius="10">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                     <GradientStop Color="#61a6f9" Offset="-0.25" />
@@ -31,21 +31,21 @@
                 <DropShadowEffect BlurRadius="40" Color="Black" ShadowDepth="5"/>
             </Border.Effect>
         </Border>
-        <StackPanel Width="250" Margin="25,45,25,32">
-            <Button x:Name="Back_btn" Content="&lt;" Click="Back_btn_Click" Width="40" Height="20" FontSize="10" Margin="-190,0,0,0"/>
-            <Label Content="Sign Up" HorizontalAlignment="Center" Margin="10,-35,0,0" FontSize="36" FontWeight="Bold" Height="56" Foreground="#DDFFFFFF"/>
+        <StackPanel Width="250" Margin="15,45,28,32">
+            <Button x:Name="Back_btn" Content="&lt;" Click="Back_btn_Click" Width="40" Height="20" FontSize="10" Margin="-190,0,0,0" Background="#80FFFFFF" BorderBrush="#80FFFFFF"/>
+            <Label Content="Sign Up" HorizontalAlignment="Center" Margin="10,-35,0,0" FontSize="36" FontWeight="Bold" Height="58" Foreground="#DDFFFFFF"/>
             <Label Content="Login:" HorizontalAlignment="Left" Margin="35,-5,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
-            <TextBox x:Name="Login_tb" Margin="5,-5,0,0" HorizontalAlignment="Center"  MaxLength="25" VerticalAlignment="Top" Width="164"  PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Application_PreviewTextInput" Foreground="White" BorderBrush="#89FFFFFF"/>
+            <TextBox x:Name="Login_tb" Margin="5,-5,0,0" FontWeight="Bold" HorizontalAlignment="Center"  MaxLength="25" VerticalAlignment="Top" Width="164"  PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Application_PreviewTextInput" Foreground="Black" Background="#80FFFFFF" BorderBrush="#80FFFFFF"/>
             <Label Content="E-mail:" HorizontalAlignment="Left" Margin="35,5,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
-            <TextBox x:Name="Email_tb" HorizontalAlignment="Center" MaxLength="50" VerticalAlignment="Top" Width="164" Margin="5,-5,0,0" PreviewKeyDown="Email_tb_PreviewKeyDown" PreviewTextInput="Email_tb_PreviewTextInput" Foreground="White" BorderBrush="#89FFFFFF"/>
+            <TextBox x:Name="Email_tb" FontWeight="Bold" HorizontalAlignment="Center" MaxLength="50" VerticalAlignment="Top" Width="164" Margin="5,-5,0,0" PreviewKeyDown="Email_tb_PreviewKeyDown" PreviewTextInput="Email_tb_PreviewTextInput" Foreground="Black" Background="#80FFFFFF" BorderBrush="#80FFFFFF"/>
             <Label Content="Password:" HorizontalAlignment="Left" Margin="35,10,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
-            <PasswordBox x:Name="Password_tb" MaxLength="25" HorizontalAlignment="Center" Margin="5,-5,0,0" VerticalAlignment="Top" Width="164" PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Application_PreviewTextInput" Foreground="White" BorderBrush="#89FFFFFF"/>
+            <PasswordBox x:Name="Password_tb" MaxLength="25" HorizontalAlignment="Center" Margin="5,-5,0,0" VerticalAlignment="Top" Width="164" PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Application_PreviewTextInput" Foreground="Black" Background="#80FFFFFF" BorderBrush="#80FFFFFF"/>
             <Label Content="Confirm your password:" HorizontalAlignment="Left" Margin="35,5,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
-            <PasswordBox x:Name="PassConfirm_tb" MaxLength="25" HorizontalAlignment="Center" Margin="5,-5,0,0" VerticalAlignment="Top" Width="164" PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Application_PreviewTextInput" BorderBrush="#89FFFFFF" Foreground="White"/>
+            <PasswordBox x:Name="PassConfirm_tb"  MaxLength="25" HorizontalAlignment="Center" Margin="5,-5,0,0" VerticalAlignment="Top" Width="164" PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Application_PreviewTextInput" Background="#80FFFFFF" BorderBrush="#80FFFFFF" Foreground="Black"/>
             <Label Content="Phone Number:" HorizontalAlignment="Left" Margin="35,0,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
-            <TextBox x:Name="PhoneNumber_tb" MaxLength="9" HorizontalAlignment="Center" Margin="5,-5,0,0" Width="161" PreviewTextInput="PhoneNumber_tb_PreviewTextInput" PreviewKeyDown="PhoneNumber_tb_PreviewKeyDown" Foreground="White" BorderBrush="#89FFFFFF"/>
+            <TextBox x:Name="PhoneNumber_tb" FontWeight="Bold" MaxLength="9" HorizontalAlignment="Center" Margin="5,-5,0,0" Width="161" PreviewTextInput="PhoneNumber_tb_PreviewTextInput" PreviewKeyDown="PhoneNumber_tb_PreviewKeyDown" Foreground="Black" Background="#80FFFFFF" BorderBrush="#80FFFFFF"/>
             <Label Content="+48" HorizontalAlignment="Left" Margin="15,-25,15,0" VerticalAlignment="Top" Foreground="#DDFFFFFF" FontSize="14"/>
-            <Button x:Name="SignIn_btn" Content="Sign In" HorizontalAlignment="Center" Margin="5,25,0,0" VerticalAlignment="Top" Height="27" Width="84" Click="SignIn_btn_Click"/>
+            <Button x:Name="SignIn_btn" Content="Sign In" HorizontalAlignment="Center" Margin="5,15,0,0" VerticalAlignment="Top" Height="27" Width="84" Click="SignIn_btn_Click"/>
 
 
 

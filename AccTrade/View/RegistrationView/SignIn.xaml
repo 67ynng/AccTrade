@@ -34,12 +34,12 @@
         </Border>
 
 
-        <TextBox x:Name="Login_tb" HorizontalAlignment="Center" Margin="0,110,0,0" MaxLength="25" VerticalAlignment="Top" Width="164" PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Login_tb_PreviewTextInput" Style="{DynamicResource MaterialDesignTextBox}" Foreground="White" >
+        <TextBox x:Name="Login_tb" HorizontalAlignment="Center" Background="#80FFFFFF" FontSize="16" FontWeight="Bold"  Margin="0,110,0,0" MaxLength="25" Height="25" VerticalAlignment="Top" Width="164" PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Login_tb_PreviewTextInput" Style="{DynamicResource MaterialDesignTextBox}" Foreground="Black" >
             <TextBox.BorderBrush>
                 <SolidColorBrush Color="#89FFF6F6" Opacity="1"/>
             </TextBox.BorderBrush>
         </TextBox>
-        <PasswordBox x:Name="Password_tb" MaxLength="25" HorizontalAlignment="Center" Margin="0,164,0,0" VerticalAlignment="Top" Width="164" PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Login_tb_PreviewTextInput" BorderBrush="#89FFFFFF" Foreground="White"/>
+        <PasswordBox x:Name="Password_tb"  Background="#80FFFFFF" MaxLength="25" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Margin="0,164,0,0" Height="25" VerticalAlignment="Top" Width="164" PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Login_tb_PreviewTextInput" BorderBrush="#89FFFFFF" Foreground="Black"/>
         <Label Content="Login:" HorizontalAlignment="Left" Margin="60,85,0,0" VerticalAlignment="Top">
             <Label.Foreground>
                 <SolidColorBrush Color="#DDFFFFFF" Opacity="0.85"/>
@@ -61,7 +61,7 @@
                     <SolidColorBrush Opacity="0.265"/>
                 </Label.Background>
             </Label>
-            <Button x:Name="Admin_btn" Content="Admin" Width="60" Height="20" FontSize="9" HorizontalAlignment="Right" Margin="0,-95,3,0" Click="Admin_btn_Click"/>
+            <Button x:Name="Admin_btn" Content="Admin" Width="60" Height="20" FontSize="9" HorizontalAlignment="Right" Margin="0,-90,0,0" Click="Admin_btn_Click"/>
             <Button x:Name="SignIn_btn" Content="Sign In" Height="27" Width="86" Margin="5,130,5,5" VerticalAlignment="Bottom" Click="SignIn_btn_Click"/>
             <Button x:Name="SignUp_btn" Content="Sign Up" Height="27" Width="84"  Click="SignUp_btn_Click"/>
             <Label Content="Password:" HorizontalAlignment="Left" Margin="57,122,0,0" VerticalAlignment="Top"/>

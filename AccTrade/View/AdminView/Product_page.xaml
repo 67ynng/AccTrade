@@ -31,7 +31,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Game" Binding="{Binding GameCategory}"/>
+                <DataGridTextColumn Header="Category" Binding="{Binding GameCategory}"/>
                 <DataGridTextColumn Header="Describe" Binding="{Binding Describe}" Width="300">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">

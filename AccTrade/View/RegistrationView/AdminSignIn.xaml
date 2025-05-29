@@ -36,11 +36,11 @@
             </Label.Foreground>
         </Label>
         <Button x:Name="SignIn_btn" Content="Sign In" HorizontalAlignment="Center" Margin="0,226,0,0" VerticalAlignment="Top" Height="27" Width="84" Click="SignIn_btn_Click"/>
-        <TextBox x:Name="Login_tb" MaxLength="25" HorizontalAlignment="Center" Margin="0,117,0,0" VerticalAlignment="Top" Width="164" PreviewTextInput="Login_tb_PreviewTextInput" PreviewKeyDown="Login_tb_PreviewKeyDown" BorderBrush="#89FFFFFF" Foreground="White"/>
-        <PasswordBox x:Name="Password_tb" MaxLength="25" HorizontalAlignment="Center" Margin="0,183,0,0" VerticalAlignment="Top" Width="164" PreviewTextInput="Login_tb_PreviewTextInput" PreviewKeyDown="Login_tb_PreviewKeyDown" Foreground="White" BorderBrush="#89FFFFFF"/>
+        <TextBox x:Name="Login_tb" MaxLength="25" HorizontalAlignment="Center" Margin="0,117,0,0" VerticalAlignment="Top" Width="164" PreviewTextInput="Login_tb_PreviewTextInput" PreviewKeyDown="Login_tb_PreviewKeyDown" Background="#80FFFFFF" BorderBrush="#80FFFFFF" Foreground="Black"/>
+        <PasswordBox x:Name="Password_tb" MaxLength="25" HorizontalAlignment="Center" Margin="0,183,0,0" VerticalAlignment="Top" Width="164" PreviewTextInput="Login_tb_PreviewTextInput" PreviewKeyDown="Login_tb_PreviewKeyDown" Background="#80FFFFFF" BorderBrush="#80FFFFFF" Foreground="Black"/>
         <Label Content="Login:" HorizontalAlignment="Left" Margin="57,94,0,0" VerticalAlignment="Top" Foreground="#DDF9F9F9"/>
         <Label Content="Password:" HorizontalAlignment="Left" Margin="57,161,0,0" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
-        <Button x:Name="Admin_btn" Width="60" Height="20" FontSize="10" Content="User" HorizontalAlignment="Left" Margin="195,30,0,0" VerticalAlignment="Top" Click="User_btn_Click" />
+        <Button x:Name="Admin_btn" Width="60" Height="20" FontSize="10" Content="User" HorizontalAlignment="Left" Margin="196,28,0,0" VerticalAlignment="Top" Click="User_btn_Click" Background="#80FFFFFF" BorderBrush="#80FFFFFF" />
 
     </Grid>
 </Window>

@@ -158,5 +158,10 @@ namespace AccTrade.View.AppView
                 PriceTb.CaretIndex = PriceTb.Text.Length;
             }
         }
+
+        private void GameBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
