@@ -1,28 +1,15 @@
-# AccTrade
-
-**AccTrade** to aplikacja desktopowa napisana w języku C# z wykorzystaniem platformy .NET i środowiska Visual Studio. Projekt wspiera użytkownika w zarządzaniu kontami tradingowymi, analizowaniu transakcji oraz wyznaczaniu celów.
+**AccTrade** to aplikacja desktopowa napisana w języku C# z wykorzystaniem platformy .NET i środowiska Visual Studio. Projekt służy do wygodnego zarządzania ogłoszeniami, komunikacji między użytkownikami i śledzenia aktywności.
 
 **🛠️ Główne funkcje**
 
-👤 **Rejestracja i zarządzanie kontami użytkowników**
+**📌 Tworzenie i zarządzanie ogłoszeniami**
 
-Twórz, edytuj i zarządzaj wieloma kontami tradingowymi z poziomu jednej aplikacji.
+Dodawaj, edytuj i usuwaj ogłoszenia w różnych kategoriach w ramach jednej aplikacji.
 
-📊 **Monitorowanie historii transakcji.**
+**🔍 Przeglądanie i filtrowanie ogłoszeń**
 
-Przeglądaj historię operacji i analizuj wyniki handlowe dzięki zintegrowanym narzędziom.
+Wyszukuj interesujące Cię ogłoszenia dzięki wbudowanemu systemowi filtrów i kategorii.
 
-🎯 **Ustalanie i realizacja celów handlowych**
+**🔐 Podstawowy system zabezpieczeń**
 
-Wyznaczaj cele tradingowe i śledź postępy ich realizacji w czasie rzeczywistym.
-
-🔐 **Prosty system zabezpieczeń**
-
-Podstawowe zabezpieczenia chroniące dane użytkownika i kont.
-
-
-**----------------------------------------------------------------**
-
-🧪 **Status projektu**
-
-🚧 Projekt znajduje się we wczesnej fazie rozwoju. Niektóre funkcjonalności mogą być niekompletne lub testowe.
+Proste mechanizmy ochrony danych osobowych i kontrola dostępu do funkcji aplikacji.
