@@ -20,7 +20,8 @@ Wyznaczaj cele tradingowe i śledź postępy ich realizacji w czasie rzeczywisty
 
 Podstawowe zabezpieczenia chroniące dane użytkownika i kont.
 
-🧪 **Status projektu**
 
+**----------------------------------------------------------------**
+🧪 **Status projektu**
 
 🚧 Projekt znajduje się we wczesnej fazie rozwoju. Niektóre funkcjonalności mogą być niekompletne lub testowe.
