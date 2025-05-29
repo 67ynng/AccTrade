@@ -10,11 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\home.png" />
-    <None Remove="Resources\plus.png" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="Screenshot_1-removebg-preview.ico" />
   </ItemGroup>
 
@@ -35,11 +30,6 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.5" />
     <PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Resources\home.png" />
-    <Resource Include="Resources\plus.png" />
   </ItemGroup>
 
 </Project>
