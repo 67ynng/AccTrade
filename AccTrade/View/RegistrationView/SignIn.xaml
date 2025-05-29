@@ -1,0 +1,70 @@
+﻿<Window x:Class="AccTrade.View.RegistrationView.SignIn"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:AccTrade.View.RegistrationView"
+        mc:Ignorable="d"
+        Title="SignIn" Height="350" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Loaded="Window_Loaded">
+
+    <Grid>
+        <Border>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#61a6f9" Offset="-0.25" />
+                    <GradientStop Color="#b965e4" Offset="0.25" />
+                    <GradientStop Color="#eb88b1" Offset="0.50" />
+                    <GradientStop Color="#f5c05a" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <Border MinWidth="50" MaxWidth="300" Margin="25" Padding="20" CornerRadius="10">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#61a6f9" Offset="-0.25" />
+                    <GradientStop Color="#b965e4" Offset="0.25" />
+                    <GradientStop Color="#eb88b1" Offset="0.50" />
+                    <GradientStop Color="#f5c05a" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="40" Color="Black" ShadowDepth="5"/>
+            </Border.Effect>
+        </Border>
+
+
+        <TextBox x:Name="Login_tb" HorizontalAlignment="Center" Margin="0,110,0,0" MaxLength="25" VerticalAlignment="Top" Width="164" PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Login_tb_PreviewTextInput" Style="{DynamicResource MaterialDesignTextBox}" Foreground="White" >
+            <TextBox.BorderBrush>
+                <SolidColorBrush Color="#89FFF6F6" Opacity="1"/>
+            </TextBox.BorderBrush>
+        </TextBox>
+        <PasswordBox x:Name="Password_tb" MaxLength="25" HorizontalAlignment="Center" Margin="0,164,0,0" VerticalAlignment="Top" Width="164" PreviewKeyDown="Login_tb_PreviewKeyDown" PreviewTextInput="Login_tb_PreviewTextInput" BorderBrush="#89FFFFFF" Foreground="White"/>
+        <Label Content="Login:" HorizontalAlignment="Left" Margin="60,85,0,0" VerticalAlignment="Top">
+            <Label.Foreground>
+                <SolidColorBrush Color="#DDFFFFFF" Opacity="0.85"/>
+            </Label.Foreground>
+        </Label>
+        <Label Content="Password:" HorizontalAlignment="Left" Margin="60,140,0,0" VerticalAlignment="Top">
+            <Label.Foreground>
+                <SolidColorBrush Color="#DDFFFFFF" Opacity="0.85"/>
+            </Label.Foreground>
+        </Label>
+
+        <StackPanel Width="230" Height="280">
+
+            <Label Content="Sign In" HorizontalAlignment="Center" Margin="0,10,0,0" FontSize="36" FontWeight="Bold" Height="59">
+                <Label.Foreground>
+                    <SolidColorBrush Color="#DDFFFFFF" Opacity="0.65"/>
+                </Label.Foreground>
+                <Label.Background>
+                    <SolidColorBrush Opacity="0.265"/>
+                </Label.Background>
+            </Label>
+            <Button x:Name="Admin_btn" Content="Admin" Width="60" Height="20" FontSize="9" HorizontalAlignment="Right" Margin="0,-95,3,0" Click="Admin_btn_Click"/>
+            <Button x:Name="SignIn_btn" Content="Sign In" Height="27" Width="86" Margin="5,130,5,5" VerticalAlignment="Bottom" Click="SignIn_btn_Click"/>
+            <Button x:Name="SignUp_btn" Content="Sign Up" Height="27" Width="84"  Click="SignUp_btn_Click"/>
+            <Label Content="Password:" HorizontalAlignment="Left" Margin="57,122,0,0" VerticalAlignment="Top"/>
+        </StackPanel>
+    </Grid>
+</Window>
