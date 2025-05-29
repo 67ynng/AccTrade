@@ -22,6 +22,7 @@ Podstawowe zabezpieczenia chroniące dane użytkownika i kont.
 
 
 **----------------------------------------------------------------**
+
 🧪 **Status projektu**
 
 🚧 Projekt znajduje się we wczesnej fazie rozwoju. Niektóre funkcjonalności mogą być niekompletne lub testowe.
