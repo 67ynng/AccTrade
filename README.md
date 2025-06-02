@@ -6,21 +6,31 @@
 
 Dodawaj, edytuj i usuwaj ogłoszenia w różnych kategoriach w ramach jednej aplikacji.
 
+---
+
 **🔍 Przeglądanie i filtrowanie ogłoszeń**
 
 Wyszukuj interesujące Cię ogłoszenia dzięki wbudowanemu systemowi filtrów i kategorii.
+
+---
 
 **🔐 Podstawowy system zabezpieczeń**
 
 Proste mechanizmy ochrony danych osobowych i kontrola dostępu do funkcji aplikacji.
 
+---
+
 **🛡️ Panel administracyjny**
 
 Dedykowany interfejs dla administratora umożliwia zarządzanie użytkownikami, moderację treści oraz nadzorowanie aktywności w systemie.
 
+---
+
 **🎨 Nowoczesny i przejrzysty interfejs**
 
 Aplikacja wyróżnia się estetycznym wyglądem i intuicyjnym układem, co zapewnia komfortowe użytkowanie nawet dla początkujących.
+
+---
 
 **📖 Instrukcja obsługi aplikacji AccTrade**
 
