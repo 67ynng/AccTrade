@@ -21,7 +21,7 @@
                 <GradientStop Color="#f5c05a" Offset="1" />
             </LinearGradientBrush>
         </Grid.Background>
-        <Button x:Name="Open_btn" Content="Add photo"  Margin="221,0,783,149" Click="Open_btn_Click" Height="52" VerticalAlignment="Bottom"/>
+        <Button x:Name="Open_btn" Content="Add photo"  Margin="221,0,783,149" Click="Open_btn_Click" Height="52" Background="#88FFFFFF" BorderBrush="#55CCCCCC" VerticalAlignment="Bottom"/>
         <Image x:Name="img" HorizontalAlignment="Left" Height="250" Margin="731,32,0,0" VerticalAlignment="Top" Width="304"/>
         <ComboBox x:Name="GameBox" Margin="142,132,822,0"  FontWeight="Bold" Background="#55CCCCCC" BorderBrush="#55CCCCCC" Foreground="Black" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="36">
             <ComboBox.RenderTransform>
@@ -47,5 +47,6 @@
         <Label Content="Category:" Margin="10,123,964,509" FontSize="28" Padding="0,5,5,5" RenderTransformOrigin="0.462,0.562"/>
         <Label Content="Title:" Margin="10,0,1033,625" FontSize="28" Padding="0,5,5,5" RenderTransformOrigin="0.46,0.653" Height="45" VerticalAlignment="Bottom"/>
         <Label Content="Photo(optional):" Margin="10,479,889,149" FontSize="28" Padding="0,5,5,5" RenderTransformOrigin="0.502,0.593"/>
+        <Label Content="zł" Margin="245,568,0,67" FontSize="28" Padding="0,5,5,5" RenderTransformOrigin="0.631,2.119" HorizontalAlignment="Left" Width="24"/>
     </Grid>
 </Page>

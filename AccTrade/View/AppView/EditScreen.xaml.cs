@@ -118,11 +118,8 @@ namespace AccTrade.View.AppView
         {
             Regex regex = new Regex("[0-9,]+");
             bool isValid = regex.IsMatch(e.Text);
-
-            // Проверяем, что количество символов не превышает 6 (4 цифры + запятая + 2 цифры после запятой)
             if (((TextBox)sender).Text.Replace(",", "").Length >= 4 && ((TextBox)sender).Text.Contains(",") == false)
             {
-                // Если после ввода еще одной цифры количество символов больше 4, ставим запятую
                 if ((((TextBox)sender).CaretIndex <= 4) && (((TextBox)sender).Text.Length >= 4))
                 {
                     ((TextBox)sender).Text += ",";
@@ -131,7 +128,6 @@ namespace AccTrade.View.AppView
             }
             else if (((TextBox)sender).Text.Contains(","))
             {
-                // Если вводим цифры после запятой, проверяем количество символов после запятой
                 int indexOfDecimalPoint = ((TextBox)sender).Text.IndexOf(",");
                 if (indexOfDecimalPoint >= 0 && ((TextBox)sender).Text.Substring(indexOfDecimalPoint + 1).Length >= 2)
                 {

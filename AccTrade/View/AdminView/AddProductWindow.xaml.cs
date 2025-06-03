@@ -97,41 +97,6 @@ namespace AccTrade.View.AdminView
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-        //    if (Describe_tb.Text == "" && Title_tb.Text== "" && gamecategory_cb.Text == "" && User_cb.Text=="" && Price_tb.Text=="")
-        //    {
-        //        Add_btn.Visibility = Visibility.Visible;
-
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show(ProductID.ToString());
-        //        using (var context = new AppContext())
-        //        {
-        //            var product = context.Forms.First(p => p.Id == ProductID);
-        //            var logins = context.Logins.ToList();
-        //            var games = context.Categories.ToList();
-        //            if (product != null)
-        //            {
-        //                gamecategory_cb.ItemsSource = games;
-        //                gamecategory_cb.DisplayMemberPath = "GameCategory";
-        //                User_cb.ItemsSource = logins;
-        //                gamecategory_cb.DisplayMemberPath = "username";
-        //                User_cb.Text = product.username;
-        //                Title_tb.Text = product.title;
-        //                User_cb.Text = product.username;
-        //                Price_tb.Text = product.Price.ToString();
-        //                Describe_tb.Text = product.Describe;
-        //                imageByte = product.ImageData;
-        //                BitmapImage image = new BitmapImage();
-        //                image.BeginInit();
-        //                image.StreamSource = new MemoryStream(imageByte);
-        //                image.EndInit();
-        //                img.Source = image;
-        //            }
-        //        }
-        //        Add_btn.Visibility = Visibility.Hidden;
-        //        Save.Visibility = Visibility.Visible;
-        //    }
             using (var db = new AppContext())
             {
                 var logins = db.Logins.ToList();

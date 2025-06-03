@@ -21,16 +21,14 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-
-                        <Image Height="200" Width="200" Source="{Binding ImageData}"/>
+                        <Image Height="300" Width="300" Source="{Binding ImageData}"/>
                         <StackPanel>
-                            <Label Height="50" Width="180" Content="{Binding GameCategory}" ContentStringFormat="Game:{0}" FontWeight="Bold" />
-                        </StackPanel>
-                        <StackPanel>
-                            <Label Height="50" Width="100" Content="{Binding Price}" ContentStringFormat="Price:{0}zł" FontWeight="Bold"/>
-                            <Label Height="50" Width="300" VerticalAlignment="Top" HorizontalAlignment="Left" Content="{Binding PhoneNumber}" ContentStringFormat="Phone number:+48{0}" FontWeight="Bold"/>
+                            <Label Height="30" Width="150" Content="{Binding Price}" ContentStringFormat="Price:{0}zł" FontWeight="Bold" FontSize="15" Foreground="Green"/>
+                            <Label Height="30" Width="300" VerticalAlignment="Top" HorizontalAlignment="Left" Content="{Binding PhoneNumber}" ContentStringFormat="Phone number:+48{0}" FontWeight="Bold"/>
+                            <Label Height="30" Width="300" VerticalAlignment="Top" HorizontalAlignment="Left" Content="{Binding GameCategory}" ContentStringFormat="Category:{0}" FontWeight="Bold" />
                             <Label Content="Description:" FontWeight="Bold"/>
-                            <TextBlock Text="{Binding Describe}" Height="250" Width="300" TextWrapping="Wrap" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Describe}" Height="300" Width="300" TextWrapping="Wrap" FontWeight="Bold"/>
+                            <Button x:Name="Contact_btn" Content="Contact" Height="50" Width="60" Click="Contact_btn_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Background="White" BorderBrush="#FF585555" Foreground="Black"/>
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>
