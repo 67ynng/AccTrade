@@ -15,6 +15,7 @@ namespace AccTrade.Model
             foreach(var a in hash)
                 stringBuilder.Append(a  .ToString("X2"));
             return Convert.ToString(stringBuilder);
+
         }
     }
 }

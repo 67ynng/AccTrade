@@ -16,5 +16,6 @@ public class AppContext : DbContext
         modelBuilder.Entity<Form>().HasKey(key => key.Id);
         modelBuilder.Entity<Category>().HasKey(key => key.Id);
         modelBuilder.Entity<Roles>().HasKey(key => key.Id);
+
     }
 }

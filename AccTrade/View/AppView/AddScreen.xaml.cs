@@ -18,6 +18,7 @@ namespace AccTrade.View
         string user;
         public AddScreen()
         {
+
             InitializeComponent();
         }
         byte[] imageByte;

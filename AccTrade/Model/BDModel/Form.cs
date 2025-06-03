@@ -16,4 +16,5 @@ public class Form
     public string? GameCategory { get; set; }
     public string? Describe { get; set; }
     public double? Price { get; set; }
+
 }

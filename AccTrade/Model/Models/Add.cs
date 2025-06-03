@@ -17,6 +17,7 @@ namespace AccTrade.Model.Models
                     var image = new Form
                     {
 
+
                         username = username,
                         PhoneNumber = currentUser.PhoneNumber,
                         LoginId = currentUser.Id,

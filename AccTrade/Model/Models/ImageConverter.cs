@@ -12,6 +12,7 @@ namespace AccTrade.Model.Models
         {
             if (value == null) return null;
 
+
             var byteArray = (byte[])value;
 
             var image = new BitmapImage();

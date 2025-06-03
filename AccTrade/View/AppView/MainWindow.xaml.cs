@@ -35,6 +35,7 @@ public partial class MainWindow : Window
     {
         int b;
         b = Session.UserId;
+
     }
 
     private void Button_Click(object sender, RoutedEventArgs e)

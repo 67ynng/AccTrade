@@ -13,6 +13,7 @@ namespace AccTrade.View.RegistrationView
         public AdminSignIn()
         {
             InitializeComponent();
+
         }
         private void SignIn_btn_Click(object sender, RoutedEventArgs e)
         {

@@ -12,6 +12,7 @@ namespace AccTrade.Model.Models
                 var objectsToDelete = dbContext.Forms.Where(p => p.Id == id).ToList();
                 if (objectsToDelete.Any())
                 {
+
                     var userToDelete = objectsToDelete.First();
                     dbContext.Forms.RemoveRange(objectsToDelete);
                     dbContext.SaveChanges();

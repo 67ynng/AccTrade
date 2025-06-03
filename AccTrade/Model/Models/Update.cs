@@ -12,6 +12,7 @@ namespace AccTrade.Model.Models
                 var products = context.Categories.Where(p => p.Id == id).ToList();
                 if (products.Any())
                 {
+
                     foreach (var product in products)
                     {
                         product.CategoryName = newgamename;
