@@ -1,4 +1,6 @@
-**AccTrade** to aplikacja desktopowa napisana w języku C# z wykorzystaniem platformy .NET i środowiska Visual Studio. Projekt służy do wygodnego zarządzania ogłoszeniami, komunikacji między użytkownikami i śledzenia aktywności.
+**AccTrade** to aplikacja desktopowa napisana w języku C# z wykorzystaniem platformy .NET oraz środowiska programistycznego Visual Studio. Projekt służy do wygodnego zarządzania ogłoszeniami, komunikacji między użytkownikami oraz śledzenia aktywności.
+
+Aplikacja korzysta również z bazy danych **LocalDB, która jest wymagana do prawidłowego działania programu**. LocalDB służy do przechowywania danych użytkowników, ogłoszeń oraz historii aktywności i musi być zainstalowana na komputerze, aby aplikacja mogła się uruchomić i funkcjonować poprawnie.
 
 ---
 
